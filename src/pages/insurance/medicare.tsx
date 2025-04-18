@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import MedicareInsurance from '../../components/sections/MedicareInsurance';
 
 const MedicarePage = () => {
   return (
@@ -10,7 +11,7 @@ const MedicarePage = () => {
       </Head>
       
       <main>
-        {/* Content will be added here */}
+        <MedicareInsurance />
       </main>
     </>
   );
