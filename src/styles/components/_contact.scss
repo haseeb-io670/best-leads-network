@@ -1,0 +1,535 @@
+/* Contact Page Styles */
+
+.contact-section {
+  padding: $spacing-xl 0;
+  position: relative;
+  background: linear-gradient(180deg, rgba($light-color, 1) 0%, rgba($primary-color, 0.03) 100%);
+  width: 100%;
+  overflow-x: hidden; // Prevent horizontal overflow
+  
+  &::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgba($primary-color, 0.05);
+    filter: blur(150px);
+    border-radius: 50%;
+    top: -150px;
+    right: -150px;
+    z-index: 0;
+    pointer-events: none; // Ensure it doesn't interfere with interaction
+  }
+  
+  .container {
+    width: 100%;
+    max-width: $container-xl;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: $spacing-xl;
+    position: relative;
+    z-index: 2;
+    
+    .section-title {
+      font-size: $font-size-3xl;
+      font-weight: $font-bold;
+      color: $secondary-color;
+      margin-bottom: $spacing-sm;
+      position: relative;
+      display: inline-block;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: $primary-color;
+      }
+    }
+    
+    .section-subtitle {
+      font-size: $font-size-lg;
+      color: $gray-color;
+      max-width: 600px;
+      margin: $spacing-md auto 0;
+    }
+  }
+  
+  .contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-xl;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .contact-info {
+    width: 100%;
+    
+    .contact-card {
+      background: $light-color;
+      border-radius: 15px;
+      box-shadow: 0 15px 40px rgba($dark-color, 0.08);
+      padding: $spacing-xl;
+      height: 100%;
+      width: 100%;
+      
+      h3 {
+        font-size: $font-size-xl;
+        font-weight: $font-bold;
+        color: $secondary-color;
+        margin-bottom: $spacing-lg;
+        position: relative;
+        padding-bottom: $spacing-sm;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 50px;
+          height: 3px;
+          background: $primary-color;
+        }
+      }
+    }
+  }
+  
+  .contact-form {
+    width: 100%;
+    
+    .form-group {
+      margin-bottom: $spacing-md;
+      
+      input, 
+      textarea {
+        width: 100%;
+        padding: $spacing-md;
+        border: 1px solid rgba($gray-color, 0.2);
+        border-radius: 8px;
+        font-size: $font-size-sm;
+        transition: all 0.3s ease;
+        
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+          box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+        }
+        
+        &::placeholder {
+          color: rgba($gray-color, 0.7);
+        }
+      }
+      
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+    }
+    
+    .submit-btn {
+      display: inline-block;
+      background: $primary-color;
+      color: $light-color;
+      padding: $spacing-md $spacing-xl;
+      border: none;
+      border-radius: 8px;
+      font-size: $font-size-md;
+      font-weight: $font-semibold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      
+      &:hover {
+        background: darken($primary-color, 10%);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba($primary-color, 0.3);
+      }
+      
+      &:active {
+        transform: translateY(0);
+      }
+    }
+    
+    .form-status {
+      margin-top: $spacing-md;
+      padding: $spacing-md;
+      border-radius: 8px;
+      text-align: center;
+      
+      &.success {
+        background: rgba($success-color, 0.1);
+        color: $success-color;
+      }
+      
+      &.error {
+        background: rgba($error-color, 0.1);
+        color: $error-color;
+      }
+    }
+  }
+  
+  .contact-details {
+    width: 100%;
+    
+    .info-card {
+      background: rgba($secondary-color, 0.98);
+      color: $light-color;
+      border-radius: 15px;
+      padding: $spacing-xl;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 200px;
+        height: 200px;
+        background: rgba($light-color, 0.03);
+        border-radius: 50%;
+        transform: translate(40%, -40%);
+        pointer-events: none;
+      }
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 150px;
+        height: 150px;
+        background: rgba($primary-color, 0.1);
+        border-radius: 50%;
+        transform: translate(-30%, 30%);
+        pointer-events: none;
+      }
+      
+      .location-text,
+      .map-text {
+        margin-bottom: $spacing-lg;
+        position: relative;
+        z-index: 2;
+        font-size: $font-size-md;
+        line-height: 1.6;
+        color: rgba($light-color, 0.9);
+      }
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: $spacing-lg;
+      position: relative;
+      z-index: 2;
+      
+      .icon-wrapper {
+        width: 40px;
+        height: 40px;
+        background: rgba($primary-color, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: $spacing-md;
+        flex-shrink: 0; // Prevent icon from shrinking
+        
+        img, svg {
+          color: $primary-color;
+        }
+      }
+      
+      .contact-text {
+        h4 {
+          font-size: $font-size-md;
+          font-weight: $font-semibold;
+          margin-bottom: $spacing-xs;
+          color: rgba($light-color, 0.9);
+        }
+        
+        a, address {
+          color: rgba($light-color, 0.7);
+          text-decoration: none;
+          font-size: $font-size-sm;
+          line-height: 1.6;
+          font-style: normal;
+          transition: color 0.3s ease;
+          word-break: break-word; // Prevent text overflow
+          
+          &:hover {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+    
+    .social-links {
+      display: flex;
+      gap: $spacing-sm;
+      margin-top: $spacing-xl;
+      position: relative;
+      z-index: 2;
+      
+      .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba($light-color, 0.1);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: $primary-color;
+          transform: translateY(-3px);
+        }
+      }
+    }
+  }
+  
+  // Add responsive fixes for small screens
+  @media (max-width: $breakpoint-sm) {
+    .contact-wrapper {
+      gap: $spacing-lg;
+    }
+    
+    .contact-info .contact-card,
+    .contact-details .info-card {
+      padding: $spacing-lg;
+    }
+  }
+  
+  // Lead Generation CTA
+  .leads-cta {
+    margin-top: 50px;
+    background: $light-color;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba($dark-color, 0.08);
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: rgba($primary-color, 0.03);
+      filter: blur(100px);
+      border-radius: 50%;
+      top: -100px;
+      left: -100px;
+      z-index: 0;
+      pointer-events: none;
+    }
+    
+    .cta-content {
+      padding: 20px 10px;
+      position: relative;
+      z-index: 2;
+      
+      h3 {
+        font-size: $font-size-2xl;
+        font-weight: $font-bold;
+        color: $secondary-color;
+        margin-bottom: $spacing-md;
+        position: relative;
+        display: inline-block;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 0;
+          width: 70px;
+          height: 3px;
+          background: $primary-color;
+        }
+      }
+      
+      p {
+        font-size: $font-size-lg;
+        color: $gray-color;
+        line-height: 1.7;
+        margin-bottom: $spacing-xl;
+        max-width: 600px;
+      }
+    }
+    
+    .stats-container {
+      display: flex;
+      gap: $spacing-xl;
+      margin-bottom: $spacing-xl;
+      flex-wrap: wrap;
+      
+      .stat-item {
+        flex: 1;
+        min-width: 120px;
+        
+        .stat-number {
+          font-size: $font-size-3xl;
+          font-weight: $font-bold;
+          color: $primary-color;
+          margin-bottom: $spacing-xs;
+        }
+        
+        .stat-label {
+          font-size: $font-size-sm;
+          color: $gray-color;
+          font-weight: $font-medium;
+        }
+      }
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: $spacing-md;
+      flex-wrap: wrap;
+      
+      .primary-btn,
+      .secondary-btn {
+        padding: $spacing-md $spacing-xl;
+        border-radius: 8px;
+        font-weight: $font-semibold;
+        font-size: $font-size-md;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        min-width: 180px;
+      }
+      
+      .primary-btn {
+        background: $primary-color;
+        color: $light-color;
+        
+        &:hover {
+          background: darken($primary-color, 10%);
+          transform: translateY(-3px);
+          box-shadow: 0 10px 25px rgba($primary-color, 0.3);
+        }
+      }
+      
+      .secondary-btn {
+        background: rgba($primary-color, 0.1);
+        color: $primary-color;
+        
+        &:hover {
+          background: rgba($primary-color, 0.15);
+          transform: translateY(-3px);
+          box-shadow: 0 10px 25px rgba($primary-color, 0.1);
+        }
+      }
+    }
+    
+    .testimonial-slider {
+      background: $secondary-color;
+      color: $light-color;
+      padding: 20px 10px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      &::before {
+        content: '"';
+        position: absolute;
+        font-size: 180px;
+        color: rgba($light-color, 0.1);
+        font-family: serif;
+        top: -40px;
+        left: 20px;
+        line-height: 1;
+        pointer-events: none;
+      }
+      
+      .testimonial-item {
+        position: relative;
+        z-index: 2;
+        
+        .testimonial-quote {
+          font-size: $font-size-lg;
+          line-height: 1.7;
+          font-style: italic;
+          margin-bottom: $spacing-xl;
+          position: relative;
+        }
+        
+        .testimonial-author {
+          display: flex;
+          align-items: center;
+          
+          .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: $spacing-md;
+            object-fit: cover;
+            border: 2px solid rgba($light-color, 0.2);
+          }
+          
+          .author-info {
+            .author-name {
+              font-weight: $font-semibold;
+              margin-bottom: 3px;
+            }
+            
+            .author-position {
+              font-size: $font-size-xs;
+              opacity: 0.7;
+            }
+          }
+        }
+      }
+    }
+    
+    @media (max-width: $breakpoint-md) {
+      .cta-content {
+        padding: $spacing-xl;
+      }
+      
+      .testimonial-slider {
+        padding: $spacing-xl;
+      }
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      .stats-container {
+        gap: $spacing-lg;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        
+        .primary-btn,
+        .secondary-btn {
+          width: 100%;
+        }
+      }
+    }
+  }
+} 

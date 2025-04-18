@@ -1,0 +1,41 @@
+/* Main SCSS file */
+
+// Abstract
+@import './abstracts/variables';
+@import './abstracts/mixins';
+
+// Base
+@import './base/reset';
+@import './base/typography';
+
+// Layout
+@import './layout/header';
+@import './layout/footer';
+@import './layout/banner';
+@import './layout/grid';
+
+// Components
+@import './components/buttons';
+@import './components/forms';
+@import './components/cards';
+@import './components/service-card';
+@import './components/feature-card';
+@import './components/contact';
+
+// Sections
+@import './sections/home';
+@import './sections/founder';
+@import './sections/aca';
+@import './sections/mva';
+// @import './sections/about';
+// @import './sections/services';
+// @import './sections/contact';
+
+// Themes
+@import './themes/default';
+
+// Responsive
+@import './responsive';
+
+// Import about page styles
+@import 'pages/about'; 

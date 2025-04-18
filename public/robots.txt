@@ -1,0 +1,5 @@
+# robots.txt file for BestLeads Network
+User-agent: *
+Allow: /
+
+Sitemap: https://bestleadsnetwork.com/sitemap.xml 

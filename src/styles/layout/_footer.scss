@@ -1,0 +1,106 @@
+/* Footer styles */
+
+.site-footer {
+  background-color: $secondary-color;
+  color: $light-color;
+  padding: $spacing-xl 0 $spacing-lg;
+  
+  .footer-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-xl;
+    margin-bottom: $spacing-xl;
+  }
+  
+  .footer-widget {
+    .widget-title {
+      color: $light-color;
+      font-size: $font-size-lg;
+      margin-bottom: $spacing-md;
+      position: relative;
+      
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        width: 40px;
+        height: 2px;
+        background-color: $primary-color;
+      }
+    }
+    
+    p {
+      margin-bottom: $spacing-md;
+      color: rgba($light-color, 0.8);
+    }
+    
+    .footer-links {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      
+      li {
+        margin-bottom: $spacing-sm;
+        
+        a {
+          color: rgba($light-color, 0.8);
+          text-decoration: none;
+          transition: color 0.3s ease;
+          
+          &:hover {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+    
+    .footer-contact {
+      li {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: $spacing-md;
+        
+        .icon {
+          margin-right: $spacing-sm;
+          color: $primary-color;
+        }
+      }
+    }
+  }
+  
+  .copyright {
+    text-align: center;
+    padding-top: $spacing-lg;
+    border-top: 1px solid rgba($light-color, 0.1);
+    
+    p {
+      margin-bottom: 0;
+      color: rgba($light-color, 0.7);
+      font-size: $font-size-sm;
+    }
+  }
+  
+  .social-links {
+    display: flex;
+    gap: $spacing-sm;
+    margin-top: $spacing-md;
+    
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: rgba($light-color, 0.1);
+      color: $light-color;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background-color: $primary-color;
+        color: $light-color;
+      }
+    }
+  }
+} 

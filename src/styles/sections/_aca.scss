@@ -1,0 +1,502 @@
+/* ACA Insurance Page Styles */
+
+.aca-insurance-section {
+  padding: 60px 0;
+  color: $secondary-color;
+  overflow: hidden;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: rgba($primary-color, 0.04);
+    border-radius: 50%;
+    top: -200px;
+    right: -200px;
+    z-index: 0;
+    filter: blur(100px);
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: rgba($primary-color, 0.03);
+    border-radius: 50%;
+    bottom: -150px;
+    left: -200px;
+    z-index: 0;
+    filter: blur(90px);
+  }
+  
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: $container-xl;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 50px;
+    
+    .section-title {
+      font-size: 42px;
+      font-weight: $font-bold;
+      color: $secondary-color;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .title-underline {
+      height: 3px;
+      width: 80px;
+      background: $primary-color;
+      margin: 0 auto;
+    }
+  }
+  
+  .sub-heading {
+    font-size: 28px;
+    font-weight: $font-semibold;
+    color: $secondary-color;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 12px;
+    text-align: center;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: $primary-color;
+    }
+  }
+  
+  /* Process Section */
+  .process-section {
+    margin-bottom: 70px;
+    position: relative;
+    
+    .process-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      max-width: 900px;
+      margin: 0 auto;
+      
+      .process-step {
+        display: flex;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 8px 30px rgba($dark-color, 0.06);
+        transition: transform 0.3s ease;
+        overflow: hidden;
+        border-left: 4px solid $primary-color;
+        
+        &:hover {
+          transform: translateY(-5px);
+        }
+        
+        .step-number {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 80px;
+          height: 80px;
+          font-size: 28px;
+          font-weight: $font-bold;
+          color: $light-color;
+          background: $primary-color;
+          flex-shrink: 0;
+        }
+        
+        .step-content {
+          padding: 20px 25px;
+          
+          h3 {
+            font-size: 20px;
+            font-weight: $font-semibold;
+            margin-bottom: 8px;
+            color: $secondary-color;
+          }
+          
+          p {
+            color: $gray-color;
+            line-height: 1.6;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+  
+  /* Benefits Section */
+  .benefits-section {
+    margin-bottom: 70px;
+    position: relative;
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      
+      .benefit-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 8px 30px rgba($dark-color, 0.06);
+        transition: all 0.3s ease;
+        position: relative;
+        
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 12px 40px rgba($dark-color, 0.08);
+        }
+        
+        .benefit-icon {
+          width: 70px;
+          height: 70px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 20px;
+          background: rgba($primary-color, 0.1);
+          border-radius: 50%;
+        }
+        
+        h3 {
+          font-size: 18px;
+          font-weight: $font-semibold;
+          margin-bottom: 12px;
+          color: $secondary-color;
+        }
+        
+        p {
+          color: $gray-color;
+          line-height: 1.6;
+          margin: 0;
+        }
+      }
+    }
+  }
+  
+  /* Audience Section */
+  .audience-section {
+    margin-bottom: 70px;
+    position: relative;
+    
+    .audience-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      
+      .audience-card {
+        background: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba($dark-color, 0.06);
+        transition: all 0.3s ease;
+        
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 12px 40px rgba($dark-color, 0.08);
+        }
+        
+        .audience-image {
+          width: 100%;
+          height: 200px;
+          position: relative;
+          overflow: hidden;
+          
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+          }
+          
+          &:hover img {
+            transform: scale(1.05);
+          }
+        }
+        
+        .audience-content {
+          padding: 25px;
+          
+          h3 {
+            font-size: 20px;
+            font-weight: $font-semibold;
+            color: $secondary-color;
+            margin-bottom: 10px;
+          }
+          
+          p {
+            color: $gray-color;
+            line-height: 1.6;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+  
+  /* Pricing Section */
+  .pricing-section {
+    margin-bottom: 70px;
+    position: relative;
+    
+    .pricing-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: 0 auto;
+      
+      .pricing-feature {
+        display: flex;
+        align-items: flex-start;
+        padding: 25px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba($dark-color, 0.06);
+        transition: all 0.3s ease;
+        
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 12px 40px rgba($dark-color, 0.08);
+        }
+        
+        .feature-icon {
+          width: 50px;
+          height: 50px;
+          background: rgba($primary-color, 0.1);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 20px;
+          flex-shrink: 0;
+        }
+        
+        .feature-content {
+          h3 {
+            font-size: 18px;
+            font-weight: $font-semibold;
+            color: $secondary-color;
+            margin-bottom: 8px;
+          }
+          
+          p {
+            color: $gray-color;
+            line-height: 1.6;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+  
+  /* CTA Section */
+  .cta-section {
+    background: linear-gradient(to right, rgba($primary-color, 0.04), rgba($secondary-color, 0.04));
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
+    
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto 30px;
+      text-align: center;
+      
+      h2 {
+        font-size: 32px;
+        font-weight: $font-bold;
+        color: $secondary-color;
+        margin-bottom: 15px;
+      }
+      
+      p {
+        font-size: 18px;
+        color: $gray-color;
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+      
+      .cta-button {
+        display: inline-block;
+        padding: 15px 30px;
+        background: $primary-color;
+        color: #fff;
+        font-size: 16px;
+        font-weight: $font-semibold;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: darken($primary-color, 10%);
+          transform: translateY(-3px);
+          box-shadow: 0 10px 20px rgba($primary-color, 0.3);
+        }
+      }
+    }
+    
+    .trust-indicators {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 25px;
+      margin-top: 40px;
+      border-top: 1px solid rgba($gray-color, 0.1);
+      padding-top: 30px;
+      
+      @media (max-width: $breakpoint-md) {
+        grid-template-columns: 1fr;
+      }
+      
+      .trust-item {
+        display: flex;
+        align-items: center;
+        
+        img {
+          margin-right: 15px;
+        }
+        
+        .trust-content {
+          display: flex;
+          flex-direction: column;
+          
+          span {
+            font-size: 14px;
+            color: $gray-color;
+          }
+          
+          .phone-number {
+            font-size: 18px;
+            font-weight: $font-semibold;
+            color: $secondary-color;
+            text-decoration: none;
+            transition: color 0.2s ease;
+            
+            &:hover {
+              color: $primary-color;
+            }
+          }
+        }
+      }
+      
+      .testimonial {
+        padding: 20px;
+        background: rgba($light-color, 0.8);
+        border-radius: 12px;
+        position: relative;
+        
+        &::before {
+          content: '"';
+          position: absolute;
+          top: 0;
+          left: 15px;
+          font-size: 60px;
+          line-height: 1;
+          color: rgba($primary-color, 0.1);
+          font-family: serif;
+        }
+        
+        p {
+          font-style: italic;
+          color: $gray-color;
+          line-height: 1.6;
+          margin-bottom: 10px;
+          position: relative;
+          z-index: 1;
+        }
+        
+        .testimonial-author {
+          font-weight: $font-semibold;
+          color: $secondary-color;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: $breakpoint-lg) {
+    padding: 50px 0;
+    
+    .process-steps .process-step {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border-left: none;
+      border-top: 4px solid $primary-color;
+      
+      .step-number {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
+    }
+    
+    .cta-section {
+      padding: 30px;
+    }
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    .section-header .section-title {
+      font-size: 36px;
+    }
+    
+    .sub-heading {
+      font-size: 24px;
+    }
+    
+    .benefits-grid,
+    .audience-cards,
+    .pricing-features {
+      grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    }
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    padding: 40px 0;
+    
+    .section-header {
+      margin-bottom: 30px;
+      
+      .section-title {
+        font-size: 32px;
+      }
+    }
+    
+    .sub-heading {
+      font-size: 22px;
+      margin-bottom: 25px;
+    }
+    
+    .cta-section {
+      padding: 25px;
+      
+      .cta-content {
+        h2 {
+          font-size: 28px;
+        }
+        
+        p {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+} 

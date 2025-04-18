@@ -1,0 +1,206 @@
+/* Card styles */
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: $light-color;
+  background-clip: border-box;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba($secondary-color, 0.1);
+  }
+}
+
+.card-img-top {
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: $spacing-lg;
+}
+
+.card-title {
+  font-size: $font-size-lg;
+  font-weight: $font-semibold;
+  margin-bottom: $spacing-sm;
+  color: $secondary-color;
+}
+
+.card-subtitle {
+  font-size: $font-size-sm;
+  font-weight: $font-medium;
+  margin-top: -$spacing-xs;
+  margin-bottom: $spacing-sm;
+  color: $gray-color;
+}
+
+.card-text {
+  font-size: $font-size-base;
+  color: $text-color;
+  margin-bottom: $spacing-md;
+}
+
+.card-link {
+  font-size: $font-size-sm;
+  font-weight: $font-medium;
+  color: $primary-color;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+  
+  .icon {
+    margin-left: $spacing-xs;
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover .icon {
+    transform: translateX(3px);
+  }
+}
+
+.card-footer {
+  padding: $spacing-md $spacing-lg;
+  background-color: rgba($secondary-color, 0.03);
+  border-top: 1px solid $border-color;
+}
+
+.card-header {
+  padding: $spacing-md $spacing-lg;
+  background-color: rgba($secondary-color, 0.03);
+  border-bottom: 1px solid $border-color;
+}
+
+// Service card
+.service-card {
+  background-color: $light-color;
+  padding: $spacing-xl;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba($secondary-color, 0.05);
+  transition: all 0.3s ease;
+  margin-bottom: $spacing-lg;
+  
+  &:hover {
+    box-shadow: 0 15px 30px rgba($secondary-color, 0.1);
+    transform: translateY(-5px);
+  }
+  
+  .service-icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba($primary-color, 0.1);
+    color: $primary-color;
+    border-radius: 10px;
+    margin-bottom: $spacing-md;
+    font-size: 28px;
+  }
+  
+  .service-title {
+    font-size: $font-size-xl;
+    font-weight: $font-semibold;
+    color: $secondary-color;
+    margin-bottom: $spacing-sm;
+  }
+  
+  .service-description {
+    color: $gray-color;
+    margin-bottom: $spacing-md;
+  }
+  
+  .service-link {
+    font-weight: $font-medium;
+    color: $primary-color;
+    display: inline-flex;
+    align-items: center;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+    
+    .icon {
+      margin-left: $spacing-xs;
+      transition: transform 0.3s ease;
+    }
+    
+    &:hover .icon {
+      transform: translateX(3px);
+    }
+  }
+}
+
+// Team card
+.team-card {
+  background-color: $light-color;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba($secondary-color, 0.05);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 15px 30px rgba($secondary-color, 0.1);
+  }
+  
+  .team-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-bottom: 1px solid $border-color;
+  }
+  
+  .team-body {
+    padding: $spacing-lg;
+    text-align: center;
+  }
+  
+  .team-name {
+    font-size: $font-size-lg;
+    font-weight: $font-semibold;
+    color: $secondary-color;
+    margin-bottom: $spacing-xs;
+  }
+  
+  .team-position {
+    font-size: $font-size-sm;
+    color: $gray-color;
+    margin-bottom: $spacing-md;
+  }
+  
+  .team-socials {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-sm;
+    
+    a {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: rgba($primary-color, 0.1);
+      color: $primary-color;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background-color: $primary-color;
+        color: $light-color;
+      }
+    }
+  }
+} 

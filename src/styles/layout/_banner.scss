@@ -1,0 +1,667 @@
+/* Banner styles */
+
+@keyframes shine {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+.hero-banner {
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(120deg, $light-color 0%, #0096FF 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  
+  @media (max-width: $breakpoint-xs) {
+    min-height: 100vh;
+    height: auto;
+    padding: $spacing-xl 0;
+  }
+  
+  @media (max-height: 650px) {
+    height: auto;
+    padding: $spacing-xl 0;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+    background: linear-gradient(45deg, rgba($primary-color, 0.05) 0%, rgba($secondary-color, 0.05) 100%);
+    border-radius: 50%;
+    top: -400px;
+    left: -300px;
+    z-index: 1;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background: linear-gradient(45deg, rgba($secondary-color, 0.03) 0%, rgba($primary-color, 0.03) 100%);
+    border-radius: 50%;
+    bottom: -400px;
+    right: -300px;
+    z-index: 1;
+  }
+  
+  .container {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: $spacing-md 0;
+    
+    @media (max-height: 700px) {
+      padding: $spacing-sm 0;
+    }
+    
+    @media (max-width: $breakpoint-xs) {
+      padding: 0;
+      height: auto;
+    }
+  }
+  
+  .banner-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-xl;
+    align-items: center;
+    width: 100%;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+      max-width: 650px;
+      margin: 0 auto;
+      gap: $spacing-lg;
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      gap: $spacing-md;
+    }
+    
+    @media (max-width: $breakpoint-xs) {
+      gap: $spacing-md;
+    }
+    
+    @media (max-height: 800px) {
+      gap: $spacing-md;
+    }
+  }
+  
+  .banner-content {
+    .hero-title {
+      font-size: $font-size-4xl;
+      font-weight: $font-bold;
+      color: $secondary-color;
+      margin-bottom: $spacing-md;
+      line-height: 1.1;
+      
+      .highlight {
+        color: $primary-color;
+        position: relative;
+        z-index: 1;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          height: 12px;
+          width: 100%;
+          background-color: rgba($primary-color, 0.1);
+          bottom: 5px;
+          left: 0;
+          z-index: -1;
+          border-radius: 10px;
+        }
+      }
+      
+      @media (max-width: $breakpoint-lg) {
+        font-size: $font-size-3xl;
+        text-align: center;
+      }
+      
+      @media (max-width: $breakpoint-md) {
+        font-size: $font-size-2xl;
+      }
+      
+      @media (max-width: $breakpoint-sm) {
+        font-size: $font-size-xl;
+        margin-bottom: $spacing-sm;
+      }
+      
+      @media (max-height: 800px) {
+        margin-bottom: $spacing-sm;
+        font-size: $font-size-3xl;
+      }
+    }
+    
+    .hero-text {
+      font-size: $font-size-lg;
+      color: $gray-color;
+      margin-bottom: $spacing-lg;
+      max-width: 580px;
+      line-height: 1.6;
+      
+      @media (max-width: $breakpoint-lg) {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-size: $font-size-md;
+      }
+      
+      @media (max-width: $breakpoint-sm) {
+        font-size: $font-size-sm;
+        margin-bottom: $spacing-md;
+        line-height: 1.5;
+      }
+      
+      @media (max-height: 800px) {
+        margin-bottom: $spacing-md;
+        line-height: 1.4;
+      }
+    }
+    
+    .banner-stats {
+      display: flex;
+      gap: $spacing-lg;
+      margin-bottom: $spacing-lg;
+      
+      @media (max-width: $breakpoint-lg) {
+        justify-content: center;
+      }
+      
+      @media (max-width: $breakpoint-sm) {
+        gap: $spacing-md;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      @media (max-width: $breakpoint-xs) {
+        flex-direction: column;
+        align-items: center;
+        gap: $spacing-sm;
+        margin-bottom: $spacing-md;
+      }
+      
+      @media (max-height: 800px) {
+        margin-bottom: $spacing-md;
+        gap: $spacing-md;
+      }
+      
+      .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        @media (min-width: $breakpoint-sm) {
+          align-items: flex-start;
+        }
+        
+        @media (max-width: $breakpoint-lg) {
+          align-items: center;
+        }
+        
+        .stat-number {
+          font-size: $font-size-2xl;
+          font-weight: $font-bold;
+          color: $primary-color;
+          
+          @media (max-width: $breakpoint-md) {
+            font-size: $font-size-xl;
+          }
+          
+          @media (max-width: $breakpoint-sm) {
+            font-size: $font-size-lg;
+          }
+          
+          @media (max-height: 800px) {
+            font-size: $font-size-xl;
+          }
+        }
+        
+        .stat-text {
+          font-size: $font-size-sm;
+          color: $secondary-color;
+          font-weight: $font-medium;
+          
+          @media (max-width: $breakpoint-sm) {
+            font-size: $font-size-xs;
+          }
+          
+          @media (max-height: 800px) {
+            font-size: $font-size-xs;
+          }
+        }
+      }
+    }
+    
+    .banner-buttons {
+      display: flex;
+      gap: $spacing-md;
+      
+      @media (max-width: $breakpoint-lg) {
+        justify-content: center;
+      }
+      
+      @media (max-width: $breakpoint-xs) {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        gap: $spacing-sm;
+      }
+      
+      .btn {
+        position: relative;
+        padding: 10px 20px;
+        border-radius: 7px;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 1px;
+        overflow: hidden;
+        transition: all 0.2s ease-in;
+        white-space: nowrap;
+        
+        &.primary-btn {
+          border: 1px solid $primary-color;
+          background: transparent;
+          color: $secondary-color;
+          box-shadow: 0 0 0 0 transparent;
+          
+          &:hover {
+            background: $primary-color;
+            color: white;
+            box-shadow: 0 0 30px 5px rgba($primary-color, 0.5);
+            transition: all 0.2s ease-out;
+          }
+          
+          &::before {
+            content: '';
+            display: block;
+            width: 0px;
+            height: 86%;
+            position: absolute;
+            top: 7%;
+            left: 0%;
+            opacity: 0;
+            background: white;
+            box-shadow: 0 0 50px 30px white;
+            transform: skewX(-20deg);
+          }
+          
+          &:hover::before {
+            animation: shine 0.5s 0s linear;
+          }
+        }
+        
+        &.outline-btn {
+          border: 1px solid white;
+          color: white;
+          background: transparent;
+          
+          &:hover {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 30px 5px rgba(255, 255, 255, 0.2);
+          }
+          
+          &::before {
+            content: '';
+            display: block;
+            width: 0px;
+            height: 86%;
+            position: absolute;
+            top: 7%;
+            left: 0%;
+            opacity: 0;
+            background: white;
+            box-shadow: 0 0 50px 30px white;
+            transform: skewX(-20deg);
+          }
+          
+          &:hover::before {
+            animation: shine 0.5s 0s linear;
+          }
+        }
+        
+        @media (max-width: $breakpoint-sm) {
+          padding: 8px 16px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  
+  .banner-form {
+    position: relative;
+    z-index: 2;
+    
+    @media (max-width: $breakpoint-xs) {
+      width: 100%;
+    }
+    
+    .form-container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba($secondary-color, 0.1);
+      padding: $spacing-lg;
+      max-width: 400px;
+      width: 100%;
+      margin-left: auto;
+      
+      @media (max-width: $breakpoint-lg) {
+        margin: 0 auto;
+      }
+      
+      @media (max-width: $breakpoint-sm) {
+        padding: $spacing-md;
+        max-width: 100%;
+      }
+      
+      @media (max-height: 800px) {
+        padding: $spacing-md;
+      }
+    }
+    
+    .form-header {
+      text-align: center;
+      margin-bottom: $spacing-md;
+      
+      h3 {
+        font-size: $font-size-lg;
+        font-weight: $font-bold;
+        color: $secondary-color;
+        margin-bottom: $spacing-xs;
+        
+        @media (max-width: $breakpoint-sm) {
+          font-size: $font-size-md;
+        }
+        
+        @media (max-height: 800px) {
+          font-size: $font-size-md;
+          margin-bottom: 5px;
+        }
+      }
+      
+      p {
+        color: $gray-color;
+        font-size: $font-size-sm;
+        
+        @media (max-width: $breakpoint-sm) {
+          font-size: $font-size-xs;
+        }
+        
+        @media (max-height: 800px) {
+          font-size: $font-size-xs;
+        }
+      }
+    }
+    
+    .lead-form {
+      .form-group {
+        margin-bottom: $spacing-sm;
+        
+        input, select {
+          width: 100%;
+          height: 48px;
+          border: 1px solid rgba($secondary-color, 0.1);
+      border-radius: 8px;
+          padding: 0 $spacing-md;
+          font-size: $font-size-sm;
+          color: $secondary-color;
+          background-color: $light-color;
+          transition: all 0.3s ease;
+          
+          @media (max-width: $breakpoint-sm) {
+            height: 44px;
+            font-size: $font-size-xs;
+            padding: 0 $spacing-sm;
+          }
+          
+          @media (max-height: 800px) {
+            height: 40px;
+            font-size: $font-size-xs;
+          }
+          
+          &:focus {
+            outline: none;
+            border-color: $primary-color;
+            box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+          }
+          
+          &::placeholder {
+            color: rgba($secondary-color, 0.5);
+          }
+        }
+        
+        select {
+          appearance: none;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23333' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: calc(100% - 16px) center;
+          padding-right: 40px;
+        }
+      }
+      
+      .form-submit-btn {
+        width: 100%;
+        height: 48px;
+        border: none;
+        border-radius: 7px;
+        position: relative;
+        padding: 10px 20px;
+        border: 1px solid $primary-color;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 1px;
+        background: transparent;
+        color: $secondary-color;
+        overflow: hidden;
+        box-shadow: 0 0 0 0 transparent;
+        transition: all 0.2s ease-in;
+        cursor: pointer;
+        
+        &:hover {
+          background: $primary-color;
+          color: white;
+          box-shadow: 0 0 30px 5px rgba($primary-color, 0.5);
+          transition: all 0.2s ease-out;
+        }
+        
+        &::before {
+          content: '';
+          display: block;
+          width: 0px;
+          height: 86%;
+          position: absolute;
+          top: 7%;
+          left: 0%;
+          opacity: 0;
+          background: white;
+          box-shadow: 0 0 50px 30px white;
+          transform: skewX(-20deg);
+        }
+        
+        &:hover::before {
+          animation: shine 0.5s 0s linear;
+        }
+        
+        &:active {
+          box-shadow: 0 0 0 0 transparent;
+          transition: box-shadow 0.2s ease-in;
+        }
+        
+        @keyframes shine {
+          from {
+            opacity: 0;
+            left: 0%;
+          }
+        
+          50% {
+            opacity: 1;
+          }
+        
+          to {
+            opacity: 0;
+            left: 100%;
+          }
+        }
+        
+        @media (max-width: $breakpoint-sm) {
+          height: 44px;
+          font-size: 12px;
+        }
+        
+        @media (max-height: 800px) {
+          height: 42px;
+          font-size: 12px;
+        }
+      }
+    }
+    
+    .form-footer {
+      margin-top: $spacing-sm;
+      
+      .privacy-text {
+        font-size: $font-size-xs;
+        color: $gray-color;
+        text-align: center;
+        margin-bottom: $spacing-sm;
+        
+        @media (max-width: $breakpoint-sm) {
+          font-size: 10px;
+        }
+        
+        @media (max-height: 800px) {
+          font-size: 10px;
+          margin-bottom: $spacing-xs;
+        }
+        
+        a {
+          color: $primary-color;
+          text-decoration: none;
+          
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      
+      .trust-badges {
+        display: flex;
+        justify-content: center;
+        gap: $spacing-md;
+        
+        @media (max-width: $breakpoint-sm) {
+          gap: $spacing-sm;
+        }
+        
+        @media (max-height: 800px) {
+          gap: $spacing-sm;
+        }
+        
+        .badge {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          font-size: $font-size-xs;
+          color: $gray-color;
+          
+          @media (max-width: $breakpoint-sm) {
+            font-size: 10px;
+          }
+          
+          @media (max-height: 800px) {
+            font-size: 10px;
+          }
+          
+          img, span {
+            display: inline-block;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+  }
+}
+
+.common-banner {
+  padding: $spacing-xl 0;
+  background-color: $secondary-color;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/images/pattern.png') repeat;
+    opacity: 0.05;
+  }
+  
+  .banner-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    
+    .banner-title {
+      font-size: $font-size-3xl;
+      font-weight: $font-bold;
+      color: $light-color;
+      margin-bottom: $spacing-md;
+      
+      @media (max-width: $breakpoint-md) {
+        font-size: $font-size-2xl;
+      }
+    }
+  }
+  
+  .breadcrumb-wrapper {
+    .breadcrumb {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: $spacing-sm;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      
+      li {
+        color: rgba($light-color, 0.7);
+        font-size: $font-size-sm;
+        
+        &:not(:last-child)::after {
+          content: '/';
+          margin-left: $spacing-sm;
+          color: rgba($light-color, 0.5);
+        }
+        
+        &:last-child {
+          color: $light-color;
+        }
+      }
+    }
+  }
+} 

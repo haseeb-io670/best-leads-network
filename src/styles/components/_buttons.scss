@@ -1,0 +1,381 @@
+/* Button styles */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: $font-size-sm;
+  font-weight: $font-medium;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+  }
+  
+  &:disabled,
+  &.disabled {
+    opacity: 0.65;
+    pointer-events: none;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+  
+  .btn-icon {
+    display: inline-flex;
+    margin-left: 0.5rem;
+  }
+  
+  &.primary-btn {
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 7px;
+    border: 1px solid $primary-color;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: transparent;
+    color: $secondary-color;
+    overflow: hidden;
+    box-shadow: 0 0 0 0 transparent;
+    transition: all 0.2s ease-in;
+    
+    &:hover {
+      background: $primary-color;
+      color: white;
+      box-shadow: 0 0 30px 5px rgba($primary-color, 0.5);
+      transition: all 0.2s ease-out;
+    }
+    
+    &::before {
+      content: '';
+      display: block;
+      width: 0px;
+      height: 86%;
+      position: absolute;
+      top: 7%;
+      left: 0%;
+      opacity: 0;
+      background: white;
+      box-shadow: 0 0 50px 30px white;
+      transform: skewX(-20deg);
+    }
+    
+    &:hover::before {
+      animation: shine 0.5s 0s linear;
+    }
+    
+    &:active {
+      box-shadow: 0 0 0 0 transparent;
+      transition: box-shadow 0.2s ease-in;
+    }
+    
+    @keyframes shine {
+      from {
+        opacity: 0;
+        left: 0%;
+      }
+    
+      50% {
+        opacity: 1;
+      }
+    
+      to {
+        opacity: 0;
+        left: 100%;
+      }
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      padding: 8px 16px;
+      font-size: 12px;
+    }
+  }
+  
+  &.secondary-btn {
+    position: relative;
+    font-size: 1.2em;
+    padding: 0.7em 1.4em;
+    background-color: $accent-color;
+    text-decoration: none;
+    border: none;
+    border-radius: 0.5em;
+    color: white;
+    box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+    overflow: visible;
+    
+    &::before {
+      position: absolute;
+      content: '';
+      height: 0;
+      width: 0;
+      top: 0;
+      left: 0;
+      background: linear-gradient(135deg, 
+        white 0%, 
+        white 50%, 
+        rgba(255, 255, 255, 0.8) 50%, 
+        $accent-color 60%);
+      border-radius: 0 0 0.5em 0;
+      box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.3);
+      transition: 0.3s;
+      z-index: 1;
+    }
+    
+    &:hover::before {
+      width: 1.6em;
+      height: 1.6em;
+    }
+    
+    &:active {
+      box-shadow: 0.2em 0.2em 0.3em rgba(0, 0, 0, 0.3);
+      transform: translate(0.1em, 0.1em);
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      font-size: 1em;
+      padding: 0.6em 1.2em;
+    }
+  }
+  
+  &.outline-btn {
+    background-color: transparent;
+    border: 1px solid $primary-color;
+    color: $primary-color;
+    
+    &:hover {
+      background-color: rgba($primary-color, 0.08);
+      transform: translateY(-2px);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+  
+  &.text-btn {
+    background-color: transparent;
+    color: $primary-color;
+    padding: 0.5rem;
+    
+    &:hover {
+      background-color: rgba($primary-color, 0.05);
+    }
+  }
+  
+  &.icon-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    
+    svg, i {
+      font-size: 1.2em;
+    }
+  }
+  
+  &.full-width {
+    width: 100%;
+    display: flex;
+  }
+}
+
+// Primary button styles outside of .btn class (kept for legacy support)
+.primary-btn {
+  background-color: $primary-color;
+  color: $light-color;
+  border-color: $primary-color;
+  box-shadow: 0 4px 6px rgba($primary-color, 0.15);
+  
+  &:hover {
+    background-color: darken($primary-color, 5%);
+    border-color: darken($primary-color, 7%);
+    color: $light-color;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba($primary-color, 0.2);
+  }
+  
+  &:active {
+    background-color: darken($primary-color, 7%);
+    border-color: darken($primary-color, 10%);
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba($primary-color, 0.15);
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.6s ease;
+    z-index: -1;
+  }
+  
+  &:hover::before {
+    left: 100%;
+  }
+}
+
+// Outline button
+.outline-btn {
+  background-color: transparent;
+  color: $primary-color;
+  border-color: $primary-color;
+  
+  &:hover {
+    background-color: $primary-color;
+    color: $light-color;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba($primary-color, 0.1);
+  }
+  
+  &:active {
+    background-color: darken($primary-color, 5%);
+    border-color: darken($primary-color, 7%);
+    color: $light-color;
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba($primary-color, 0.1);
+  }
+}
+
+// Secondary button outside of .btn class (kept for legacy support)
+.secondary-btn {
+  position: relative;
+  font-size: 1.2em;
+  padding: 0.7em 1.4em;
+  background-color: $accent-color;
+  text-decoration: none;
+  border: none;
+  border-radius: 0.5em;
+  color: white;
+  box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+  overflow: visible;
+  
+  &::before {
+    position: absolute;
+    content: '';
+    height: 0;
+    width: 0;
+    top: 0;
+    left: 0;
+    background: linear-gradient(135deg, 
+      white 0%, 
+      white 50%, 
+      rgba(255, 255, 255, 0.8) 50%, 
+      $accent-color 60%);
+    border-radius: 0 0 0.5em 0;
+    box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+    z-index: 1;
+  }
+  
+  &:hover::before {
+    width: 1.6em;
+    height: 1.6em;
+  }
+  
+  &:active {
+    box-shadow: 0.2em 0.2em 0.3em rgba(0, 0, 0, 0.3);
+    transform: translate(0.1em, 0.1em);
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    font-size: 1em;
+    padding: 0.6em 1.2em;
+  }
+}
+
+// Accent button
+.accent-btn {
+  background-color: $accent-color;
+  color: $light-color;
+  border-color: $accent-color;
+  box-shadow: 0 4px 6px rgba($accent-color, 0.15);
+  
+  &:hover {
+    background-color: darken($accent-color, 5%);
+    border-color: darken($accent-color, 7%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba($accent-color, 0.2);
+  }
+  
+  &:active {
+    background-color: darken($accent-color, 7%);
+    border-color: darken($accent-color, 10%);
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba($accent-color, 0.15);
+  }
+}
+
+// Text button
+.text-btn {
+  background-color: transparent;
+  color: $primary-color;
+  border-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  box-shadow: none;
+  
+  &:hover {
+    color: darken($primary-color, 10%);
+    text-decoration: underline;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  &:active {
+    color: darken($primary-color, 15%);
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+// Button sizes
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: $font-size-xs;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: $font-size-md;
+  font-weight: $font-semibold;
+}
+
+// Full width button
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  
+  svg, i {
+    font-size: 1.2em;
+  }
+}
+
+.full-width {
+  width: 100%;
+  display: flex;
+} 

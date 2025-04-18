@@ -1,0 +1,166 @@
+/* Grid styles */
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  
+  @media (min-width: $breakpoint-xs) {
+    max-width: $container-sm;
+  }
+  
+  @media (min-width: $breakpoint-sm) {
+    max-width: $container-md;
+  }
+  
+  @media (min-width: $breakpoint-md) {
+    max-width: $container-lg;
+  }
+  
+  @media (min-width: $breakpoint-lg) {
+    max-width: $container-xl;
+  }
+  
+  @media (min-width: $breakpoint-xl) {
+    max-width: $container-xxl;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@mixin make-col($size, $columns: 12) {
+  flex: 0 0 percentage($size / $columns);
+  max-width: percentage($size / $columns);
+}
+
+// Grid column classes
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    @include make-col($i);
+  }
+}
+
+// Responsive grid columns
+@media (min-width: $breakpoint-xs) {
+  @for $i from 1 through 12 {
+    .col-sm-#{$i} {
+      @include make-col($i);
+    }
+  }
+}
+
+@media (min-width: $breakpoint-sm) {
+  @for $i from 1 through 12 {
+    .col-md-#{$i} {
+      @include make-col($i);
+    }
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  @for $i from 1 through 12 {
+    .col-lg-#{$i} {
+      @include make-col($i);
+    }
+  }
+}
+
+@media (min-width: $breakpoint-lg) {
+  @for $i from 1 through 12 {
+    .col-xl-#{$i} {
+      @include make-col($i);
+    }
+  }
+}
+
+// Grid utilities
+.gap-sm {
+  gap: $spacing-sm;
+}
+
+.gap-md {
+  gap: $spacing-md;
+}
+
+.gap-lg {
+  gap: $spacing-lg;
+}
+
+.gap-xl {
+  gap: $spacing-xl;
+}
+
+// Flexbox utilities
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.justify-content-start {
+  justify-content: flex-start;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.justify-content-around {
+  justify-content: space-around;
+}
+
+.align-items-start {
+  align-items: flex-start;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.align-items-end {
+  align-items: flex-end;
+}
+
+.align-self-start {
+  align-self: flex-start;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.align-self-end {
+  align-self: flex-end;
+} 
