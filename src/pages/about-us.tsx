@@ -2,6 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 // import Layout from '../components/layout/Layout';
 import HomeAbout from '../components/containers/home/HomeAbout';
+import WhyUs from '@/components/containers/WhyUs';
+
 const AboutUs = () => {
   return (
     <>
@@ -11,6 +13,7 @@ const AboutUs = () => {
       </Head>
       <main>
         <HomeAbout />
+        <WhyUs />
       </main>
       {/* <Layout>
         <HomeAbout />

@@ -2,6 +2,7 @@ import React from 'react';
 import type { AppProps } from 'next/app';
 import Layout from '../components/layout/Layout';
 import '../styles/main.scss';
+import '../styles/blog.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="footer-wrapper">
           <div className="footer-widget company-info">
             <div className="footer-logo">
-              <Image src="/images/logo-white.png" alt="BestLeads Network" width={180} height={45} />
+              <Image src="/images/best-leads-white.png" alt="BestLeads Network" width={180} height={45} />
             </div>
             <p className="tagline">Your Source for Premium Insurance Leads</p>
             <p className="company-description">We connect insurance agents with high-quality, verified leads to boost your sales and grow your business.</p>
