@@ -69,7 +69,7 @@ const Footer = () => {
             <p>&copy; {new Date().getFullYear()} BestLeads Network. All Rights Reserved.</p>
           </div>
           <div className="legal-links">
-            <Link href="/privacy-policy">Privacy Policy</Link>
+            <Link href="/privacypolicy">Privacy Policy</Link>
             <Link href="/termsandconditions">Terms of Service</Link>
           </div>
         </div>

@@ -1,5 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
+import PrivacyPolicy from '@/components/containers/PrivacyPolicy';
+
 const PrivacyPolicyPage = () => {
   return (
     <>
@@ -9,6 +11,7 @@ const PrivacyPolicyPage = () => {
       </Head>
       
       <main>
+        <PrivacyPolicy />
 
       </main>
     </>
