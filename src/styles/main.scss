@@ -24,13 +24,14 @@
 
 // Sections
 @import './sections/home';
-@import './sections/founder';
+// @import './sections/founder';
 @import './sections/aca';
 @import './sections/mva';
 @import './sections/medicare';
-// @import './sections/about';
-// @import './sections/services';
-// @import './sections/contact';
+@import './sections/auto';
+@import './sections/u65';
+@import './pages/pricing';
+
 
 // Themes
 @import './themes/default';

@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-
+import Under65Insurance from '@/components/sections/Under65Insurance';
 const LifeInsurancePage = () => {
   return (
     <>
@@ -10,7 +10,7 @@ const LifeInsurancePage = () => {
       </Head>
       
       <main>
-        {/* Content will be added here */}
+        <Under65Insurance />
       </main>
     </>
   );

@@ -108,7 +108,7 @@ const Header = () => {
                   <Link href="/about-us">About</Link>
                 </li>
                 <li>
-                  <Link href="/leads">Leads</Link>
+                  <Link href="/pricing">Pricing</Link>
                 </li>
                 <li className="has-dropdown">
                   <a 
@@ -132,7 +132,7 @@ const Header = () => {
                     <li><Link href="/insurance/medicare">Medicare</Link></li>
                     <li><Link href="/insurance/auto">Auto</Link></li>
                     <li><Link href="/insurance/mva">MVA</Link></li>
-                    <li><Link href="/insurance/life">Life</Link></li>
+                    <li><Link href="/insurance/u65">U65</Link></li>
                   </ul>
                 </li>
                 <li>

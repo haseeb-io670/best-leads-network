@@ -1,0 +1,461 @@
+@import '../abstracts/variables';
+
+.pricing-main {
+  padding: 80px 0;
+  background-color: #f8faff;
+  overflow: hidden;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  // Header Styles
+  .pricing-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba($primary-color, 0.1) 0%, rgba($primary-color, 0) 70%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      left: -100px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba($accent-color, 0.1) 0%, rgba($accent-color, 0) 70%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+    
+    .section-title {
+      font-size: 48px;
+      font-weight: 700;
+      color: $dark-color;
+      margin-bottom: 16px;
+      position: relative;
+      
+      span {
+        color: $primary-color;
+      }
+      
+      &::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, $primary-color, $accent-color);
+        margin: 20px auto 0;
+        border-radius: 2px;
+      }
+    }
+    
+    .section-subtitle {
+      font-size: 18px;
+      color: $text-color;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+  }
+  
+  // Simple Pricing Cards
+  .simple-pricing {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-bottom: 50px;
+    
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (min-width: 992px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .pricing-card {
+      background-color: $light-color;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba($dark-color, 0.08);
+      transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 0;
+      overflow: hidden;
+      text-align: center;
+      border: 1px solid rgba($border-color, 0.5);
+      position: relative;
+      
+      // Card unique colors
+      &:nth-child(1) {
+        .card-header {
+          &::before {
+            background: linear-gradient(135deg, #0494d4, #00A3FF);
+          }
+        }
+        
+        .check-circle {
+          background-color: rgba(#0494d4, 0.15);
+          
+          svg {
+            color: #0494d4;
+          }
+        }
+      }
+      
+      &:nth-child(2) {
+        .card-header {
+          &::before {
+            background: linear-gradient(135deg, #00A3FF, #0494d4);
+          }
+        }
+        
+        .check-circle {
+          background-color: rgba(#00A3FF, 0.15);
+          
+          svg {
+            color: #00A3FF;
+          }
+        }
+      }
+      
+      &:nth-child(3) {
+        .card-header {
+          &::before {
+            background: linear-gradient(135deg, #40BFFF, #0494d4);
+          }
+        }
+        
+        .check-circle {
+          background-color: rgba(#40BFFF, 0.15);
+          
+          svg {
+            color: #40BFFF;
+          }
+        }
+      }
+      
+      &:nth-child(4) {
+        .card-header {
+          &::before {
+            background: linear-gradient(135deg, #097fce, #0062a3);
+          }
+        }
+        
+        .check-circle {
+          background-color: rgba(#097fce, 0.15);
+          
+          svg {
+            color: #097fce;
+          }
+        }
+        
+        .card-footer .pricing-cta {
+          border-color: #097fce;
+          color: #097fce;
+          
+          &:hover {
+            background-color: #097fce;
+          }
+        }
+      }
+      
+      &:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 20px 40px rgba($primary-color, 0.15);
+        border-color: rgba($primary-color, 0.2);
+      }
+      
+      .card-header {
+        padding: 35px 20px 25px;
+        position: relative;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 8px;
+          background: linear-gradient(135deg, $primary-color, $accent-color);
+        }
+        
+        h3 {
+          font-size: 26px;
+          font-weight: 700;
+          color: $dark-color;
+          margin-bottom: 5px;
+        }
+        
+        .transfer-type {
+          font-size: 14px;
+          color: $gray-color;
+          margin-bottom: 20px;
+          font-weight: 500;
+        }
+        
+        .price {
+          .amount {
+            font-size: 48px;
+            font-weight: 800;
+            color: $accent-color;
+            line-height: 1;
+            display: block;
+            margin-bottom: 5px;
+          }
+          
+          .period {
+            font-size: 14px;
+            color: $gray-color;
+            display: block;
+            margin-top: 5px;
+            font-weight: 500;
+          }
+        }
+      }
+      
+      .card-body {
+        padding: 25px 25px 20px;
+        flex: 1;
+        background-color: #fafcff;
+        border-top: 1px solid rgba($border-color, 0.7);
+        border-bottom: 1px solid rgba($border-color, 0.7);
+        
+        .features {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          text-align: left;
+          
+          li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            color: $text-color;
+            font-size: 14px;
+            line-height: 1.4;
+            
+            &:last-child {
+              margin-bottom: 0;
+            }
+            
+            .check-circle {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 22px;
+              height: 22px;
+              background-color: rgba($accent-color, 0.15);
+              border-radius: 50%;
+              margin-right: 12px;
+              flex-shrink: 0;
+              
+              svg {
+                color: $accent-color;
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+      
+      .card-footer {
+        padding: 25px;
+        
+        .pricing-cta {
+          display: inline-block;
+          width: 100%;
+          padding: 14px;
+          background-color: $light-color;
+          color: $accent-color;
+          border: 2px solid $accent-color;
+          border-radius: 30px;
+          font-size: 16px;
+          font-weight: 600;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 10px rgba($accent-color, 0.1);
+          
+          &:hover {
+            background-color: $accent-color;
+            color: $light-color;
+            box-shadow: 0 6px 15px rgba($accent-color, 0.2);
+          }
+        }
+      }
+    }
+  }
+  
+  // Custom Plan Section
+  .custom-plan {
+    background: linear-gradient(135deg, $primary-color, $accent-color);
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 80px;
+    box-shadow: 0 15px 35px rgba($primary-color, 0.15);
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba($light-color, 0.2) 0%, rgba($light-color, 0) 70%);
+      border-radius: 50%;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: 30%;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba($light-color, 0.1) 0%, rgba($light-color, 0) 70%);
+      border-radius: 50%;
+    }
+    
+    .custom-plan-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+      z-index: 2;
+      
+      @media (min-width: 768px) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+      
+      .plan-heading {
+        h3 {
+          font-size: 28px;
+          font-weight: 700;
+          color: $light-color;
+          margin-bottom: 10px;
+        }
+        
+        p {
+          font-size: 16px;
+          color: rgba($light-color, 0.9);
+          margin: 0;
+        }
+      }
+      
+      .custom-plan-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background-color: $light-color;
+        color: $primary-color;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 14px 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba($dark-color, 0.15);
+        white-space: nowrap;
+        
+        svg {
+          transition: transform 0.3s ease;
+        }
+        
+        &:hover {
+          background-color: rgba($light-color, 0.95);
+          transform: translateY(-3px);
+          box-shadow: 0 8px 20px rgba($dark-color, 0.2);
+          
+          svg {
+            transform: translateX(5px);
+          }
+        }
+      }
+    }
+  }
+  
+  // Guarantee Section
+  .guarantee-section {
+    padding: 40px 0;
+    
+    .guarantee-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      align-items: center;
+      background-color: $light-color;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba($dark-color, 0.08);
+      text-align: center;
+      
+      .guarantee-content {
+        h3 {
+          font-size: 24px;
+          font-weight: 700;
+          color: $secondary-color;
+          margin-bottom: 12px;
+        }
+        
+        p {
+          font-size: 16px;
+          color: $text-color;
+          margin-bottom: 20px;
+          max-width: 800px;
+        }
+        
+        .guarantee-features {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 20px;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          
+          li {
+            display: flex;
+            align-items: center;
+            color: $text-color;
+            font-size: 15px;
+            
+            .check-circle {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 22px;
+              height: 22px;
+              background-color: rgba($accent-color, 0.15);
+              border-radius: 50%;
+              margin-right: 10px;
+              flex-shrink: 0;
+              
+              svg {
+                color: $accent-color;
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
