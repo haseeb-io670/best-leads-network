@@ -6,7 +6,6 @@ export interface BlogPost {
   content: string;
   coverImage: string;
   author: string;
-  authorImage: string;
   date: string;
   readTime: number;
   category: string;
@@ -43,9 +42,8 @@ export const sampleBlogPosts: BlogPost[] = [
       <h2>Conclusion</h2>
       <p>Converting Medicare leads requires patience, expertise, and a systematic approach. By implementing these five strategies, insurance agents can significantly improve their conversion rates and build a strong Medicare client base. Remember that the goal isn't just to make a sale, but to become a trusted advisor who helps seniors navigate the complex world of Medicare coverage.</p>
     `,
-    coverImage: '/images/blogs/medicare-lead-conversions.jpg',
+    coverImage: '/images/blogs/doctors-8881540.webp',
     author: 'Michael Johnson',
-    authorImage: '/images/team/michael-johnson.jpg',
     date: '2023-08-15',
     readTime: 6,
     category: 'Medicare',
@@ -113,9 +111,8 @@ export const sampleBlogPosts: BlogPost[] = [
       <h2>Conclusion</h2>
       <p>Effective auto insurance lead generation requires a multi-channel approach and continuous optimization. By implementing these strategies and closely monitoring your results, you can develop a reliable system for acquiring high-quality leads that drive agency growth.</p>
     `,
-    coverImage: '/images/blogs/auto-insurance-leads.jpg',
+    coverImage: '/images/blogs/crash-test-1620592.webp',
     author: 'Sarah Williams',
-    authorImage: '/images/team/sarah-williams.jpg',
     date: '2023-07-28',
     readTime: 8,
     category: 'Auto Insurance',
@@ -183,9 +180,8 @@ export const sampleBlogPosts: BlogPost[] = [
       <h2>Conclusion</h2>
       <p>Staying informed about ACA compliance updates is essential for insurance agents who want to serve their clients effectively while avoiding regulatory pitfalls. By understanding these changes and adapting your business practices accordingly, you can turn compliance requirements into competitive advantages in the evolving health insurance marketplace.</p>
     `,
-    coverImage: '/images/blogs/aca-compliance.jpg',
+    coverImage: '/images/blogs/analysis-1841158.webp',
     author: 'David Chen',
-    authorImage: '/images/team/david-chen.jpg',
     date: '2023-07-12',
     readTime: 5,
     category: 'ACA',
@@ -271,9 +267,8 @@ export const sampleBlogPosts: BlogPost[] = [
       <h2>Conclusion</h2>
       <p>In the insurance industry, trust isn't just about being likable—it's about demonstrating competence, integrity, and client-centered service at every stage of the relationship. By implementing these trust-building strategies consistently, you can overcome the inherent skepticism many consumers have toward insurance professionals and build a loyal client base that leads to sustainable business growth.</p>
     `,
-    coverImage: '/images/blogs/client-trust.jpg',
+    coverImage: '/images/blogs/meeting-2284501.webp',
     author: 'Jennifer Martinez',
-    authorImage: '/images/team/jennifer-martinez.jpg',
     date: '2023-06-30',
     readTime: 7,
     category: 'Sales',
@@ -383,9 +378,8 @@ export const sampleBlogPosts: BlogPost[] = [
       <h2>Conclusion</h2>
       <p>Digital marketing offers insurance agents unprecedented opportunities to reach potential clients at scale. By implementing these essential strategies, you can build a consistent lead generation system that supports sustainable business growth. Start with the tactics most relevant to your specific business goals, measure results diligently, and continually refine your approach based on data.</p>
     `,
-    coverImage: '/images/blogs/digital-marketing.jpg',
+    coverImage: '/images/blogs/call-center-8643477.webp',
     author: 'Robert Thompson',
-    authorImage: '/images/team/robert-thompson.jpg',
     date: '2023-06-15',
     readTime: 9,
     category: 'Marketing',
@@ -466,9 +460,8 @@ export const sampleBlogPosts: BlogPost[] = [
       <h2>Conclusion</h2>
       <p>The most successful insurance agents balance the structure of proven scripts with authentic conversation. By incorporating these tested scripts into your sales process and adapting them to your unique style, you can guide more productive conversations, overcome common objections, and ultimately close more sales while better serving your clients' needs.</p>
     `,
-    coverImage: '/images/blogs/sales-scripts.jpg',
+    coverImage: '/images/blogs/job-5382501.webp',
     author: 'Michael Johnson',
-    authorImage: '/images/team/michael-johnson.jpg',
     date: '2023-05-22',
     readTime: 6,
     category: 'Sales',

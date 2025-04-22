@@ -78,10 +78,10 @@
     position: relative;
     background-color: $light-color;
     border-radius: 16px;
-    box-shadow: 0 10px 40px rgba($secondary-color, 0.08);
-    padding: $spacing-lg;
+    box-shadow: 0 15px 50px rgba($secondary-color, 0.12);
+    padding: $spacing-xl;
     overflow: hidden;
-    height: 530px;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -92,7 +92,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 5px;
+      height: 6px;
       background: linear-gradient(90deg, $primary-color, $accent-color);
       z-index: 1;
     }
@@ -166,58 +166,56 @@
   .testimonial-author {
     display: flex;
     align-items: center;
-    padding: $spacing-md 0;
-    
+    margin-top: 25px;
+
     .author-avatar {
-      margin-right: $spacing-md;
-      
-      .avatar-img {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid $light-color;
-        box-shadow: 0 4px 10px rgba($secondary-color, 0.1);
-      }
-      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 15px;
+
       .avatar-placeholder {
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
         border-radius: 50%;
         background-color: $primary-color;
-        color: $light-color;
+        color: white;
         display: flex;
-        align-items: center;
         justify-content: center;
-        font-size: $font-size-xl;
-        font-weight: $font-bold;
+        align-items: center;
+        font-size: 28px;
+        font-weight: 700;
+        box-shadow: 0 8px 20px rgba($primary-color, 0.3);
+        border: 3px solid rgba(255, 255, 255, 0.9);
       }
     }
-    
+
     .author-info {
-      .author-name {
-        font-weight: $font-bold;
-        font-size: $font-size-md;
-        margin-bottom: 0;
-        color: $secondary-color;
-      }
-      
-      .author-role, .author-company {
-        font-size: $font-size-sm;
-        color: $gray-color;
-        margin-bottom: 2px;
-      }
-      
-      .industry-tag {
-        display: inline-block;
-        background-color: rgba($primary-color, 0.1);
-        color: $primary-color;
-        padding: 3px 10px;
-        border-radius: 100px;
-        font-size: $font-size-xs;
-        font-weight: $font-medium;
-        margin-top: $spacing-xs;
-      }
+      display: flex;
+      flex-direction: column;
+    }
+
+    .author-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: #040404;
+      margin-bottom: 4px;
+    }
+
+    .author-role, .author-company {
+      font-size: 14px;
+      color: #7D8597;
+      margin-bottom: 2px;
+    }
+
+    .industry-tag {
+      display: inline-block;
+      background-color: rgba(4, 148, 212, 0.1);
+      color: #0494d4;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      margin-top: 5px;
     }
   }
   
@@ -225,17 +223,18 @@
   .slider-controls {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding-top: $spacing-md;
+    justify-content: center;
+    padding-top: $spacing-xl;
     
     .slider-dots {
       display: flex;
       justify-content: center;
-      gap: 8px;
+      gap: 12px;
+      margin: 0 $spacing-lg;
       
       .slider-dot {
-        width: 10px;
-        height: 10px;
+        width: 12px;
+        height: 12px;
         border-radius: 50%;
         background-color: rgba($gray-color, 0.3);
         border: none;
@@ -254,139 +253,49 @@
       }
     }
     
-    .slider-arrow {
-      width: 40px;
-      height: 40px;
+    .control-button {
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       background-color: $light-color;
       color: $primary-color;
-      border: 1px solid rgba($primary-color, 0.2);
+      border: 2px solid rgba($primary-color, 0.2);
       cursor: pointer;
       transition: all 0.3s ease;
+      font-size: $font-size-md;
       
       &:hover {
         background-color: $primary-color;
         color: $light-color;
         box-shadow: 0 5px 15px rgba($primary-color, 0.3);
+        border-color: $primary-color;
       }
       
       &:focus {
         outline: none;
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.3);
+      }
+      
+      &.prev {
+        margin-right: $spacing-md;
+      }
+      
+      &.next {
+        margin-left: $spacing-md;
       }
     }
   }
   
   /* Testimonial Cards */
   .testimonial-cards {
-    display: flex;
-    gap: $spacing-sm;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: $spacing-xl;
-    
-    @media (max-width: $breakpoint-sm) {
-      gap: $spacing-xs;
-    }
+    display: none;
   }
   
   .testimonial-card {
-    display: flex;
-    align-items: center;
-    padding: $spacing-sm;
-    background-color: $light-color;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba($secondary-color, 0.05);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: calc(20% - #{$spacing-sm});
-    min-width: 160px;
-    border: 1px solid rgba($border-color, 0.5);
-    
-    &.active {
-      border-color: $primary-color;
-      background-color: rgba($primary-color, 0.03);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba($primary-color, 0.1);
-    }
-    
-    &:hover {
-      box-shadow: 0 10px 20px rgba($secondary-color, 0.1);
-      border-color: rgba($primary-color, 0.3);
-    }
-    
-    @media (max-width: $breakpoint-lg) {
-      width: calc(25% - #{$spacing-sm});
-    }
-    
-    @media (max-width: $breakpoint-md) {
-      width: calc(33.33% - #{$spacing-sm});
-    }
-    
-    @media (max-width: $breakpoint-sm) {
-      width: calc(50% - #{$spacing-xs});
-      min-width: 140px;
-    }
-    
-    .card-avatar {
-      margin-right: $spacing-sm;
-      
-      .avatar-img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-      
-      .avatar-placeholder {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: $primary-color;
-        color: $light-color;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: $font-size-sm;
-        font-weight: $font-bold;
-      }
-    }
-    
-    .card-content {
-      flex: 1;
-      
-      .card-name {
-        font-size: $font-size-sm;
-        font-weight: $font-semibold;
-        margin-bottom: 2px;
-        color: $secondary-color;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      
-      .card-role {
-        font-size: $font-size-xs;
-        color: $gray-color;
-        margin-bottom: 2px;
-      }
-      
-      .card-rating {
-        display: flex;
-        
-        .star-filled, .star-empty {
-          color: #FFD700;
-          font-size: 12px;
-          margin-right: 2px;
-        }
-        
-        .star-empty {
-          opacity: 0.3;
-        }
-      }
-    }
+    display: none;
   }
   
   @media (max-width: $breakpoint-lg) {

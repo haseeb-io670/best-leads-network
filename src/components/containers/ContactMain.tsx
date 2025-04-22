@@ -205,7 +205,6 @@ const ContactMain = () => {
                 "BestLeads Network increased our conversion rate by 45% in just two months. The quality of leads is exceptional."
               </div>
               <div className="testimonial-author">
-                <Image src="/images/testimonial-1.jpg" alt="Sarah Johnson" width={50} height={50} className="author-image" />
                 <div className="author-info">
                   <div className="author-name">Sarah Johnson</div>
                   <div className="author-position">Marketing Director, TechSolutions Inc.</div>

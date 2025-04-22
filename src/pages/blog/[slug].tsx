@@ -8,10 +8,8 @@ const BlogPostPage = () => {
   const router = useRouter();
   const { slug } = router.query;
   
-  // Find the blog post with the matching slug
   const post = sampleBlogPosts.find(post => post.slug === slug);
   
-  // Handle loading and 404 states
   if (router.isFallback || !post) {
     return (
       <div className="container">

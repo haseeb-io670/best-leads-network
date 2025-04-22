@@ -481,27 +481,23 @@
         
         .testimonial-author {
           display: flex;
-          align-items: center;
-          
-          .author-image {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: $spacing-md;
-            object-fit: cover;
-            border: 2px solid rgba($light-color, 0.2);
-          }
+          margin-top: 15px;
           
           .author-info {
-            .author-name {
-              font-weight: $font-semibold;
-              margin-bottom: 3px;
-            }
-            
-            .author-position {
-              font-size: $font-size-xs;
-              opacity: 0.7;
-            }
+            display: flex;
+            flex-direction: column;
+          }
+          
+          .author-name {
+            font-weight: 600;
+            font-size: 16px;
+            color: #040404;
+            margin-bottom: 4px;
+          }
+          
+          .author-position {
+            font-size: 14px;
+            color: #7D8597;
           }
         }
       }

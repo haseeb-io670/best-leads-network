@@ -64,13 +64,6 @@ const BlogPostDetail: React.FC<BlogPostDetailProps> = ({ post }) => {
           </div>
           <h1>{post.title}</h1>
           <div className="author-info">
-            <Image 
-              src={post.authorImage} 
-              alt={post.author}
-              width={50}
-              height={50}
-              className="author-image"
-            />
             <span className="author-name">By {post.author}</span>
           </div>
         </motion.div>
@@ -134,15 +127,6 @@ const BlogPostDetail: React.FC<BlogPostDetailProps> = ({ post }) => {
           
           {/* Author Bio */}
           <div className="author-bio">
-            <div className="author-image">
-              <Image 
-                src={post.authorImage} 
-                alt={post.author}
-                width={100}
-                height={100}
-                objectFit="cover"
-              />
-            </div>
             <div className="author-content">
               <h3>{post.author}</h3>
               <p>Insurance industry expert with over 10 years of experience helping agencies grow their business through effective lead generation and conversion strategies.</p>
@@ -193,13 +177,6 @@ const BlogPostDetail: React.FC<BlogPostDetailProps> = ({ post }) => {
                     <p className="excerpt">{relatedPost.excerpt}</p>
                     <div className="card-footer">
                       <div className="author-info">
-                        <Image 
-                          src={relatedPost.authorImage} 
-                          alt={relatedPost.author}
-                          width={30}
-                          height={30}
-                          className="author-image"
-                        />
                         <span className="author-name">{relatedPost.author}</span>
                       </div>
                       <span className="read-time"><FaClock /> {relatedPost.readTime} min</span>

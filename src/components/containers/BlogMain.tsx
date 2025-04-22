@@ -250,13 +250,6 @@ const BlogMain: React.FC<BlogMainProps> = ({ posts = sampleBlogPosts }) => {
               <h2>{featuredPost.title}</h2>
               <p>{featuredPost.excerpt}</p>
               <div className="author-info">
-                <Image 
-                  src={featuredPost.authorImage} 
-                  alt={featuredPost.author}
-                  width={40}
-                  height={40}
-                  className="author-image"
-                />
                 <span className="author-name">{featuredPost.author}</span>
               </div>
               <Link 
@@ -305,13 +298,6 @@ const BlogMain: React.FC<BlogMainProps> = ({ posts = sampleBlogPosts }) => {
                       <p className="excerpt">{post.excerpt}</p>
                       <div className="card-footer">
                         <div className="author-info">
-                          <Image 
-                            src={post.authorImage} 
-                            alt={post.author}
-                            width={30}
-                            height={30}
-                            className="author-image"
-                          />
                           <span className="author-name">{post.author}</span>
                         </div>
                         <span className="read-time"><FaClock /> {post.readTime} min</span>
