@@ -13,7 +13,9 @@ import {
   FaHeadset,
   FaQuoteLeft,
   FaArrowRight,
-  FaTimes
+  FaTimes,
+  FaLightbulb,
+  FaRocket
 } from 'react-icons/fa';
 
 const WhyUs = () => {
@@ -72,7 +74,8 @@ const WhyUs = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
             >
-            
+              <Link href="/get-leads" className="btn btn-primary">Start Getting Leads</Link>
+              <Link href="/contact-us" className="btn btn-outline">Book a Demo</Link>
             </motion.div>
           </div>
           <motion.div 
@@ -335,75 +338,10 @@ const WhyUs = () => {
               </motion.div>
             </div>
 
-           
           </motion.div>
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="process-section">
-        <div className="container">
-          <motion.div 
-            className="section-header"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2>Our Lead Generation Process</h2>
-            <p>How we ensure consistently high-quality leads for your business</p>
-          </motion.div>
-
-          <motion.div 
-            className="process-steps"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <motion.div className="process-step" variants={fadeInUp}>
-              <div className="step-number">1</div>
-              <div className="step-content">
-                <h3>Strategic Lead Acquisition</h3>
-                <p>We utilize targeted marketing campaigns across multiple channels to attract insurance shoppers actively looking for the specific insurance products you sell.</p>
-              </div>
-            </motion.div>
-
-            <motion.div className="process-step" variants={fadeInUp}>
-              <div className="step-number">2</div>
-              <div className="step-content">
-                <h3>Rigorous Verification</h3>
-                <p>Each lead undergoes a comprehensive validation process to verify contact information, insurance needs, and purchase intent before being added to our system.</p>
-              </div>
-            </motion.div>
-
-            <motion.div className="process-step" variants={fadeInUp}>
-              <div className="step-number">3</div>
-              <div className="step-content">
-                <h3>Precise Matching</h3>
-                <p>Our advanced matching algorithm ensures leads are perfectly aligned with your specified criteria and business goals for maximum conversion potential.</p>
-              </div>
-            </motion.div>
-
-            <motion.div className="process-step" variants={fadeInUp}>
-              <div className="step-number">4</div>
-              <div className="step-content">
-                <h3>Instant Delivery</h3>
-                <p>Qualified leads are delivered to you in real-time through your preferred method—platform notification, email, SMS, or direct CRM integration.</p>
-              </div>
-            </motion.div>
-
-            <motion.div className="process-step" variants={fadeInUp}>
-              <div className="step-number">5</div>
-              <div className="step-content">
-                <h3>Ongoing Optimization</h3>
-                <p>We continuously analyze performance data to refine our targeting and acquisition strategies, ensuring increasingly better results over time.</p>
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      
 
       {/* FAQ Preview Section */}
       <section className="faq-preview-section">

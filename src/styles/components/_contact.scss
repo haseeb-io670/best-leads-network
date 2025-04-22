@@ -193,6 +193,8 @@
       position: relative;
       overflow: hidden;
       width: 100%;
+      display: flex;
+      flex-direction: column;
       
       &::before {
         content: '';
@@ -228,6 +230,60 @@
         font-size: $font-size-md;
         line-height: 1.6;
         color: rgba($light-color, 0.9);
+      }
+
+      .icon-wrapper {
+        width: 40px;
+        height: 40px;
+        background: rgba($primary-color, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: $spacing-md;
+        flex-shrink: 0; // Prevent icon from shrinking
+        
+        svg {
+          color: $primary-color;
+          font-size: 18px;
+        }
+      }
+      
+      .contact-text {
+        h4 {
+          font-size: $font-size-md;
+          font-weight: $font-semibold;
+          margin-bottom: $spacing-xs;
+          color: rgba($light-color, 0.9);
+        }
+        
+        a, address {
+          color: rgba($light-color, 0.7);
+          text-decoration: none;
+          font-size: $font-size-sm;
+          line-height: 1.6;
+          font-style: normal;
+          transition: color 0.3s ease;
+          word-break: break-word; // Prevent text overflow
+          
+          &:hover {
+            color: $primary-color;
+          }
+        }
+      }
+
+      .map-container {
+        margin-top: $spacing-lg;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba($dark-color, 0.2);
+        
+        .location-map {
+          display: block;
+          width: 100%;
+          height: 250px;
+          border-radius: 10px;
+        }
       }
     }
     
@@ -315,101 +371,118 @@
     }
   }
   
-  // Lead Generation CTA
-  .leads-cta {
-    margin-top: 50px;
-    background: $light-color;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba($dark-color, 0.08);
-    overflow: hidden;
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: 1.3fr 0.7fr;
+  // New CTA Section
+  .contact-cta-section {
+    margin-top: $spacing-xxl;
+    padding: $spacing-xl 0;
     
-    @media (max-width: $breakpoint-md) {
-      grid-template-columns: 1fr;
-    }
-    
-    &::before {
-      content: '';
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      background: rgba($primary-color, 0.03);
-      filter: blur(100px);
-      border-radius: 50%;
-      top: -100px;
-      left: -100px;
-      z-index: 0;
-      pointer-events: none;
+    .cta-card {
+      background: $light-color;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba($dark-color, 0.08);
+      overflow: hidden;
+      padding: $spacing-xl;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba($primary-color, 0.03) 0%, rgba($light-color, 1) 50%, rgba($accent-color, 0.05) 100%);
+        z-index: -1;
+      }
     }
     
     .cta-content {
-      padding: 20px 10px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .cta-title {
+      font-size: $font-size-2xl;
+      font-weight: $font-bold;
+      color: $secondary-color;
+      margin-bottom: $spacing-md;
       position: relative;
-      z-index: 2;
+      display: inline-block;
       
-      h3 {
-        font-size: $font-size-2xl;
-        font-weight: $font-bold;
-        color: $secondary-color;
-        margin-bottom: $spacing-md;
-        position: relative;
-        display: inline-block;
-        
-        &::after {
-          content: '';
-          position: absolute;
-          bottom: -10px;
-          left: 0;
-          width: 70px;
-          height: 3px;
-          background: $primary-color;
-        }
-      }
-      
-      p {
-        font-size: $font-size-lg;
-        color: $gray-color;
-        line-height: 1.7;
-        margin-bottom: $spacing-xl;
-        max-width: 600px;
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: $primary-color;
+        border-radius: 2px;
       }
     }
     
-    .stats-container {
+    .cta-description {
+      font-size: $font-size-lg;
+      color: $gray-color;
+      margin-bottom: $spacing-xl;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .cta-features {
       display: flex;
+      justify-content: center;
       gap: $spacing-xl;
       margin-bottom: $spacing-xl;
       flex-wrap: wrap;
       
-      .stat-item {
-        flex: 1;
-        min-width: 120px;
+      .feature-item {
+        text-align: center;
         
-        .stat-number {
+        .feature-icon {
           font-size: $font-size-3xl;
           font-weight: $font-bold;
           color: $primary-color;
           margin-bottom: $spacing-xs;
+          
+          span {
+            display: block;
+            position: relative;
+            
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: -5px;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 30px;
+              height: 2px;
+              background: rgba($primary-color, 0.3);
+              border-radius: 2px;
+            }
+          }
         }
         
-        .stat-label {
-          font-size: $font-size-sm;
-          color: $gray-color;
-          font-weight: $font-medium;
+        .feature-text {
+          p {
+            font-size: $font-size-md;
+            color: $gray-color;
+            font-weight: $font-medium;
+          }
         }
       }
     }
     
-    .cta-buttons {
+    .cta-action {
       display: flex;
+      justify-content: center;
       gap: $spacing-md;
-      flex-wrap: wrap;
       
-      .primary-btn,
-      .secondary-btn {
+      .cta-btn {
         padding: $spacing-md $spacing-xl;
         border-radius: 8px;
         font-weight: $font-semibold;
@@ -419,112 +492,86 @@
         justify-content: center;
         transition: all 0.3s ease;
         text-decoration: none;
-        min-width: 180px;
-      }
-      
-      .primary-btn {
-        background: $primary-color;
-        color: $light-color;
+        min-width: 200px;
         
-        &:hover {
-          background: darken($primary-color, 10%);
-          transform: translateY(-3px);
-          box-shadow: 0 10px 25px rgba($primary-color, 0.3);
-        }
-      }
-      
-      .secondary-btn {
-        background: rgba($primary-color, 0.1);
-        color: $primary-color;
-        
-        &:hover {
-          background: rgba($primary-color, 0.15);
-          transform: translateY(-3px);
-          box-shadow: 0 10px 25px rgba($primary-color, 0.1);
-        }
-      }
-    }
-    
-    .testimonial-slider {
-      background: $secondary-color;
-      color: $light-color;
-      padding: 20px 10px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      
-      &::before {
-        content: '"';
-        position: absolute;
-        font-size: 180px;
-        color: rgba($light-color, 0.1);
-        font-family: serif;
-        top: -40px;
-        left: 20px;
-        line-height: 1;
-        pointer-events: none;
-      }
-      
-      .testimonial-item {
-        position: relative;
-        z-index: 2;
-        
-        .testimonial-quote {
-          font-size: $font-size-lg;
-          line-height: 1.7;
-          font-style: italic;
-          margin-bottom: $spacing-xl;
+        &.primary {
+          background: $primary-color;
+          color: $light-color;
           position: relative;
+          overflow: hidden;
+          
+          .btn-icon {
+            margin-left: $spacing-sm;
+            transition: transform 0.3s ease;
+          }
+          
+          &:hover {
+            background: darken($primary-color, 10%);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba($primary-color, 0.3);
+            
+            .btn-icon {
+              transform: translateX(5px);
+            }
+          }
         }
         
-        .testimonial-author {
-          display: flex;
-          margin-top: 15px;
+        &.secondary {
+          background: rgba($primary-color, 0.1);
+          color: $primary-color;
           
-          .author-info {
-            display: flex;
-            flex-direction: column;
-          }
-          
-          .author-name {
-            font-weight: 600;
-            font-size: 16px;
-            color: #040404;
-            margin-bottom: 4px;
-          }
-          
-          .author-position {
-            font-size: 14px;
-            color: #7D8597;
+          &:hover {
+            background: rgba($primary-color, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba($primary-color, 0.1);
           }
         }
       }
-    }
-    
-    @media (max-width: $breakpoint-md) {
-      .cta-content {
-        padding: $spacing-xl;
-      }
       
-      .testimonial-slider {
-        padding: $spacing-xl;
-      }
-    }
-    
-    @media (max-width: $breakpoint-sm) {
-      .stats-container {
-        gap: $spacing-lg;
-      }
-      
-      .cta-buttons {
+      @media (max-width: $breakpoint-sm) {
         flex-direction: column;
         
-        .primary-btn,
-        .secondary-btn {
+        .cta-btn {
           width: 100%;
         }
+      }
+    }
+  }
+
+  // Responsive adjustments
+  @media (max-width: $breakpoint-md) {
+    .contact-wrapper {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+    
+    .contact-details .info-card {
+      height: auto;
+    }
+    
+    .contact-cta-section {
+      padding: $spacing-lg 0;
+      
+      .cta-card {
+        padding: $spacing-lg;
+      }
+      
+      .cta-title {
+        font-size: $font-size-xl;
+      }
+      
+      .cta-description {
+        font-size: $font-size-md;
+      }
+    }
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    .cta-features {
+      gap: $spacing-md !important;
+      
+      .feature-item {
+        width: 100%;
       }
     }
   }

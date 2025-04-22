@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
+import { FaFacebookF, FaLinkedinIn, FaInstagram, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaArrowRight } from 'react-icons/fa';
 
 const ContactMain = () => {
   const [formData, setFormData] = useState({
@@ -117,15 +117,9 @@ const ContactMain = () => {
 
           <div className="contact-details">
             <div className="info-card">
-              <p className="location-text">
-                Our office is conveniently located in Huntington Station, NY. Visit us at 14 Hartland Ave, Huntington Station, NY 11746, USA.
-              </p>
-              <p className="map-text">
-                If you prefer to see our location on a map, please contact us directly and we'll provide directions.
-              </p>
               <div className="contact-item">
                 <div className="icon-wrapper">
-                  <Image src="/icons/phone.svg" alt="Phone" width={24} height={24} />
+                  <FaPhoneAlt />
                 </div>
                 <div className="contact-text">
                   <h4>Phone</h4>
@@ -134,7 +128,7 @@ const ContactMain = () => {
               </div>
               <div className="contact-item">
                 <div className="icon-wrapper">
-                  <Image src="/icons/mail.svg" alt="Email" width={24} height={24} />
+                  <FaEnvelope />
                 </div>
                 <div className="contact-text">
                   <h4>Email</h4>
@@ -143,14 +137,16 @@ const ContactMain = () => {
               </div>
               <div className="contact-item">
                 <div className="icon-wrapper">
-                  <Image src="/icons/map-pin.svg" alt="Address" width={24} height={24} />
+                  <FaMapMarkerAlt />
                 </div>
                 <div className="contact-text">
                   <h4>Address</h4>
                   <address>
-                    14 Hartland Ave<br />
-                    Huntington Station, NY 11746<br />
-                    USA
+                    <a href="https://maps.app.goo.gl/8967N3v5D2PyCbnX6" target="_blank" rel="noopener noreferrer">
+                      14 Hartland Ave<br />
+                      Huntington Station, NY 11746<br />
+                      USA
+                    </a>
                   </address>
                 </div>
               </div>
@@ -165,51 +161,65 @@ const ContactMain = () => {
                   <FaLinkedinIn />
                 </a>
               </div>
+              
+              <div className="map-container">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.109796102247!2d-73.3802147636227!3d40.84751313840903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e828b7a443fd25%3A0xc7af8f78fed6b9c1!2s14%20Hartland%20Ave%2C%20Huntington%20Station%2C%20NY%2011746%2C%20USA!5e0!3m2!1sen!2s!4v1745341274186!5m2!1sen!2s" 
+                  width="100%" 
+                  height="250" 
+                  style={{ border: 0 }} 
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="BestLeads Network Office Location"
+                  className="location-map"
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Lead Generation CTA */}
-        <div className="leads-cta">
-          <div className="cta-content">
-            <h3>Ready to Grow Your Business?</h3>
-            <p>Join thousands of businesses that trust BestLeads Network for high-quality, verified leads that convert.</p>
-            
-            <div className="stats-container">
-              <div className="stat-item">
-                <div className="stat-number">98%</div>
-                <div className="stat-label">Verified Leads</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">24h</div>
-                <div className="stat-label">Delivery Time</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">30+</div>
-                <div className="stat-label">Industries Served</div>
-              </div>
-            </div>
-            
-            <div className="cta-buttons">
-              <Link href="/pricing" className="primary-btn">
-                View Lead Packages
-              </Link>
-              <Link href="/leads-demo" className="secondary-btn">
-                Request Sample Leads
-              </Link>
-            </div>
-          </div>
-          
-          <div className="testimonial-slider">
-            <div className="testimonial-item">
-              <div className="testimonial-quote">
-                "BestLeads Network increased our conversion rate by 45% in just two months. The quality of leads is exceptional."
-              </div>
-              <div className="testimonial-author">
-                <div className="author-info">
-                  <div className="author-name">Sarah Johnson</div>
-                  <div className="author-position">Marketing Director, TechSolutions Inc.</div>
+        {/* New Contact CTA Section */}
+        <div className="contact-cta-section">
+          <div className="cta-card">
+            <div className="cta-content">
+              <h3 className="cta-title">Ready to Boost Your Business with High-Quality Leads?</h3>
+              <p className="cta-description">
+                Discover how our premium lead generation services can help you connect with more qualified prospects and grow your business.
+              </p>
+              <div className="cta-features">
+                <div className="feature-item">
+                  <div className="feature-icon">
+                    <span>98%</span>
+                  </div>
+                  <div className="feature-text">
+                    <p>Verified Leads</p>
+                  </div>
                 </div>
+                <div className="feature-item">
+                  <div className="feature-icon">
+                    <span>24h</span>
+                  </div>
+                  <div className="feature-text">
+                    <p>Delivery Time</p>
+                  </div>
+                </div>
+                <div className="feature-item">
+                  <div className="feature-icon">
+                    <span>30+</span>
+                  </div>
+                  <div className="feature-text">
+                    <p>Industries Served</p>
+                  </div>
+                </div>
+              </div>
+              <div className="cta-action">
+                <Link href="/pricing" className="cta-btn primary">
+                  View Lead Packages <FaArrowRight className="btn-icon" />
+                </Link>
+                <Link href="/leads-demo" className="cta-btn secondary">
+                  Request Sample Leads
+                </Link>
               </div>
             </div>
           </div>

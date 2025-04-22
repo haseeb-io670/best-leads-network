@@ -49,7 +49,7 @@ const Footer = () => {
             <ul className="footer-contact">
               <li>
                 <div className="icon"><FaMapMarkerAlt /></div>
-                <div>14 Hartland Ave Huntington<br />Station NY 11746, USA</div>
+                <div><a href="https://maps.app.goo.gl/8967N3v5D2PyCbnX6">14 Hartland Ave Huntington<br />Station NY 11746, USA</a></div>
               </li>
               <li>
                 <div className="icon"><FaPhoneAlt /></div>
