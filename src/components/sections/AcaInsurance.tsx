@@ -66,7 +66,7 @@ const AcaInsurance = () => {
             <h1>ACA Insurance Leads</h1>
             <p className="subtitle">Connect with qualified healthcare prospects through our real-time ACA live transfer system</p>
             <div className="hero-cta">
-              <Link href="/contact" className="primary-button">
+              <Link href="/contact-us" className="primary-button">
                 <span>Get Started</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -174,37 +174,58 @@ const AcaInsurance = () => {
         </div>
 
         {/* Target Audience */}
-        <div className="audience-section">
+        <div className="audience-section animate-section">
           <h2 className="sub-heading">Who Can Benefit from Our ACA Insurance Live Transfer Leads?</h2>
           
           <div className="audience-cards">
             <div className="audience-card">
               <div className="audience-image">
-                <Image src="/images/insurance-agent.jpg" alt="ACA Insurance Agents" width={300} height={200} className="rounded-image" />
+                <Image 
+                  src="/images/insurance/doctor-starting-recovery-plan-with-her-patient.webp" 
+                  alt="ACA Insurance Agents" 
+                  width={400} 
+                  height={250} 
+                  className="rounded-image"
+                  style={{ objectFit: 'cover', objectPosition: 'center' }}
+                />
               </div>
               <div className="audience-content">
                 <h3>ACA Insurance Agents</h3>
-                <p>Connect with individuals seeking ACA-compliant health insurance plans.</p>
+                <p>Connect with individuals seeking ACA-compliant health insurance plans and boost your client acquisition.</p>
               </div>
             </div>
             
             <div className="audience-card">
               <div className="audience-image">
-                <Image src="/images/healthcare-navigator.jpg" alt="Healthcare Navigators" width={300} height={200} className="rounded-image" />
+                <Image 
+                  src="/images/insurance/happy-senior-couple-communicating-with-doctor-about-their-health-insurance-while-going-through-paperwork.webp" 
+                  alt="Healthcare Navigators" 
+                  width={400} 
+                  height={250} 
+                  className="rounded-image"
+                  style={{ objectFit: 'cover', objectPosition: 'center' }}
+                />
               </div>
               <div className="audience-content">
                 <h3>Healthcare Navigators</h3>
-                <p>Assist more people in understanding and enrolling in ACA coverage.</p>
+                <p>Assist more people in understanding and enrolling in ACA coverage with our qualified lead generation.</p>
               </div>
             </div>
             
             <div className="audience-card">
               <div className="audience-image">
-                <Image src="/images/insurance-agency.jpg" alt="Insurance Agencies" width={300} height={200} className="rounded-image" />
+                <Image 
+                  src="/images/insurance/family-insurance-reimbursement-protection-concept.webp" 
+                  alt="Insurance Agencies" 
+                  width={400} 
+                  height={250} 
+                  className="rounded-image"
+                  style={{ objectFit: 'cover', objectPosition: 'center' }}
+                />
               </div>
               <div className="audience-content">
                 <h3>Insurance Agencies</h3>
-                <p>Expand your ACA insurance division with qualified leads.</p>
+                <p>Expand your ACA insurance division with qualified leads that convert into long-term clients.</p>
               </div>
             </div>
           </div>
@@ -259,7 +280,7 @@ const AcaInsurance = () => {
               <h2>Get Started Today!</h2>
               <p>Don't miss out on high-converting ACA Insurance prospects. Get in touch now to start receiving real-time live transfer leads and scale your insurance sales effortlessly.</p>
               
-              <Link href="/contact" className="cta-button">
+              <Link href="/contact-us" className="cta-button">
                 Get Your ACA Insurance Leads Now
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7"/>

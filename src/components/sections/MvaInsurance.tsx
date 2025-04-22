@@ -175,13 +175,13 @@ const MvaInsurance = () => {
             <h1>MVA Insurance Leads</h1>
             <p className="subtitle">Connect with high-intent auto insurance prospects through our real-time live transfer system</p>
             <div className="hero-cta">
-              <Link href="/contact" className="primary-button">
+              <Link href="/contact-us" className="primary-button">
                 <span>Get Started</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </Link>
-              <Link href="/contact" className="secondary-button">
+              <Link href="/contact-us" className="secondary-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
@@ -359,7 +359,7 @@ const MvaInsurance = () => {
                     <p>Connect with verified leads ready to purchase auto insurance policies.</p>
                   </div>
                 </div>
-                <Link href="/contact" className="item-cta">
+                <Link href="/contact-us" className="item-cta">
                   Get Started
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -378,7 +378,7 @@ const MvaInsurance = () => {
                     <p>Receive real-time leads that convert faster.</p>
                   </div>
                 </div>
-                <Link href="/contact" className="item-cta">
+                <Link href="/contact-us" className="item-cta">
                   Get Started
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -397,7 +397,7 @@ const MvaInsurance = () => {
                     <p>Access high-intent prospects to maximize campaign performance.</p>
                   </div>
                 </div>
-                <Link href="/contact" className="item-cta">
+                <Link href="/contact-us" className="item-cta">
                   Get Started
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -422,7 +422,7 @@ const MvaInsurance = () => {
               <h2>Get Started Today!</h2>
               <p>Don't miss out on high-converting MVA Insurance prospects. Get in touch now to start receiving real-time live transfer leads and scale your insurance sales effortlessly.</p>
               
-              <Link href="/contact" className="cta-button">
+              <Link href="/contact-us" className="cta-button">
                 Get Your MVA Insurance Leads Now
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7"/>

@@ -66,13 +66,13 @@ const Under65Insurance = () => {
             <h1>U65 Insurance Leads</h1>
             <p className="subtitle">Connect with qualified health insurance prospects under 65 through our real-time live transfer lead generation system</p>
             <div className="hero-cta">
-              <Link href="/contact" className="primary-button">
+              <Link href="/contact-us" className="primary-button">
                 <span>Get Started</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </Link>
-              <Link href="/contact" className="secondary-button">
+              <Link href="/contact-us" className="secondary-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
@@ -240,7 +240,7 @@ const Under65Insurance = () => {
                   <li><FaCheck className="check-icon" /> Detailed prospect information</li>
                   <li><FaCheck className="check-icon" /> Instant connection with interested buyers</li>
                 </ul>
-                <Link href="/contact" className="card-cta">
+                <Link href="/contact-us" className="card-cta">
                   Learn More <FaArrowRight />
                 </Link>
               </div>
@@ -263,7 +263,7 @@ const Under65Insurance = () => {
                   <li><FaCheck className="check-icon" /> Seamless integration with CRM systems</li>
                   <li><FaCheck className="check-icon" /> Higher contact and conversion rates</li>
                 </ul>
-                <Link href="/contact" className="card-cta">
+                <Link href="/contact-us" className="card-cta">
                   Learn More <FaArrowRight />
                 </Link>
               </div>
@@ -292,7 +292,7 @@ const Under65Insurance = () => {
                   <li><FaCheck className="check-icon" /> Improve campaign ROI metrics</li>
                   <li><FaCheck className="check-icon" /> Data-driven performance reporting</li>
                 </ul>
-                <Link href="/contact" className="card-cta">
+                <Link href="/contact-us" className="card-cta">
                   Learn More <FaArrowRight />
                 </Link>
               </div>
@@ -434,7 +434,7 @@ const Under65Insurance = () => {
               <h2>Get Started Today!</h2>
               <p>Don't miss out on high-converting U65 Insurance prospects. Get in touch now to start receiving real-time live transfer leads and scale your insurance sales effortlessly.</p>
               
-              <Link href="/contact" className="cta-button">
+              <Link href="/contact-us" className="cta-button">
                 Get Your U65 Insurance Leads Now
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7"/>

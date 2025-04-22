@@ -67,13 +67,13 @@ const MedicareInsurance = () => {
             <h1>Medicare Insurance Leads</h1>
             <p className="subtitle">Connect with qualified Medicare prospects through our real-time live transfer lead generation system</p>
             <div className="hero-cta">
-              <Link href="/contact" className="primary-button">
+              <Link href="/contact-us" className="primary-button">
                 <span>Get Started</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </Link>
-              <Link href="/contact" className="secondary-button">
+              <Link href="/contact-us" className="secondary-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
@@ -207,7 +207,14 @@ const MedicareInsurance = () => {
           <div className="audience-grid">
             <div className="audience-item">
               <div className="audience-image">
-                <Image src="/images/medicare-agent.jpg" alt="Medicare Insurance Agents" width={400} height={300} className="audience-img" />
+                <Image 
+                  src="/images/insurance/happy-senior-couple-communicating-with-doctor-about-their-health-insurance-while-going-through-paperwork.webp" 
+                  alt="Medicare Insurance Agents" 
+                  width={400} 
+                  height={300} 
+                  className="audience-img"
+                  style={{ objectFit: 'cover', objectPosition: 'center' }}
+                />
               </div>
               <div className="audience-content">
                 <h3>Medicare Insurance Agents</h3>
@@ -231,7 +238,14 @@ const MedicareInsurance = () => {
             
             <div className="audience-item">
               <div className="audience-image">
-                <Image src="/images/healthcare-provider.jpg" alt="Healthcare Providers" width={400} height={300} className="audience-img" />
+                <Image 
+                  src="/images/insurance/african-american-doctor-helping-senior-man-get-up-from-chair-home-visit.webp" 
+                  alt="Healthcare Providers" 
+                  width={400} 
+                  height={300} 
+                  className="audience-img"
+                  style={{ objectFit: 'cover', objectPosition: 'center' }}
+                />
               </div>
               <div className="audience-content">
                 <h3>Healthcare Providers</h3>
@@ -255,7 +269,14 @@ const MedicareInsurance = () => {
             
             <div className="audience-item">
               <div className="audience-image">
-                <Image src="/images/insurance-agency.jpg" alt="Insurance Agencies" width={400} height={300} className="audience-img" />
+                <Image 
+                  src="/images/insurance/senior-couple-black-doctor-wearing-face-masks-while-using-touchpad-nursing-home.webp" 
+                  alt="Insurance Agencies" 
+                  width={400} 
+                  height={300} 
+                  className="audience-img"
+                  style={{ objectFit: 'cover', objectPosition: 'center' }}
+                />
               </div>
               <div className="audience-content">
                 <h3>Insurance Agencies</h3>
@@ -388,7 +409,7 @@ const MedicareInsurance = () => {
               <h2>Get Started Today!</h2>
               <p>Don't miss out on high-converting Medicare Insurance prospects. Get in touch now to start receiving real-time live transfer leads and scale your insurance sales effortlessly.</p>
               
-              <Link href="/contact" className="cta-button">
+              <Link href="/contact-us" className="cta-button">
                 Get Your Medicare Insurance Leads Now
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7"/>

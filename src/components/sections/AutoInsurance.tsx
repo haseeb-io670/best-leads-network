@@ -67,13 +67,13 @@ const AutoInsurance = () => {
             <h1>Auto Insurance Leads</h1>
             <p className="subtitle">Connect with qualified auto insurance prospects through our real-time live transfer lead generation system</p>
             <div className="hero-cta">
-              <Link href="/contact" className="primary-button">
+              <Link href="/contact-us" className="primary-button">
                 <span>Get Started</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </Link>
-              <Link href="/contact" className="secondary-button">
+              <Link href="/contact-us" className="secondary-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
@@ -200,8 +200,15 @@ const AutoInsurance = () => {
           
           <div className="audience-cards">
             <div className="audience-card">
-              <div className="audience-icon">
-                <Image src="/icons/target.svg" alt="Agents" width={60} height={60} />
+              <div className="audience-image">
+                <Image 
+                  src="/images/insurance/online-car-insurance-application.webp" 
+                  alt="Auto Insurance Agents & Brokers" 
+                  width={400} 
+                  height={370} 
+                  className="audience-img"
+                  style={{ objectFit: 'cover', objectPosition: 'center' }}
+                />
               </div>
               <div className="audience-content">
                 <h3>Auto Insurance Agents & Brokers</h3>
@@ -211,15 +218,22 @@ const AutoInsurance = () => {
                   <li><FaCheck className="check-icon" /> Detailed prospect information</li>
                   <li><FaCheck className="check-icon" /> Instant connection with interested buyers</li>
                 </ul>
-                <Link href="/contact" className="audience-cta">
+                <Link href="/contact-us" className="audience-cta">
                   Learn More <FaArrowRight />
                 </Link>
               </div>
             </div>
             
             <div className="audience-card">
-              <div className="audience-icon">
-                <Image src="/icons/headset.svg" alt="Call Centers" width={60} height={60} />
+              <div className="audience-image">
+                <Image 
+                  src="/images/Why-BestLeads.webp" 
+                  alt="Call Centers" 
+                  width={400} 
+                  height={370} 
+                  className="audience-img"
+                  style={{ objectFit: 'cover', objectPosition: 'center' }}
+                />
               </div>
               <div className="audience-content">
                 <h3>Call Centers</h3>
@@ -229,15 +243,22 @@ const AutoInsurance = () => {
                   <li><FaCheck className="check-icon" /> Seamless integration with CRM systems</li>
                   <li><FaCheck className="check-icon" /> Higher contact and conversion rates</li>
                 </ul>
-                <Link href="/contact" className="audience-cta">
+                <Link href="/contact-us" className="audience-cta">
                   Learn More <FaArrowRight />
                 </Link>
               </div>
             </div>
             
             <div className="audience-card">
-              <div className="audience-icon">
-                <Image src="/icons/chart-up.svg" alt="Marketing Firms" width={60} height={60} />
+              <div className="audience-image">
+                <Image 
+                  src="/images/insurance/image-auto-accident-involving-two-cars_613910-7924.webp" 
+                  alt="Insurance Marketing Firms" 
+                  width={400} 
+                  height={370} 
+                  className="audience-img"
+                  style={{ objectFit: 'cover', objectPosition: 'center' }}
+                />
               </div>
               <div className="audience-content">
                 <h3>Insurance Marketing Firms</h3>
@@ -247,7 +268,7 @@ const AutoInsurance = () => {
                   <li><FaCheck className="check-icon" /> Improve campaign ROI metrics</li>
                   <li><FaCheck className="check-icon" /> Data-driven performance reporting</li>
                 </ul>
-                <Link href="/contact" className="audience-cta">
+                <Link href="/contact-us" className="audience-cta">
                   Learn More <FaArrowRight />
                 </Link>
               </div>
@@ -359,7 +380,6 @@ const AutoInsurance = () => {
           </div>
         </div>
 
-        {/* CTA Section */}
         <div className="cta-section animate-section">
           <div className="cta-background">
             <div className="cta-shapes">
@@ -371,7 +391,7 @@ const AutoInsurance = () => {
               <h2>Get Started Today!</h2>
               <p>Don't miss out on high-converting Auto Insurance prospects. Get in touch now to start receiving real-time live transfer leads and scale your insurance sales effortlessly.</p>
               
-              <Link href="/contact" className="cta-button">
+              <Link href="/contact-us" className="cta-button">
                 Get Your Auto Insurance Leads Now
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
