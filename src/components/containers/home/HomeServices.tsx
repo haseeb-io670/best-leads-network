@@ -33,10 +33,10 @@ const HomeServices = () => {
     },
     {
       id: 4,
-      title: 'Pay Per Call Solutions',
+      title: 'Auto Insurance Leads',
       description: 'Connect directly with high-intent callers through our premium pay-per-call service. Real-time connections that drive conversions.',
       icon: '/icons/phone-call.svg',
-      link: '/pay-per-call',
+      link: '/insurance/auto',
       stat: '24/7',
       statLabel: 'Lead Delivery'
     }

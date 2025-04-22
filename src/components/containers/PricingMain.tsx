@@ -40,7 +40,7 @@ const PricingMain = () => {
               </ul>
             </div>
             <div className="card-footer">
-              <Link href="/contact" className="pricing-cta">
+              <Link href="/contact-us" className="pricing-cta">
                 Get Started
               </Link>
             </div>
@@ -68,7 +68,7 @@ const PricingMain = () => {
               </ul>
             </div>
             <div className="card-footer">
-              <Link href="/contact" className="pricing-cta">
+              <Link href="/contact-us" className="pricing-cta">
                 Get Started
               </Link>
             </div>
@@ -96,7 +96,7 @@ const PricingMain = () => {
               </ul>
             </div>
             <div className="card-footer">
-              <Link href="/contact" className="pricing-cta">
+              <Link href="/contact-us" className="pricing-cta">
                 Get Started
               </Link>
             </div>
@@ -124,7 +124,7 @@ const PricingMain = () => {
               </ul>
             </div>
             <div className="card-footer">
-              <Link href="/contact" className="pricing-cta">
+              <Link href="/contact-us" className="pricing-cta">
                 Get Started
               </Link>
             </div>
@@ -137,7 +137,7 @@ const PricingMain = () => {
               <h3>Need a Custom Solution?</h3>
               <p>Get a tailored plan designed specifically for your business needs and volume requirements.</p>
             </div>
-            <Link href="/contact" className="custom-plan-cta">
+            <Link href="/contact-us" className="custom-plan-cta">
               Contact Sales <FaArrowRight />
             </Link>
           </div>

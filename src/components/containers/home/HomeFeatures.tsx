@@ -63,7 +63,7 @@ const HomeFeatures = () => {
       bgPattern: "pattern-4",
       stats: "500+",
       statsLabel: "Custom Solutions",
-      link: "/get-leads"
+      link: "/contact-us"
     }
   ];
 

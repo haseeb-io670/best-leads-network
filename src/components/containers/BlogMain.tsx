@@ -431,7 +431,7 @@ const BlogMain: React.FC<BlogMainProps> = ({ posts = sampleBlogPosts }) => {
             <div className="sidebar-section cta-banner">
               <h3>Ready to Grow Your Business?</h3>
               <p>Access premium insurance leads today and boost your sales</p>
-              <Link href="/get-leads" className="cta-button">
+              <Link href="/contact-us" className="cta-button">
                 Get Started
               </Link>
             </div>

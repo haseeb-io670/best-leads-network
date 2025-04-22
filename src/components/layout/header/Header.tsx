@@ -145,7 +145,7 @@ const Header = () => {
               </ul>
             </nav>
             <div className="header-btn">
-              <Link href="/get-leads" className="btn primary-btn">
+              <Link href="contact-us" className="btn primary-btn">
                 Get Leads Now
               </Link>
             </div>

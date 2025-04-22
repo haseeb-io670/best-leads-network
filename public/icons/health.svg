@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main heart shape -->
+  <path d="M50 85C47.5 85 45.1 84.1 43.2 82.2C39.9 79.1 36.2 75.9 32.7 72.8C24.5 65.5 15.4 57.4 9.8 48.1C5.9 41.8 4 35.5 4 29C4 22.5 6.3 16.4 10.5 12.2C14.7 8 20.8 5.7 27.3 5.7C32 5.7 36.5 7.2 40.4 10.1C43.1 12.1 45.5 14.7 47.4 17.7C47.8 18.3 48.5 18.6 49.3 18.6H50.7C51.5 18.6 52.2 18.3 52.6 17.7C54.5 14.7 56.9 12.1 59.6 10.1C63.5 7.2 68 5.7 72.7 5.7C79.2 5.7 85.3 8 89.5 12.2C93.7 16.4 96 22.5 96 29C96 35.5 94.1 41.8 90.2 48.1C84.6 57.4 75.5 65.5 67.3 72.8C63.8 75.9 60.1 79.1 56.8 82.2C54.9 84.1 52.5 85 50 85Z" fill="#FF6B6B" stroke="#FF4757" stroke-width="2"/>
+  
+  <!-- Cross symbol overlay -->
+  <path d="M50 25V60" stroke="white" stroke-width="6" stroke-linecap="round"/>
+  <path d="M32.5 42.5H67.5" stroke="white" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Pulse line -->
+  <path d="M15 65C15 65 21 58 25 65C29 72 32 58 37 65C42 72 47 58 52 65C57 72 62 58 67 65C72 72 75 58 85 65" stroke="#4ECDC4" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Health shield symbol -->
+  <circle cx="75" cy="25" r="12" fill="#4ECDC4" stroke="white" stroke-width="2"/>
+  <path d="M75 17V33" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <path d="M67 25H83" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Stethoscope element -->
+  <circle cx="25" cy="25" r="5" fill="#4ECDC4" stroke="white"/>
+  <path d="M25 30C25 30 25 40 35 40C38 40 40 38 40 35" stroke="#4ECDC4" stroke-width="3" stroke-linecap="round"/>
+</svg> 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Healthcare cross symbol -->
+  <path d="M25 10V40" stroke="#E3F2FD" stroke-width="2" stroke-linecap="round"/>
+  <path d="M10 25H40" stroke="#E3F2FD" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Corner decorative elements -->
+  <path d="M10 10L15 15" stroke="#E3F2FD" stroke-width="1" stroke-linecap="round"/>
+  <path d="M40 10L35 15" stroke="#E3F2FD" stroke-width="1" stroke-linecap="round"/>
+  <path d="M10 40L15 35" stroke="#E3F2FD" stroke-width="1" stroke-linecap="round"/>
+  <path d="M40 40L35 35" stroke="#E3F2FD" stroke-width="1" stroke-linecap="round"/>
+  
+  <!-- Circular pulse wave -->
+  <circle cx="25" cy="25" r="15" stroke="#E3F2FD" stroke-width="0.5" stroke-dasharray="2 3"/>
+  <circle cx="25" cy="25" r="20" stroke="#E3F2FD" stroke-width="0.5" stroke-dasharray="2 3"/>
+  
+  <!-- Small stars representing ACA -->
+  <path d="M18 5L18.8 7.2H21.2L19.2 8.6L19.9 10.8L18 9.4L16.1 10.8L16.8 8.6L14.8 7.2H17.2L18 5Z" fill="#E3F2FD" fill-opacity="0.5"/>
+  <path d="M32 5L32.8 7.2H35.2L33.2 8.6L33.9 10.8L32 9.4L30.1 10.8L30.8 8.6L28.8 7.2H31.2L32 5Z" fill="#E3F2FD" fill-opacity="0.5"/>
+  <path d="M5 18L5.8 20.2H8.2L6.2 21.6L6.9 23.8L5 22.4L3.1 23.8L3.8 21.6L1.8 20.2H4.2L5 18Z" fill="#E3F2FD" fill-opacity="0.5"/>
+  <path d="M45 18L45.8 20.2H48.2L46.2 21.6L46.9 23.8L45 22.4L43.1 23.8L43.8 21.6L41.8 20.2H44.2L45 18Z" fill="#E3F2FD" fill-opacity="0.5"/>
+  <path d="M18 45L18.8 47.2H21.2L19.2 48.6L19.9 50.8L18 49.4L16.1 50.8L16.8 48.6L14.8 47.2H17.2L18 45Z" fill="#E3F2FD" fill-opacity="0.5"/>
+  <path d="M32 45L32.8 47.2H35.2L33.2 48.6L33.9 50.8L32 49.4L30.1 50.8L30.8 48.6L28.8 47.2H31.2L32 45Z" fill="#E3F2FD" fill-opacity="0.5"/>
+</svg> 

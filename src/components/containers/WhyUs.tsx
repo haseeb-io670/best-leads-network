@@ -74,7 +74,7 @@ const WhyUs = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
             >
-              <Link href="/get-leads" className="btn btn-primary">Start Getting Leads</Link>
+              <Link href="/contact-us" className="btn btn-primary">Start Getting Leads</Link>
               <Link href="/contact-us" className="btn btn-outline">Book a Demo</Link>
             </motion.div>
           </div>
@@ -85,7 +85,7 @@ const WhyUs = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <Image 
-              src="/images/why-us-hero.jpg" 
+              src="/images/Why-BestLeads.webp" 
               alt="BestLeads Network Team" 
               width={600} 
               height={500}
@@ -274,7 +274,7 @@ const WhyUs = () => {
                   </li>
                 </ul>
                 <div className="card-cta">
-                  <Link href="/get-leads" className="btn btn-primary">Get Started</Link>
+                  <Link href="/contact-us" className="btn btn-primary">Get Started</Link>
                 </div>
               </motion.div>
 
@@ -411,7 +411,7 @@ const WhyUs = () => {
             <h2>Ready to Grow Your Insurance Business?</h2>
             <p>Join thousands of successful agents and brokers who trust BestLeads Network for high-quality insurance leads.</p>
             <div className="cta-buttons">
-              <Link href="/get-leads" className="btn btn-primary">
+              <Link href="/contact-us" className="btn btn-primary">
                 Get Started Today
               </Link>
               <Link href="/contact-us" className="btn btn-secondary">

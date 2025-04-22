@@ -9,7 +9,7 @@ const HomeAbout = () => {
         <div className="about-content">
           <div className="about-image">
             <Image 
-              src="/images/about-image.jpg" 
+              src="/images/About-BestLeads.webp" 
               alt="About BestLeads Network" 
               width={600} 
               height={450}
