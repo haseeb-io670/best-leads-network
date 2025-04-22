@@ -21,7 +21,7 @@ interface BlogPost {
   content: string;
   coverImage: string;
   author: string;
-  authorImage: string;
+//   authorImage: string;
   date: string;
   readTime: number;
   category: string;
@@ -43,7 +43,7 @@ const sampleBlogPosts: BlogPost[] = [
     content: '...',
     coverImage: '/images/blogs/medicare-lead-conversions.jpg',
     author: 'Michael Johnson',
-    authorImage: '/images/team/michael-johnson.jpg',
+    // authorImage: '/images/team/michael-johnson.jpg',
     date: '2023-08-15',
     readTime: 6,
     category: 'Medicare',
@@ -58,7 +58,7 @@ const sampleBlogPosts: BlogPost[] = [
     content: '...',
     coverImage: '/images/blogs/auto-insurance-leads.jpg',
     author: 'Sarah Williams',
-    authorImage: '/images/team/sarah-williams.jpg',
+    // authorImage: '/images/team/sarah-williams.jpg',
     date: '2023-07-28',
     readTime: 8,
     category: 'Auto Insurance',
@@ -72,7 +72,7 @@ const sampleBlogPosts: BlogPost[] = [
     content: '...',
     coverImage: '/images/blogs/aca-compliance.jpg',
     author: 'David Chen',
-    authorImage: '/images/team/david-chen.jpg',
+    // authorImage: '/images/team/david-chen.jpg',
     date: '2023-07-12',
     readTime: 5,
     category: 'ACA',
@@ -86,7 +86,7 @@ const sampleBlogPosts: BlogPost[] = [
     content: '...',
     coverImage: '/images/blogs/client-trust.jpg',
     author: 'Jennifer Martinez',
-    authorImage: '/images/team/jennifer-martinez.jpg',
+    // authorImage: '/images/team/jennifer-martinez.jpg',
     date: '2023-06-30',
     readTime: 7,
     category: 'Sales',
@@ -100,7 +100,7 @@ const sampleBlogPosts: BlogPost[] = [
     content: '...',
     coverImage: '/images/blogs/digital-marketing.jpg',
     author: 'Robert Thompson',
-    authorImage: '/images/team/robert-thompson.jpg',
+    // authorImage: '/images/team/robert-thompson.jpg',
     date: '2023-06-15',
     readTime: 9,
     category: 'Marketing',
@@ -114,7 +114,7 @@ const sampleBlogPosts: BlogPost[] = [
     content: '...',
     coverImage: '/images/blogs/sales-scripts.jpg',
     author: 'Michael Johnson',
-    authorImage: '/images/team/michael-johnson.jpg',
+    // authorImage: '/images/team/michael-johnson.jpg',
     date: '2023-05-22',
     readTime: 6,
     category: 'Sales',
