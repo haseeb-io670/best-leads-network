@@ -69,10 +69,11 @@ const HomeOneBanner = () => {
                 <div className="form-group">
                   <select defaultValue="" required aria-label="Industry">
                     <option value="" disabled>Select Industry*</option>
-                    <option value="insurance">Insurance</option>
-                    <option value="real-estate">Real Estate</option>
-                    <option value="finance">Finance</option>
-                    <option value="healthcare">Healthcare</option>
+                    <option value="medicare">Medicare Leads</option>
+                    <option value="aca">ACA Leads</option>
+                    <option value="mva">MVA Leads</option>
+                    <option value="auto">Auto Leads</option>
+                    <option value="under65">U65 Leads</option>
                     <option value="other">Other</option>
                   </select>
                 </div>

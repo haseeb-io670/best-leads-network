@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import { FaFacebookF, FaLinkedinIn, FaInstagram, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -13,12 +13,11 @@ const Footer = () => {
               <Image src="/images/best-leads-white.png" alt="BestLeads Network" width={180} height={45} />
             </div>
             <p className="tagline">Your Source for Premium Insurance Leads</p>
-            <p className="company-description">We connect insurance agents with high-quality, verified leads to boost your sales and grow your business.</p>
+            {/* <p className="company-description">We connect insurance agents with high-quality, verified leads to boost your sales and grow your business.</p> */}
             <ul className="social-links">
-              <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a></li>
-              <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter /></a></li>
-              <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a></li>
-              <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a></li>
+              <li><a href="https://www.facebook.com/bestleadsnetwork" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a></li>
+              <li><a href="https://www.linkedin.com/company/best-leads-network/" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a></li>
+              <li><a href="https://www.instagram.com/bestleadsnetworkllc/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a></li>
             </ul>
           </div>
           

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -64,14 +65,14 @@ const Header = () => {
               </div>
             </div>
             <div className="topbar-social">
-              <a href="#" className="social-link" aria-label="Facebook">
-                <Image src="/icons/facebook.svg" alt="Facebook" width={16} height={16} />
+              <a href="https://www.facebook.com/bestleadsnetwork" className="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                <FaFacebookF />
               </a>
-              <a href="#" className="social-link" aria-label="Twitter">
-                <Image src="/icons/twitter.svg" alt="Twitter" width={16} height={16} />
+              <a href="https://www.instagram.com/bestleadsnetworkllc/" className="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                <FaInstagram />
               </a>
-              <a href="#" className="social-link" aria-label="LinkedIn">
-                <Image src="/icons/linkedin.svg" alt="LinkedIn" width={16} height={16} />
+              <a href="https://www.linkedin.com/company/best-leads-network/" className="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <FaLinkedinIn />
               </a>
             </div>
           </div>

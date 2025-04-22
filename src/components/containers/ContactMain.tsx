@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 
 const ContactMain = () => {
   const [formData, setFormData] = useState({
@@ -154,14 +155,14 @@ const ContactMain = () => {
                 </div>
               </div>
               <div className="social-links">
-                <a href="#" className="social-link" aria-label="Facebook">
-                  <Image src="/icons/facebook.svg" alt="Facebook" width={20} height={20} />
+                <a href="https://www.facebook.com/bestleadsnetwork" className="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                  <FaFacebookF />
                 </a>
-                <a href="#" className="social-link" aria-label="Twitter">
-                  <Image src="/icons/twitter.svg" alt="Twitter" width={20} height={20} />
+                <a href="https://www.instagram.com/bestleadsnetworkllc/" className="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                  <FaInstagram />
                 </a>
-                <a href="#" className="social-link" aria-label="LinkedIn">
-                  <Image src="/icons/linkedin.svg" alt="LinkedIn" width={20} height={20} />
+                <a href="https://www.linkedin.com/company/best-leads-network/" className="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                  <FaLinkedinIn />
                 </a>
               </div>
             </div>

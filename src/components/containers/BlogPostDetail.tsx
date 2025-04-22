@@ -9,10 +9,10 @@ import {
   FaUser, 
   FaTag, 
   FaFacebookF, 
-  FaTwitter, 
   FaLinkedinIn, 
   FaPinterestP,
-  FaChevronLeft
+  FaChevronLeft,
+  FaInstagram
 } from 'react-icons/fa';
 import { BlogPost, sampleBlogPosts } from '../../data/blogData';
 
@@ -112,8 +112,8 @@ const BlogPostDetail: React.FC<BlogPostDetailProps> = ({ post }) => {
                 <a href={`https://facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`} target="_blank" rel="noopener noreferrer" className="share-button facebook">
                   <FaFacebookF />
                 </a>
-                <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(post.title)}`} target="_blank" rel="noopener noreferrer" className="share-button twitter">
-                  <FaTwitter />
+                <a href={`https://www.instagram.com/`} target="_blank" rel="noopener noreferrer" className="share-button instagram">
+                  <FaInstagram />
                 </a>
                 <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}`} target="_blank" rel="noopener noreferrer" className="share-button linkedin">
                   <FaLinkedinIn />
