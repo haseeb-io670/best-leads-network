@@ -217,7 +217,7 @@ const ContactMain = () => {
                 <Link href="/pricing" className="cta-btn primary">
                   View Lead Packages <FaArrowRight className="btn-icon" />
                 </Link>
-                <Link href="contact-us" className="cta-btn secondary">
+                <Link href="/sample-leads" className="cta-btn secondary">
                   Request Sample Leads
                 </Link>
               </div>

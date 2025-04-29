@@ -30,8 +30,8 @@ const HomeOneBanner = () => {
               <Link href="/our-services" className="btn primary-btn">
                 Our Solutions
               </Link>
-              <Link href="/case-studies" className="btn secondary-btn">
-                View Case Studies
+              <Link href="/" className="btn secondary-btn">
+                Book a Free Consultation
               </Link>
             </div>
           </div>
@@ -89,7 +89,7 @@ const HomeOneBanner = () => {
                 <button type="submit" className="form-submit-btn">Get Started Now</button>
               </form>
               <div className="form-footer">
-                <p className="privacy-text">By submitting, you agree to our <Link href="/privacy">Privacy Policy</Link></p>
+                <p className="privacy-text">By submitting, you agree to our <Link href="/privacypolicy">Privacy Policy</Link></p>
                 <div className="trust-badges">
                   <span className="badge">
                     <Image src="/icons/shield-check.svg" alt="Secure" width={16} height={16} />
