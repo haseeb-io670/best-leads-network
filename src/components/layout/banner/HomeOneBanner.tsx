@@ -30,8 +30,8 @@ const HomeOneBanner = () => {
               <Link href="/our-services" className="btn primary-btn">
                 Our Solutions
               </Link>
-              <Link href="/" className="btn secondary-btn">
-                Book a Free Consultation
+              <Link href="/sample-leads" className="btn secondary-btn">
+              Sample Leads
               </Link>
             </div>
           </div>
