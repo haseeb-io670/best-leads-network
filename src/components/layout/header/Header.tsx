@@ -61,16 +61,16 @@ const Header: React.FC = () => {
     };
   }, []);
 
-  const handleInsuranceClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (window.innerWidth <= 768) {
-      // On mobile, toggle dropdown
-      e.preventDefault();
-      setIsDropdownOpen(!isDropdownOpen);
-    } else {
-      // On desktop, navigate to insurance page
-      router.push('/insurance-leads');
-    }
-  };
+  // const handleInsuranceClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  //   if (window.innerWidth <= 768) {
+  //     // On mobile, toggle dropdown
+  //     e.preventDefault();
+  //     setIsDropdownOpen(!isDropdownOpen);
+  //   } else {
+  //     // On desktop, navigate to insurance page
+  //     router.push('/insurance-leads');
+  //   }
+  // };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -149,7 +149,7 @@ const Header: React.FC = () => {
                 <li className="has-dropdown" ref={dropdownRef}>
                   <a 
                     href="/insurance-leads" 
-                    onClick={handleInsuranceClick}
+                    // onClick={handleInsuranceClick}
                     aria-expanded={isDropdownOpen}
                   >
                     Insurance 
