@@ -10,7 +10,7 @@ const HomeOneBanner = () => {
           <div className="banner-content">
             <h1 className="hero-title">Generate High-Quality <span className="highlight">Exclusive Leads</span> That Convert</h1>
             <p className="hero-text">
-              Powering business growth with premium leads tailored to your industry. Our proprietary technology connects you with prospects ready to buy.
+              Specialized insurance lead generation for Medicare, ACA, Auto, and MVA verticals. Our TCPA-compliant live transfers connect you with qualified prospects seeking health and auto coverage.
             </p>
             <div className="banner-stats">
               <div className="stat-item">
@@ -27,8 +27,8 @@ const HomeOneBanner = () => {
               </div>
             </div>
             <div className="banner-buttons">
-              <Link href="/our-services" className="btn primary-btn">
-                Our Solutions
+              <Link href="tel:+18882563257" className="btn primary-btn">
+                Call (888) 256-3257
               </Link>
               <Link href="/sample-leads" className="btn secondary-btn">
               Sample Leads
