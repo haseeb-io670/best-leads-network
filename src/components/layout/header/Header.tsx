@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
+import { useRouter } from 'next/router';
 
-const Header = () => {
+const Header: React.FC = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const dropdownRef = useRef<HTMLLIElement>(null);
+  const router = useRouter();
   
   // Close mobile menu when screen size changes to desktop
   useEffect(() => {
@@ -32,9 +35,41 @@ const Header = () => {
     };
   }, [isMobileMenuOpen]);
 
-  const toggleDropdown = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    setIsDropdownOpen(!isDropdownOpen);
+  // Handle dropdown on hover for desktop
+  useEffect(() => {
+    const dropdown = dropdownRef.current;
+    if (!dropdown) return;
+
+    const handleMouseEnter = () => {
+      if (window.innerWidth > 768) {
+        setIsDropdownOpen(true);
+      }
+    };
+
+    const handleMouseLeave = () => {
+      if (window.innerWidth > 768) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    dropdown.addEventListener('mouseenter', handleMouseEnter);
+    dropdown.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      dropdown.removeEventListener('mouseenter', handleMouseEnter);
+      dropdown.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
+
+  const handleInsuranceClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (window.innerWidth <= 768) {
+      // On mobile, toggle dropdown
+      e.preventDefault();
+      setIsDropdownOpen(!isDropdownOpen);
+    } else {
+      // On desktop, navigate to insurance page
+      router.push('/insurance');
+    }
   };
 
   const toggleMobileMenu = () => {
@@ -111,10 +146,10 @@ const Header = () => {
                 <li>
                   <Link href="/pricing">Pricing</Link>
                 </li>
-                <li className="has-dropdown">
+                <li className="has-dropdown" ref={dropdownRef}>
                   <a 
-                    href="#" 
-                    onClick={toggleDropdown}
+                    href="/insurance" 
+                    onClick={handleInsuranceClick}
                     aria-expanded={isDropdownOpen}
                   >
                     Insurance 
@@ -145,7 +180,7 @@ const Header = () => {
               </ul>
             </nav>
             <div className="header-btn">
-              <Link href="contact-us" className="btn primary-btn">
+              <Link href="/contact-us" className="btn primary-btn">
                 Get Leads Now
               </Link>
             </div>

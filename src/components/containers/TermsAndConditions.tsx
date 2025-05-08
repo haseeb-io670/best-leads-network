@@ -138,15 +138,12 @@ const TermsAndConditions = () => {
           <div className="terms-section">
             <h2>12. Contact Information</h2>
             <p>
-              If you have any questions about these Terms and Conditions, please contact us at:
-            </p>
-            <address>
+              <strong>Contact Information:</strong><br />
               BestLeads Network<br />
-              14 Hartland Ave<br />
-              Huntington Station, NY 11746<br />
-              Phone: (800) 555-1234<br />
-              Email: legal@bestleadsnetwork.com
-            </address>
+              14 Hartland Ave, Huntington Station, NY 11746<br />
+              Email: support@bestleadsnetwork.com<br />
+              Phone: (888) 256-3257<br />
+            </p>
           </div>
         </div>
       </div>

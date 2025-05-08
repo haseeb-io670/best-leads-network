@@ -3,9 +3,11 @@ import Head from 'next/head';
 
 import HomeOneBanner from '../components/layout/banner/HomeOneBanner';
 import HomeAbout from '../components/containers/home/HomeAbout';
+import LeadQuality from '../components/containers/home/HomeQuality';
 import HomeServices from '../components/containers/home/HomeServices';
 import HomeFeatures from '../components/containers/home/HomeFeatures';
 import HomeTestimonial from '@/components/containers/home/HomeTestimonial';
+import HomeFaq from '../components/containers/home/HomeFaq';
 import ContactMain from '@/components/containers/ContactMain';
 
 const Home = () => {
@@ -20,9 +22,10 @@ const Home = () => {
         <HomeOneBanner />
         <HomeServices />
         <HomeAbout />
-
+        <LeadQuality />
         <HomeFeatures />
         <HomeTestimonial />
+        <HomeFaq />
         <ContactMain />
       </main>
     </>

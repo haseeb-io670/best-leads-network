@@ -31,7 +31,7 @@ const HomeAbout = () => {
               We focus on quality over quantity, ensuring that every lead we deliver has real potential.
             </p>
             <div className="banner-buttons">
-              <Link href="/about" className="btn primary-btn">
+              <Link href="/about-us" className="btn primary-btn">
                 Learn More
               </Link>
             </div>

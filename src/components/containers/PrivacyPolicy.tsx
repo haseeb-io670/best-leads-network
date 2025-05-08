@@ -175,13 +175,13 @@ const PrivacyPolicy = () => {
             <p>
               If you have any questions or concerns about this privacy policy or our privacy practices, please contact us at:
             </p>
-            <address>
+            <p>
+              <strong>Contact Information:</strong><br />
               BestLeads Network<br />
-              14 Hartland Ave<br />
-              Huntington Station, NY 11746<br />
-              Phone: (800) 555-1234<br />
-              Email: privacy@bestleadsnetwork.com
-            </address>
+              14 Hartland Ave, Huntington Station, NY 11746<br />
+              Email: privacy@bestleadsnetwork.com<br />
+              Phone: (888) 256-3257<br />
+            </p>
           </div>
         </div>
       </div>

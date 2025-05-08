@@ -16,11 +16,11 @@ const HomeFeatures = () => {
       bgPattern: "pattern-1",
       stats: "98%",
       statsLabel: "Satisfaction Rate",
-      link: "/leads"
+      link: "/contact-us"
     },
     {
       id: 2,
-      title: "Inbound & Outbound Calls",
+      title: "Inbound & Outbound",
       description: "Answering queries, conducting surveys, and generating leads with expert handling.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -30,7 +30,7 @@ const HomeFeatures = () => {
       bgPattern: "pattern-2",
       stats: "24/7",
       statsLabel: "Support Available",
-      link: "/pay-per-call"
+      link: "/contact-us"
     },
     {
       id: 3,
@@ -49,7 +49,7 @@ const HomeFeatures = () => {
       bgPattern: "pattern-3",
       stats: "100+",
       statsLabel: "Insurance Experts",
-      link: "/insurance/aca"
+      link: "/contact-us"
     },
     {
       id: 4,

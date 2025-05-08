@@ -36,11 +36,11 @@ const Footer = () => {
           <div className="footer-widget">
             <h3 className="widget-title">Our Services</h3>
             <ul className="footer-links">
-              <li><Link href="medicare">Medicare Leads</Link></li>
-              <li><Link href="auto">Auto Insurance</Link></li>
-              <li><Link href="aca">ACA Leads</Link></li>
-              <li><Link href="mva">MVA Leads</Link></li>
-             
+              <li><Link href="/insurance/medicare">Medicare Leads</Link></li>
+              <li><Link href="/insurance/auto">Auto Insurance</Link></li>
+              <li><Link href="/insurance/aca">ACA Leads</Link></li>
+              <li><Link href="/insurance/mva">MVA Leads</Link></li>
+              <li><Link href="/insurance/u65">U65 Leads</Link></li>
             </ul>
           </div>
           
@@ -53,7 +53,7 @@ const Footer = () => {
               </li>
               <li>
                 <div className="icon"><FaPhoneAlt /></div>
-                <div><a href="tel:+18005551234">(800) 555-1234</a></div>
+                <div><a href="tel:+18882563257">(888) 256-3257</a></div>
               </li>
               <li>
                 <div className="icon"><FaEnvelope /></div>
