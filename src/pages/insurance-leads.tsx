@@ -3,7 +3,7 @@ import Head from 'next/head';
 import InsuranceMain from '@/components/containers/InsuranceMain';
 
 
-const InsurancePage = () => {
+const InsuranceLeadsPage = () => {
   return (
     <>
       <Head>
@@ -19,4 +19,4 @@ const InsurancePage = () => {
   );
 };
 
-export default InsurancePage; 
+export default InsuranceLeadsPage; 

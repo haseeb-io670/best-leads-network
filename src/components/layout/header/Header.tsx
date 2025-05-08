@@ -68,7 +68,7 @@ const Header: React.FC = () => {
       setIsDropdownOpen(!isDropdownOpen);
     } else {
       // On desktop, navigate to insurance page
-      router.push('/insurance');
+      router.push('/insurance-leads');
     }
   };
 
@@ -148,7 +148,7 @@ const Header: React.FC = () => {
                 </li>
                 <li className="has-dropdown" ref={dropdownRef}>
                   <a 
-                    href="/insurance" 
+                    href="/insurance-leads" 
                     onClick={handleInsuranceClick}
                     aria-expanded={isDropdownOpen}
                   >
