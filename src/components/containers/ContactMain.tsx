@@ -7,8 +7,10 @@ const ContactMain = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
-    message: ''
+    phone: '',
+    industry: '',
+    leadVolume: '',
+    consent: false
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -18,10 +20,10 @@ const ContactMain = () => {
   } | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
+    const { name, value, type } = e.target as HTMLInputElement;
     setFormData(prevState => ({
       ...prevState,
-      [name]: value
+      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
     }));
   };
 
@@ -83,7 +85,7 @@ const ContactMain = () => {
                   <input
                     type="text"
                     name="name"
-                    placeholder="Your Name*"
+                    placeholder="Full Name*"
                     value={formData.name}
                     onChange={handleChange}
                     required
@@ -94,7 +96,7 @@ const ContactMain = () => {
                   <input
                     type="email"
                     name="email"
-                    placeholder="Your Email*"
+                    placeholder="Business Email*"
                     value={formData.email}
                     onChange={handleChange}
                     required
@@ -103,21 +105,36 @@ const ContactMain = () => {
                 </div>
                 <div className="form-group">
                   <input
-                    type="text"
-                    name="subject"
-                    placeholder="Subject*"
-                    value={formData.subject}
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone Number*"
+                    value={formData.phone}
                     onChange={handleChange}
                     required
                     disabled={isLoading}
                   />
                 </div>
                 <div className="form-group">
-                  <textarea
-                    name="message"
-                    placeholder="Your Message*"
-                    rows={5}
-                    value={formData.message}
+                  <select 
+                    name="industry"
+                    value={formData.industry}
+                    onChange={handleChange}
+                    required 
+                    aria-label="Industry"
+                  >
+                    <option value="" disabled>Select Industry*</option>
+                    <option value="medicare">Medicare Leads</option>
+                    <option value="aca">ACA Leads</option>
+                    <option value="mva">MVA Leads</option>
+                    <option value="auto">Auto Leads</option>
+                    <option value="under65">U65 Leads</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <select 
+                    name="leadVolume"
+                    value={formData.leadVolume}
                     onChange={handleChange}
                     required
                     disabled={isLoading}
