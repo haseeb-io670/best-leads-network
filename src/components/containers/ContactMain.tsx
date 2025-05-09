@@ -10,7 +10,7 @@ const ContactMain = () => {
     phone: '',
     industry: '',
     leadVolume: '',
-    consent: false
+    consent: '1'
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -49,8 +49,10 @@ const ContactMain = () => {
         setFormData({
           name: '',
           email: '',
-          subject: '',
-          message: ''
+          phone: '',
+          industry: '',
+          leadVolume: '',
+          consent: '1'
         });
       }
     } catch (error) {
@@ -138,14 +140,20 @@ const ContactMain = () => {
                     onChange={handleChange}
                     required
                     disabled={isLoading}
-                  ></textarea>
+                  >
+                    <option value="monthly" disabled>Monthly Lead Volume*</option>
+                    <option value="1-50">1-50 leads</option>
+                    <option value="51-100">51-100 leads</option>
+                    <option value="101-500">101-500 leads</option>
+                    <option value="500+">500+ leads</option>
+                  </select>
                 </div>
                 <button 
                   type="submit" 
                   className={`submit-btn ${isLoading ? 'loading' : ''}`}
                   disabled={isLoading}
                 >
-                  {isLoading ? 'Sending...' : 'Send a Message'}
+                  {isLoading ? 'Sending...' : 'Submit'}
                 </button>
               </form>
             </div>
