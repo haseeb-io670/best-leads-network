@@ -7,8 +7,10 @@ const ContactMain = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
-    message: ''
+    phone: '',
+    industry: '',
+    leadVolume: '',
+    consent: false
   });
 
   const [submitStatus, setSubmitStatus] = useState({
@@ -18,10 +20,10 @@ const ContactMain = () => {
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
+    const { name, value, type } = e.target as HTMLInputElement;
     setFormData(prevState => ({
       ...prevState,
-      [name]: value
+      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
     }));
   };
 
@@ -39,8 +41,10 @@ const ContactMain = () => {
       setFormData({
         name: '',
         email: '',
-        subject: '',
-        message: ''
+        phone: '',
+        industry: '',
+        leadVolume: '',
+        consent: false
       });
       setSubmitStatus({
         submitted: false,
@@ -67,50 +71,80 @@ const ContactMain = () => {
                   <input
                     type="text"
                     name="name"
-                    placeholder="Your Name*"
+                    placeholder="Full Name*"
                     value={formData.name}
                     onChange={handleChange}
                     required
+                    aria-label="Full Name"
                   />
                 </div>
                 <div className="form-group">
                   <input
                     type="email"
                     name="email"
-                    placeholder="Your Email*"
+                    placeholder="Business Email*"
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    aria-label="Business Email"
                   />
                 </div>
                 <div className="form-group">
                   <input
-                    type="text"
-                    name="subject"
-                    placeholder="Subject*"
-                    value={formData.subject}
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone Number*"
+                    value={formData.phone}
                     onChange={handleChange}
                     required
+                    aria-label="Phone Number"
                   />
                 </div>
                 <div className="form-group">
-                  <textarea
-                    name="message"
-                    placeholder="Your Message*"
-                    rows={5}
-                    value={formData.message}
+                  <select 
+                    name="industry"
+                    value={formData.industry}
                     onChange={handleChange}
-                    required
-                  ></textarea>
+                    required 
+                    aria-label="Industry"
+                  >
+                    <option value="" disabled>Select Industry*</option>
+                    <option value="medicare">Medicare Leads</option>
+                    <option value="aca">ACA Leads</option>
+                    <option value="mva">MVA Leads</option>
+                    <option value="auto">Auto Leads</option>
+                    <option value="under65">U65 Leads</option>
+                    <option value="other">Other</option>
+                  </select>
                 </div>
-                <button type="submit" className="submit-btn">
-                  Send a Message
-                </button>
+                <div className="form-group">
+                  <select 
+                    name="leadVolume"
+                    value={formData.leadVolume}
+                    onChange={handleChange}
+                    required 
+                    aria-label="Lead Volume"
+                  >
+                    <option value="" disabled>Monthly Lead Volume*</option>
+                    <option value="1-50">1-50 leads</option>
+                    <option value="51-100">51-100 leads</option>
+                    <option value="101-500">101-500 leads</option>
+                    <option value="500+">500+ leads</option>
+                  </select>
+                </div>
+                <div className="consent-checkbox" style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', marginBottom: '15px' }}>
+                  <input type="checkbox" id="consent" name="consent" required />
+                  <label htmlFor="consent" style={{ lineHeight: '1.5' }}>
+                    By clicking the "Submit" button, you certify that you have provided your legal name and your own phone number, you agree to the <Link href="/terms">Terms and Conditions</Link> and <Link href="/privacy">Privacy Policy</Link> and authorize this service  to contact you at any time.
+                  </label>
+                </div>
+                <button type="submit" className="submit-btn">Submit Form</button>
                 {submitStatus.submitted && (
                   <div className={`form-status ${submitStatus.success ? 'success' : 'error'}`}>
                     {submitStatus.message}
                   </div>
                 )}
+             
               </form>
             </div>
           </div>
