@@ -11,11 +11,11 @@ const ContactMain = () => {
     message: ''
   });
 
-  const [submitStatus, setSubmitStatus] = useState({
-    submitted: false,
-    success: false,
-    message: ''
-  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [responseMessage, setResponseMessage] = useState<{
+    success: boolean;
+    message: string;
+  } | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -25,29 +25,40 @@ const ContactMain = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
-    setSubmitStatus({
-      submitted: true,
-      success: true,
-      message: 'Thank you for your message. We will get back to you shortly!'
-    });
+    setIsLoading(true);
+    setResponseMessage(null);
 
-    // Reset form after submission
-    setTimeout(() => {
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+    try {
+      const response = await fetch('/api/contact/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-      setSubmitStatus({
-        submitted: false,
+
+      const data = await response.json();
+      setResponseMessage(data);
+
+      if (data.success) {
+        // Reset form after successful submission
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      }
+    } catch (error) {
+      setResponseMessage({
         success: false,
-        message: ''
+        message: 'Failed to send message. Please try again.'
       });
-    }, 5000);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -62,6 +73,11 @@ const ContactMain = () => {
           <div className="contact-info">
             <div className="contact-card">
               <h3>Write a Message</h3>
+              {responseMessage && (
+                <div className={`form-status ${responseMessage.success ? 'success' : 'error'}`}>
+                  {responseMessage.message}
+                </div>
+              )}
               <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-group">
                   <input
@@ -71,6 +87,7 @@ const ContactMain = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
+                    disabled={isLoading}
                   />
                 </div>
                 <div className="form-group">
@@ -81,6 +98,7 @@ const ContactMain = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    disabled={isLoading}
                   />
                 </div>
                 <div className="form-group">
@@ -91,6 +109,7 @@ const ContactMain = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
+                    disabled={isLoading}
                   />
                 </div>
                 <div className="form-group">
@@ -101,16 +120,16 @@ const ContactMain = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
+                    disabled={isLoading}
                   ></textarea>
                 </div>
-                <button type="submit" className="submit-btn">
-                  Send a Message
+                <button 
+                  type="submit" 
+                  className={`submit-btn ${isLoading ? 'loading' : ''}`}
+                  disabled={isLoading}
+                >
+                  {isLoading ? 'Sending...' : 'Send a Message'}
                 </button>
-                {submitStatus.submitted && (
-                  <div className={`form-status ${submitStatus.success ? 'success' : 'error'}`}>
-                    {submitStatus.message}
-                  </div>
-                )}
               </form>
             </div>
           </div>
