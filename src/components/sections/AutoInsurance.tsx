@@ -64,7 +64,7 @@ const AutoInsurance = () => {
               <Image src="/icons/shield-check.svg" alt="" width={18} height={18} />
               <span>High Quality Leads</span>
             </div>
-            <h1>Auto Insurance Leads</h1>
+            <h1>Auto Insurance Live Transfers for High-Converting Driver Prospects</h1>
             <p className="subtitle">Connect with qualified auto insurance prospects through our real-time live transfer lead generation system</p>
             <div className="hero-cta">
               <Link href="/contact-us" className="primary-button">
@@ -106,7 +106,7 @@ const AutoInsurance = () => {
         {/* Process Section */}
         <div className="process-section animate-section">
           <div className="section-header">
-            <h2>How Our Auto Insurance Live Transfer Leads Work</h2>
+            <h2>Pre-Qualified Auto Insurance Live Transfer Leads That Convert</h2>
             <p className="section-intro">A seamless process designed to connect you with high-intent auto insurance prospects</p>
           </div>
           
@@ -148,7 +148,7 @@ const AutoInsurance = () => {
         {/* Benefits Section */}
         <div className="benefits-section animate-section">
           <div className="section-header">
-            <h2>Benefits of Auto Insurance Live Transfer Leads</h2>
+            <h2>Benefits of Exclusive Auto Insurance Live Transfer Lead Generation</h2>
             <p className="section-intro">Discover why our auto insurance leads outperform traditional lead generation methods</p>
           </div>
           
@@ -194,7 +194,7 @@ const AutoInsurance = () => {
         {/* Target Audience */}
         <div className="audience-section animate-section">
           <div className="section-header">
-            <h2>Who Can Benefit from Our Auto Insurance Live Transfer Leads?</h2>
+            <h2>Real-Time Auto Insurance Leads for Qualified Agents</h2>
             <p className="section-intro">Our auto insurance leads are perfect for insurance professionals focused on growth</p>
           </div>
           
@@ -374,7 +374,7 @@ const AutoInsurance = () => {
           </div>
           
           <div className="pricing-cta">
-            <a href="#contact" className="pricing-button">
+            <a href="/pricing" className="pricing-button">
               Get Custom Pricing <FaArrowRight />
             </a>
           </div>

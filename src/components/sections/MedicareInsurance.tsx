@@ -64,7 +64,7 @@ const MedicareInsurance = () => {
               <Image src="/icons/shield-check.svg" alt="" width={18} height={18} />
               <span>Premium Quality Leads</span>
             </div>
-            <h1>Medicare Insurance Leads</h1>
+            <h1>Medicare Live Transfer Leads for High-Converting Senior Prospects</h1>
             <p className="subtitle">Connect with qualified Medicare prospects through our real-time live transfer lead generation system</p>
             <div className="hero-cta">
               <Link href="/contact-us" className="primary-button">
@@ -106,7 +106,7 @@ const MedicareInsurance = () => {
         {/* Process Section */}
         <div className="process-section animate-section">
           <div className="section-header">
-            <h2>How Our Medicare Insurance Live Transfer Leads Work</h2>
+            <h2>Pre-Qualified Medicare Live Transfer Leads That Convert</h2>
             <p className="section-intro">A streamlined process to connect you with verified Medicare prospects</p>
           </div>
           
@@ -150,7 +150,7 @@ const MedicareInsurance = () => {
         {/* Benefits Section */}
         <div className="benefits-section animate-section">
           <div className="section-header">
-            <h2>Benefits of Medicare Insurance Live Transfer Leads</h2>
+            <h2>Benefits of Exclusive Medicare Live Transfer Lead Generation</h2>
             <p className="section-intro">Why our Medicare leads outperform other lead generation solutions</p>
           </div>
           
@@ -200,7 +200,7 @@ const MedicareInsurance = () => {
         {/* Target Audience */}
         <div className="audience-section animate-section">
           <div className="section-header">
-            <h2>Who Can Benefit from Our Medicare Insurance Live Transfer Leads?</h2>
+            <h2>Real-Time Medicare Insurance Leads for Qualified Agents</h2>
             <p className="section-intro">Our leads are designed for insurance professionals focused on the senior market</p>
           </div>
           
@@ -391,7 +391,7 @@ const MedicareInsurance = () => {
           </div>
           
           <div className="pricing-action">
-            <a href="#contact" className="pricing-button">
+            <a href="/pricing" className="pricing-button">
               Get Detailed Pricing <FaArrowRight />
             </a>
           </div>

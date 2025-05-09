@@ -9,7 +9,7 @@ const InsuranceMain = () => {
       <section className="insurance-hero">
         <div className="container">
           <div className="hero-content">
-            <h1>Premium Insurance Leads for <span className="highlight">Every Vertical</span></h1>
+            <h1>Premium Live Transfer Leads for Medicare, ACA, MVA, and Auto Insurance</h1>
             <p className="hero-description">
               Best Leads Network delivers high-intent, exclusive insurance leads across multiple verticals. 
               Our advanced verification process ensures you connect with qualified prospects actively seeking coverage.
@@ -29,7 +29,7 @@ const InsuranceMain = () => {
       <section className="insurance-categories">
         <div className="container">
           <div className="section-header">
-            <h2>Insurance Lead <span className="highlight">Categories</span></h2>
+            <h2>Connect with <span className="highlight">Pre-Qualified</span> Medicare and ACA Prospects in Real-Time</h2>
             <p>Explore our comprehensive range of insurance lead verticals, each tailored to connect you with high-intent prospects</p>
           </div>
 
@@ -127,7 +127,7 @@ const InsuranceMain = () => {
           <div className="delivery-content">
             <div className="delivery-info">
               <span className="section-subtitle">Lead Delivery</span>
-              <h2>How Our Insurance <span className="highlight">Leads Are Delivered</span></h2>
+              <h2>Exclusive MVA and Auto Insurance Live Transfers to Boost Your Sales</h2>
               <p>
                 At Best Leads Network, we provide flexible delivery methods to seamlessly integrate with your sales process. 
                 Our insurance leads are delivered in real-time, ensuring you can connect with prospects while their interest is at its peak.
@@ -178,7 +178,7 @@ const InsuranceMain = () => {
       <section className="insurance-showcase">
         <div className="container">
           <div className="section-header">
-            <h2>Insurance Lead <span className="highlight">Solutions</span></h2>
+            <h2>High-Converting Insurance Leads for Every Vertical</h2>
             <p>Tailored lead generation services for every insurance vertical</p>
           </div>
           

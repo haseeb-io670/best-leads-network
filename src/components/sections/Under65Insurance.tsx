@@ -63,7 +63,7 @@ const Under65Insurance = () => {
               <Image src="/icons/shield-check.svg" alt="" width={18} height={18} />
               <span>Quality Health Insurance Leads</span>
             </div>
-            <h1>U65 Insurance Leads</h1>
+            <h1>U65 Live Transfer Leads for High-Converting Health Insurance Prospects</h1>
             <p className="subtitle">Connect with qualified health insurance prospects under 65 through our real-time live transfer lead generation system</p>
             <div className="hero-cta">
               <Link href="/contact-us" className="primary-button">
@@ -113,7 +113,7 @@ const Under65Insurance = () => {
         {/* Process Section */}
         <div className="process-section animate-section">
           <div className="section-header">
-            <h2>How Our U65 Insurance Live Transfer Leads Work</h2>
+            <h2>Pre-Qualified U65 Health Insurance Live Transfer Leads That Convert</h2>
             <p className="section-intro">A seamless process designed to connect you with high-intent health insurance prospects under 65</p>
           </div>
           
@@ -165,7 +165,7 @@ const Under65Insurance = () => {
         {/* Benefits Section */}
         <div className="benefits-section animate-section">
           <div className="section-header">
-            <h2>Benefits of U65 Insurance Live Transfer Leads</h2>
+            <h2>Benefits of Exclusive U65 Live Transfer Lead Generation</h2>
             <p className="section-intro">Discover why our U65 insurance leads outperform traditional lead generation methods</p>
           </div>
           
@@ -416,7 +416,7 @@ const Under65Insurance = () => {
           </div>
           
           <div className="pricing-cta">
-            <a href="#contact" className="pricing-button">
+            <a href="/pricing" className="pricing-button">
               Get Custom Pricing <FaArrowRight />
             </a>
           </div>

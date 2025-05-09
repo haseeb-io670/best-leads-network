@@ -63,7 +63,7 @@ const AcaInsurance = () => {
               <Image src="/icons/shield-check.svg" alt="" width={18} height={18} />
               <span>Top Quality Leads</span>
             </div>
-            <h1>ACA Insurance Leads</h1>
+            <h1>ACA Live Transfer Leads for Health Insurance Marketplace Prospects</h1>
             <p className="subtitle">Connect with qualified healthcare prospects through our real-time ACA live transfer system</p>
             <div className="hero-cta">
               <Link href="/contact-us" className="primary-button">
@@ -136,7 +136,7 @@ const AcaInsurance = () => {
 
         {/* Benefits Section */}
         <div className="benefits-section">
-          <h2 className="sub-heading">Benefits of ACA Insurance Live Transfer Leads</h2>
+          <h2 className="sub-heading">Pre-Qualified ACA Health Insurance Live Transfer Leads That Convert</h2>
           
           <div className="benefits-grid">
             <div className="benefit-card">
@@ -175,7 +175,7 @@ const AcaInsurance = () => {
 
         {/* Target Audience */}
         <div className="audience-section animate-section">
-          <h2 className="sub-heading">Who Can Benefit from Our ACA Insurance Live Transfer Leads?</h2>
+          <h2 className="sub-heading">Real-Time ACA Marketplace Insurance Leads for Qualified Agents</h2>
           
           <div className="audience-cards">
             <div className="audience-card">

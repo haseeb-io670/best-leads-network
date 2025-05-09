@@ -10,7 +10,7 @@ const HomeOneBanner = () => {
           <div className="banner-content">
             <h1 className="hero-title">Generate High-Quality <span className="highlight">Exclusive Leads</span> That Convert</h1>
             <p className="hero-text">
-              Specialized insurance lead generation for Medicare, ACA, Auto, and MVA verticals. Our TCPA-compliant live transfers connect you with qualified prospects seeking health and auto coverage.
+            Best Leads Network delivers premium live transfer leads for Medicare, ACA, MVA, and auto insurance. Connect with pre-qualified, ready-to-convert prospects in real-time to accelerate your sales and grow your Insurance Business.
             </p>
             <div className="banner-stats">
               <div className="stat-item">

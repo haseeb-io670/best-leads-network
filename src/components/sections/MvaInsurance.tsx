@@ -44,7 +44,7 @@ const MvaInsurance = () => {
     <div className="pricing-section">
       <div className="container">
         <div className="section-heading text-center">
-          <h2>Flexible Pricing That Works For You</h2>
+          <h2>Flexible Pricing for Premium MVA Live Transfer Lead Generation</h2>
           <p>Our competitive pricing options are designed to maximize your ROI</p>
         </div>
         
@@ -172,7 +172,7 @@ const MvaInsurance = () => {
               <Image src="/icons/shield-check.svg" alt="" width={18} height={18} />
               <span>Top Quality Leads</span>
             </div>
-            <h1>MVA Insurance Leads</h1>
+            <h1>MVA Live Transfer Leads for High-Converting Legal Case Prospects</h1>
             <p className="subtitle">Connect with high-intent auto insurance prospects through our real-time live transfer system</p>
             <div className="hero-cta">
               <Link href="/contact-us" className="primary-button">
