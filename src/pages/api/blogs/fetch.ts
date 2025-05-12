@@ -10,47 +10,48 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ success: false, message: 'Method not allowed' });
   }
 
   try {
-    // Get the form data from the request body
-    const formData = req.body;
 
-    // Get the API URL from environment variable
     const apiUrl = process.env.NEXT_PUBLIC_LARAVEL_API_URL;
     
     if (!apiUrl) {
       throw new Error('API URL is not configured');
     }
 
-    const response = await fetch(`${apiUrl}/contact`, {
-      method: 'POST',
+    const response = await fetch(`${apiUrl}/blogs/fetch`, {
+      method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
-        // Add any required authentication headers here
-        // 'Authorization': 'Bearer YOUR_TOKEN'
+        'Accept': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
       },
-      body: JSON.stringify(formData),
     });
 
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.message || 'Something went wrong');
+    const responseData = await response.json();
+    
+    if (responseData.success) {
+      if(responseData.blogs.length > 0) {
+        return res.status(200).json({
+          success: responseData.success,
+          message: responseData.message,
+          data: responseData.blogs,
+        });
+      } else {
+        return res.status(200).json({
+          success: responseData.success,
+          message: responseData.message,
+        });
+      }
+    } else {
+      throw new Error(responseData.message || 'Failed to fetch blogs at the moment...');
     }
-
-    return res.status(200).json({
-      success: true,
-      message: 'Form submitted successfully',
-      data: data
-    });
   } catch (error) {
     return res.status(500).json({
       success: false,
-      message: error instanceof Error ? error.message : 'An error occurred while submitting the form'
+      message: error instanceof Error ? error.message : 'An error occurred while fetching blogs.'
     });
   }
 }

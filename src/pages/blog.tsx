@@ -1,9 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import BlogMain from '../components/containers/BlogMain';
 import { sampleBlogPosts } from '../data/blogData';
 
 const BlogPage = () => {
+  const [postsData, setPosts] = useState([]);
+  const [responseMessage, setResponseMessage] = useState<{
+      success: boolean;
+      message: string;
+    } | null>(null);
+
+  useEffect(() => {
+    const getBlogs = async () => {
+      const response = await fetch('/api/blogs/fetch', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+      });
+
+      const responseData = await response.json();
+
+      if (!responseData.success) {
+        setResponseMessage({
+          success: false,
+          message: responseData.message
+        });
+      } else {
+        setPosts(responseData.data);
+      }
+    }
+
+    getBlogs();
+    
+  }, []);
   return (
     <>
       <Head>
@@ -15,7 +46,13 @@ const BlogPage = () => {
       </Head>
       
       <main>
-        <BlogMain posts={sampleBlogPosts} />
+        {responseMessage ? (
+          <div className={`form-status error`}>
+            {responseMessage.message}
+          </div>
+        ) : (
+          <BlogMain posts={postsData} />
+        )}
       </main>
     </>
   );
