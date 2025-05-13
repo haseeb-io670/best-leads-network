@@ -17,19 +17,40 @@ interface BlogPost {
   id: number;
   title: string;
   slug: string;
-  excerpt: string;
   body: string;
   feature_image: string;
   status: string;
-  category_id: string;
-  created_by: string;
+  category_id: number;
+  creator: {
+    id: number;
+    name: string;
+    email: string;
+    created_at: string;
+    updated_at: string;
+  };
   created_at: string;
-  tags: string[];
-  featured?: boolean;
+  tags: {
+    id: number;
+    name: string;
+    slug: string;
+    created_at: string;
+    updated_at: string;
+    pivot: any;
+  }[];
+}
+
+interface Category {
+  id: number;
+  name: string;
+  slug: string;
+  created_at: string;
+  updated_at: string;
+  posts_count: number;
 }
 
 interface BlogMainProps {
   posts: BlogPost[];
+  categories: Category[];
 }
 
 // Categories for filter
@@ -43,15 +64,15 @@ const categories = [
   'Industry News'
 ];
 
-const BlogMain = ({ posts }: BlogMainProps) => {
+const BlogMain = ({ posts, categories }: BlogMainProps) => {
   const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>(posts || []);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState<number | 'all'>('all');
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 5;
   
   // Featured post is the first one marked as featured, or the first post
-  const featuredPost = posts?.find(post => post.featured) || posts?.[0];
+  const featuredPost = posts?.[0];
   
   // Filter posts based on search term and category
   useEffect(() => {
@@ -64,12 +85,11 @@ const BlogMain = ({ posts }: BlogMainProps) => {
       result = result.filter(
         post => 
           post.title.toLowerCase().includes(lowerSearchTerm) ||
-          post.excerpt.toLowerCase().includes(lowerSearchTerm) ||
-          post.tags.some(tag => tag.toLowerCase().includes(lowerSearchTerm))
+          post.tags.some(tag => tag.name.toLowerCase().includes(lowerSearchTerm))
       );
     }
     
-    if (selectedCategory !== 'All') {
+    if (selectedCategory !== 'all') {
       result = result.filter(post => post.category_id === selectedCategory);
     }
     
@@ -122,20 +142,27 @@ const BlogMain = ({ posts }: BlogMainProps) => {
           </div>
           
           <div className="category-filter">
+            <button
+              key="all"
+              className={`category-button ${selectedCategory === 'all' ? 'active' : ''}`}
+              onClick={() => setSelectedCategory('all')}
+            >
+              All
+            </button>
             {categories.map((category) => (
               <button
-                key={category}
-                className={`category-button ${selectedCategory === category ? 'active' : ''}`}
-                onClick={() => setSelectedCategory(category)}
+                key={category.id}
+                className={`category-button ${selectedCategory === category.id ? 'active' : ''}`}
+                onClick={() => setSelectedCategory(category.id)}
               >
-                {category}
+                {category.name}
               </button>
             ))}
           </div>
         </div>
         
         {/* Featured Post */}
-        {featuredPost && currentPage === 1 && selectedCategory === 'All' && !searchTerm && (
+        {featuredPost && currentPage === 1 && selectedCategory === 'all' && !searchTerm && (
           <motion.div 
             className="featured-post"
             initial={{ opacity: 0, y: 20 }}
@@ -144,7 +171,7 @@ const BlogMain = ({ posts }: BlogMainProps) => {
           >
             <div className="featured-post-image">
               <Image 
-                src={process.env.NEXT_PUBLIC_LARAVEL_STORAGE_URL + featuredPost.feature_image} 
+                src={process.env.NEXT_PUBLIC_LARAVEL_APP_URL + featuredPost.feature_image} 
                 alt={featuredPost.title}
                 width={600}
                 height={400}
@@ -155,13 +182,18 @@ const BlogMain = ({ posts }: BlogMainProps) => {
             </div>
             <div className="featured-post-content">
               <div className="post-meta">
-                <span className="category">{featuredPost.category_id}</span>
+                <span className="category">
+                  {categories.find(cat => cat.id === featuredPost.category_id)?.name || 'Uncategorized'}
+                </span>
                 <span className="date"><FaCalendarAlt /> {formatDate(featuredPost.created_at)}</span>
               </div>
               <h2>{featuredPost.title}</h2>
-              <p>{featuredPost.excerpt}</p>
+              <div 
+                className="post-body"
+                dangerouslySetInnerHTML={{ __html: featuredPost.body }}
+              />
               <div className="author-info">
-                <span className="author-name">{featuredPost.created_by}</span>
+                <span className="author-name">{featuredPost.creator.name}</span>
               </div>
               <Link 
                 href={`/blog/${featuredPost.slug}`} 
@@ -189,7 +221,7 @@ const BlogMain = ({ posts }: BlogMainProps) => {
                     <Link href={`/blog/${post.slug}`} className="card-image-link">
                       <div className="card-image">
                         <Image 
-                          src={process.env.NEXT_PUBLIC_LARAVEL_STORAGE_URL + post.feature_image} 
+                          src={process.env.NEXT_PUBLIC_LARAVEL_APP_URL + post.feature_image} 
                           alt={post.title}
                           width={400}
                           height={260}
@@ -200,16 +232,21 @@ const BlogMain = ({ posts }: BlogMainProps) => {
                     </Link>
                     <div className="card-content">
                       <div className="post-meta">
-                        <span className="category">{post.category_id}</span>
+                        <span className="category">
+                          {categories.find(cat => cat.id === post.category_id)?.name || 'Uncategorized'}
+                        </span>
                         <span className="date"><FaCalendarAlt /> {formatDate(post.created_at)}</span>
                       </div>
                       <h3>
                         <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                       </h3>
-                      <p className="excerpt">{post.excerpt}</p>
+                      <div 
+                        className="excerpt"
+                        dangerouslySetInnerHTML={{ __html: post.body }}
+                      />
                       <div className="card-footer">
                         <div className="author-info">
-                          <span className="author-name">{post.created_by}</span>
+                          <span className="author-name">{post.creator.name}</span>
                         </div>
                       </div>
                     </div>
@@ -222,7 +259,7 @@ const BlogMain = ({ posts }: BlogMainProps) => {
                 <p>Try adjusting your search or filters to find what you're looking for.</p>
                 <button className="reset-button" onClick={() => {
                   setSearchTerm('');
-                  setSelectedCategory('All');
+                  setSelectedCategory('all');
                 }}>
                   Reset Filters
                 </button>
@@ -287,15 +324,15 @@ const BlogMain = ({ posts }: BlogMainProps) => {
             <div className="sidebar-section">
               <h3 className="sidebar-title">Categories</h3>
               <ul className="category-list">
-                {categories.filter(cat => cat !== 'All').map((category) => (
+                {categories.map((category) => (
                   <li 
-                    key={category} 
-                    className={`category-item ${selectedCategory === category ? 'active' : ''}`}
-                    onClick={() => setSelectedCategory(category)}
+                    key={category.id} 
+                    className={`category-item ${selectedCategory === category.id ? 'active' : ''}`}
+                    onClick={() => setSelectedCategory(category.id)}
                   >
-                    <span className="category-name">{category}</span>
+                    <span className="category-name">{category.name}</span>
                     <span className="category-count">
-                      {posts?.filter(post => post.category_id === category).length || 0}
+                      {category.posts_count}
                     </span>
                   </li>
                 ))}
@@ -306,7 +343,7 @@ const BlogMain = ({ posts }: BlogMainProps) => {
             <div className="sidebar-section">
               <h3 className="sidebar-title">Popular Tags</h3>
               <div className="tags-cloud">
-                {Array.from(new Set(posts?.flatMap(post => post.tags) || []))
+                {Array.from(new Set(posts?.flatMap(post => post.tags.map(tag => tag.name)) || []))
                   .slice(0, 12)
                   .map((tag) => (
                     <span 
