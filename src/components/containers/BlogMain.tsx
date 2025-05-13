@@ -219,14 +219,12 @@ const BlogMain = ({ posts, categories }: BlogMainProps) => {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
                     <Link href={`/blog/${post.slug}`} className="card-image-link">
-                      <div className="card-image">
+                      <div style={{ width: '400px', height: '260px', overflow: 'hidden', borderRadius: '8px' }} className="card-image">
                         <Image 
                           src={process.env.NEXT_PUBLIC_LARAVEL_APP_URL + post.feature_image} 
                           alt={post.title}
                           width={400}
                           height={260}
-                          layout="responsive"
-                          objectFit="cover"
                         />
                       </div>
                     </Link>
