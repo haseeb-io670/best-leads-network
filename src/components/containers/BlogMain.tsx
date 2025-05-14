@@ -14,113 +14,44 @@ import {
 
 // Types
 interface BlogPost {
-  id: string;
-  slug: string;
+  id: number;
   title: string;
-  excerpt: string;
-  content: string;
-  coverImage: string;
-  author: string;
-//   authorImage: string;
-  date: string;
-  readTime: number;
-  category: string;
-  tags: string[];
-  featured?: boolean;
+  slug: string;
+  body: string;
+  feature_image: string;
+  status: string;
+  category_id: number;
+  creator: {
+    id: number;
+    name: string;
+    email: string;
+    created_at: string;
+    updated_at: string;
+  };
+  created_at: string;
+  tags: {
+    id: number;
+    name: string;
+    slug: string;
+    created_at: string;
+    updated_at: string;
+    pivot: any;
+  }[];
+}
+
+interface Category {
+  id: number;
+  name: string;
+  slug: string;
+  created_at: string;
+  updated_at: string;
+  posts_count: number;
 }
 
 interface BlogMainProps {
-  posts?: BlogPost[];
+  posts: BlogPost[];
+  categories: Category[];
 }
-
-// Sample blog data
-const sampleBlogPosts: BlogPost[] = [
-  {
-    id: '1',
-    slug: 'maximizing-medicare-lead-conversions',
-    title: 'Maximizing Medicare Lead Conversions: 5 Proven Strategies',
-    excerpt: 'Learn the most effective techniques for converting Medicare leads into clients, with practical tips from industry experts.',
-    content: '...',
-    coverImage: '/images/blogs/medicare-lead-conversions.jpg',
-    author: 'Michael Johnson',
-    // authorImage: '/images/team/michael-johnson.jpg',
-    date: '2023-08-15',
-    readTime: 6,
-    category: 'Medicare',
-    tags: ['Medicare', 'Lead Conversion', 'Insurance Sales'],
-    featured: true
-  },
-  {
-    id: '2',
-    slug: 'auto-insurance-lead-generation-guide',
-    title: 'The Complete Guide to Auto Insurance Lead Generation in 2023',
-    excerpt: 'Discover the latest techniques and channels for generating high-quality auto insurance leads for your agency.',
-    content: '...',
-    coverImage: '/images/blogs/auto-insurance-leads.jpg',
-    author: 'Sarah Williams',
-    // authorImage: '/images/team/sarah-williams.jpg',
-    date: '2023-07-28',
-    readTime: 8,
-    category: 'Auto Insurance',
-    tags: ['Auto Insurance', 'Lead Generation', 'Digital Marketing']
-  },
-  {
-    id: '3',
-    slug: 'aca-compliance-updates',
-    title: 'ACA Compliance Updates Every Insurance Agent Should Know',
-    excerpt: 'Stay informed about the latest Affordable Care Act regulations and how they impact your insurance business.',
-    content: '...',
-    coverImage: '/images/blogs/aca-compliance.jpg',
-    author: 'David Chen',
-    // authorImage: '/images/team/david-chen.jpg',
-    date: '2023-07-12',
-    readTime: 5,
-    category: 'ACA',
-    tags: ['ACA', 'Compliance', 'Healthcare']
-  },
-  {
-    id: '4',
-    slug: 'building-client-trust-insurance',
-    title: 'Building Client Trust in the Insurance Industry',
-    excerpt: 'Learn effective strategies to establish and maintain trust with potential clients from the first contact.',
-    content: '...',
-    coverImage: '/images/blogs/client-trust.jpg',
-    author: 'Jennifer Martinez',
-    // authorImage: '/images/team/jennifer-martinez.jpg',
-    date: '2023-06-30',
-    readTime: 7,
-    category: 'Sales',
-    tags: ['Client Relations', 'Trust Building', 'Insurance Sales']
-  },
-  {
-    id: '5',
-    slug: 'digital-marketing-insurance-agents',
-    title: 'Digital Marketing Essentials for Insurance Agents',
-    excerpt: 'Master the fundamentals of digital marketing to attract more leads and grow your insurance business.',
-    content: '...',
-    coverImage: '/images/blogs/digital-marketing.jpg',
-    author: 'Robert Thompson',
-    // authorImage: '/images/team/robert-thompson.jpg',
-    date: '2023-06-15',
-    readTime: 9,
-    category: 'Marketing',
-    tags: ['Digital Marketing', 'Lead Generation', 'Social Media']
-  },
-  {
-    id: '6',
-    slug: 'insurance-sales-scripts',
-    title: 'Effective Insurance Sales Scripts That Actually Work',
-    excerpt: 'Improve your sales conversations with proven scripts designed to address objections and close more deals.',
-    content: '...',
-    coverImage: '/images/blogs/sales-scripts.jpg',
-    author: 'Michael Johnson',
-    // authorImage: '/images/team/michael-johnson.jpg',
-    date: '2023-05-22',
-    readTime: 6,
-    category: 'Sales',
-    tags: ['Sales Techniques', 'Scripts', 'Objection Handling']
-  }
-];
 
 // Categories for filter
 const categories = [
@@ -133,32 +64,33 @@ const categories = [
   'Industry News'
 ];
 
-const BlogMain: React.FC<BlogMainProps> = ({ posts = sampleBlogPosts }) => {
-  const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>(posts);
+const BlogMain = ({ posts, categories }: BlogMainProps) => {
+  const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>(posts || []);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState<number | 'all'>('all');
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 5;
   
   // Featured post is the first one marked as featured, or the first post
-  const featuredPost = posts.find(post => post.featured) || posts[0];
+  const featuredPost = posts?.[0];
   
   // Filter posts based on search term and category
   useEffect(() => {
-    let result = posts;
+    if (!posts) return;
+    
+    let result = [...posts];
     
     if (searchTerm) {
       const lowerSearchTerm = searchTerm.toLowerCase();
       result = result.filter(
         post => 
           post.title.toLowerCase().includes(lowerSearchTerm) ||
-          post.excerpt.toLowerCase().includes(lowerSearchTerm) ||
-          post.tags.some(tag => tag.toLowerCase().includes(lowerSearchTerm))
+          post.tags.some(tag => tag.name.toLowerCase().includes(lowerSearchTerm))
       );
     }
     
-    if (selectedCategory !== 'All') {
-      result = result.filter(post => post.category === selectedCategory);
+    if (selectedCategory !== 'all') {
+      result = result.filter(post => post.category_id === selectedCategory);
     }
     
     setFilteredPosts(result);
@@ -210,20 +142,27 @@ const BlogMain: React.FC<BlogMainProps> = ({ posts = sampleBlogPosts }) => {
           </div>
           
           <div className="category-filter">
+            <button
+              key="all"
+              className={`category-button ${selectedCategory === 'all' ? 'active' : ''}`}
+              onClick={() => setSelectedCategory('all')}
+            >
+              All
+            </button>
             {categories.map((category) => (
               <button
-                key={category}
-                className={`category-button ${selectedCategory === category ? 'active' : ''}`}
-                onClick={() => setSelectedCategory(category)}
+                key={category.id}
+                className={`category-button ${selectedCategory === category.id ? 'active' : ''}`}
+                onClick={() => setSelectedCategory(category.id)}
               >
-                {category}
+                {category.name}
               </button>
             ))}
           </div>
         </div>
         
         {/* Featured Post */}
-        {featuredPost && currentPage === 1 && selectedCategory === 'All' && !searchTerm && (
+        {featuredPost && currentPage === 1 && selectedCategory === 'all' && !searchTerm && (
           <motion.div 
             className="featured-post"
             initial={{ opacity: 0, y: 20 }}
@@ -232,7 +171,7 @@ const BlogMain: React.FC<BlogMainProps> = ({ posts = sampleBlogPosts }) => {
           >
             <div className="featured-post-image">
               <Image 
-                src={featuredPost.coverImage} 
+                src={process.env.NEXT_PUBLIC_LARAVEL_APP_URL + featuredPost.feature_image} 
                 alt={featuredPost.title}
                 width={600}
                 height={400}
@@ -243,14 +182,18 @@ const BlogMain: React.FC<BlogMainProps> = ({ posts = sampleBlogPosts }) => {
             </div>
             <div className="featured-post-content">
               <div className="post-meta">
-                <span className="category">{featuredPost.category}</span>
-                <span className="date"><FaCalendarAlt /> {formatDate(featuredPost.date)}</span>
-                <span className="read-time"><FaClock /> {featuredPost.readTime} min read</span>
+                <span className="category">
+                  {categories.find(cat => cat.id === featuredPost.category_id)?.name || 'Uncategorized'}
+                </span>
+                <span className="date"><FaCalendarAlt /> {formatDate(featuredPost.created_at)}</span>
               </div>
               <h2>{featuredPost.title}</h2>
-              <p>{featuredPost.excerpt}</p>
+              <div 
+                className="post-body"
+                dangerouslySetInnerHTML={{ __html: featuredPost.body }}
+              />
               <div className="author-info">
-                <span className="author-name">{featuredPost.author}</span>
+                <span className="author-name">{featuredPost.creator.name}</span>
               </div>
               <Link 
                 href={`/blog/${featuredPost.slug}`} 
@@ -276,31 +219,33 @@ const BlogMain: React.FC<BlogMainProps> = ({ posts = sampleBlogPosts }) => {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
                     <Link href={`/blog/${post.slug}`} className="card-image-link">
-                      <div className="card-image">
+                      <div style={{ width: '400px', height: '260px', overflow: 'hidden', borderRadius: '8px' }} className="card-image">
                         <Image 
-                          src={post.coverImage} 
+                          src={process.env.NEXT_PUBLIC_LARAVEL_APP_URL + post.feature_image} 
                           alt={post.title}
                           width={400}
                           height={260}
-                          layout="responsive"
-                          objectFit="cover"
                         />
                       </div>
                     </Link>
                     <div className="card-content">
                       <div className="post-meta">
-                        <span className="category">{post.category}</span>
-                        <span className="date"><FaCalendarAlt /> {formatDate(post.date)}</span>
+                        <span className="category">
+                          {categories.find(cat => cat.id === post.category_id)?.name || 'Uncategorized'}
+                        </span>
+                        <span className="date"><FaCalendarAlt /> {formatDate(post.created_at)}</span>
                       </div>
                       <h3>
                         <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                       </h3>
-                      <p className="excerpt">{post.excerpt}</p>
+                      <div 
+                        className="excerpt"
+                        dangerouslySetInnerHTML={{ __html: post.body }}
+                      />
                       <div className="card-footer">
                         <div className="author-info">
-                          <span className="author-name">{post.author}</span>
+                          <span className="author-name">{post.creator.name}</span>
                         </div>
-                        <span className="read-time"><FaClock /> {post.readTime} min</span>
                       </div>
                     </div>
                   </motion.div>
@@ -312,7 +257,7 @@ const BlogMain: React.FC<BlogMainProps> = ({ posts = sampleBlogPosts }) => {
                 <p>Try adjusting your search or filters to find what you're looking for.</p>
                 <button className="reset-button" onClick={() => {
                   setSearchTerm('');
-                  setSelectedCategory('All');
+                  setSelectedCategory('all');
                 }}>
                   Reset Filters
                 </button>
@@ -357,7 +302,7 @@ const BlogMain: React.FC<BlogMainProps> = ({ posts = sampleBlogPosts }) => {
             <div className="sidebar-section">
               <h3 className="sidebar-title">Popular Posts</h3>
               <div className="popular-posts">
-                {posts.slice(0, 3).map((post, index) => (
+                {posts?.slice(0, 3).map((post, index) => (
                   <div key={post.id} className="popular-post">
                     <div className="popular-post-number">{index + 1}</div>
                     <div className="popular-post-content">
@@ -365,7 +310,7 @@ const BlogMain: React.FC<BlogMainProps> = ({ posts = sampleBlogPosts }) => {
                         <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                       </h4>
                       <span className="post-meta-item">
-                        <FaCalendarAlt className="meta-icon" /> {formatDate(post.date)}
+                        <FaCalendarAlt className="meta-icon" /> {formatDate(post.created_at)}
                       </span>
                     </div>
                   </div>
@@ -377,15 +322,15 @@ const BlogMain: React.FC<BlogMainProps> = ({ posts = sampleBlogPosts }) => {
             <div className="sidebar-section">
               <h3 className="sidebar-title">Categories</h3>
               <ul className="category-list">
-                {categories.filter(cat => cat !== 'All').map((category) => (
+                {categories.map((category) => (
                   <li 
-                    key={category} 
-                    className={`category-item ${selectedCategory === category ? 'active' : ''}`}
-                    onClick={() => setSelectedCategory(category)}
+                    key={category.id} 
+                    className={`category-item ${selectedCategory === category.id ? 'active' : ''}`}
+                    onClick={() => setSelectedCategory(category.id)}
                   >
-                    <span className="category-name">{category}</span>
+                    <span className="category-name">{category.name}</span>
                     <span className="category-count">
-                      {posts.filter(post => post.category === category).length}
+                      {category.posts_count}
                     </span>
                   </li>
                 ))}
@@ -396,7 +341,7 @@ const BlogMain: React.FC<BlogMainProps> = ({ posts = sampleBlogPosts }) => {
             <div className="sidebar-section">
               <h3 className="sidebar-title">Popular Tags</h3>
               <div className="tags-cloud">
-                {Array.from(new Set(posts.flatMap(post => post.tags)))
+                {Array.from(new Set(posts?.flatMap(post => post.tags.map(tag => tag.name)) || []))
                   .slice(0, 12)
                   .map((tag) => (
                     <span 

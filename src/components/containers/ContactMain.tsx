@@ -10,14 +10,14 @@ const ContactMain = () => {
     phone: '',
     industry: '',
     leadVolume: '',
-    consent: false
+    consent: '1'
   });
 
-  const [submitStatus, setSubmitStatus] = useState({
-    submitted: false,
-    success: false,
-    message: ''
-  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [responseMessage, setResponseMessage] = useState<{
+    success: boolean;
+    message: string;
+  } | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target as HTMLInputElement;
@@ -27,31 +27,42 @@ const ContactMain = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
-    setSubmitStatus({
-      submitted: true,
-      success: true,
-      message: 'Thank you for your message. We will get back to you shortly!'
-    });
+    setIsLoading(true);
+    setResponseMessage(null);
 
-    // Reset form after submission
-    setTimeout(() => {
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        industry: '',
-        leadVolume: '',
-        consent: false
+    try {
+      const response = await fetch('/api/contact/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-      setSubmitStatus({
-        submitted: false,
+
+      const data = await response.json();
+      setResponseMessage(data);
+
+      if (data.success) {
+        // Reset form after successful submission
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          industry: '',
+          leadVolume: '',
+          consent: '1'
+        });
+      }
+    } catch (error) {
+      setResponseMessage({
         success: false,
-        message: ''
+        message: 'Failed to send message. Please try again.'
       });
-    }, 5000);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -66,6 +77,11 @@ const ContactMain = () => {
           <div className="contact-info">
             <div className="contact-card">
               <h3>Write a Message</h3>
+              {responseMessage && (
+                <div className={`form-status ${responseMessage.success ? 'success' : 'error'}`}>
+                  {responseMessage.message}
+                </div>
+              )}
               <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-group">
                   <input
@@ -75,7 +91,7 @@ const ContactMain = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    aria-label="Full Name"
+                    disabled={isLoading}
                   />
                 </div>
                 <div className="form-group">
@@ -86,7 +102,7 @@ const ContactMain = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    aria-label="Business Email"
+                    disabled={isLoading}
                   />
                 </div>
                 <div className="form-group">
@@ -97,7 +113,7 @@ const ContactMain = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    aria-label="Phone Number"
+                    disabled={isLoading}
                   />
                 </div>
                 <div className="form-group">
@@ -122,29 +138,23 @@ const ContactMain = () => {
                     name="leadVolume"
                     value={formData.leadVolume}
                     onChange={handleChange}
-                    required 
-                    aria-label="Lead Volume"
+                    required
+                    disabled={isLoading}
                   >
-                    <option value="" disabled>Monthly Lead Volume*</option>
+                    <option value="monthly" disabled>Monthly Lead Volume*</option>
                     <option value="1-50">1-50 leads</option>
                     <option value="51-100">51-100 leads</option>
                     <option value="101-500">101-500 leads</option>
                     <option value="500+">500+ leads</option>
                   </select>
                 </div>
-                <div className="consent-checkbox" style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', marginBottom: '15px' }}>
-                  <input type="checkbox" id="consent" name="consent" required />
-                  <label htmlFor="consent" style={{ lineHeight: '1.5' }}>
-                    By clicking the "Submit" button, you certify that you have provided your legal name and your own phone number, you agree to the <Link href="/terms">Terms and Conditions</Link> and <Link href="/privacy">Privacy Policy</Link> and authorize this service  to contact you at any time.
-                  </label>
-                </div>
-                <button type="submit" className="submit-btn">Submit Form</button>
-                {submitStatus.submitted && (
-                  <div className={`form-status ${submitStatus.success ? 'success' : 'error'}`}>
-                    {submitStatus.message}
-                  </div>
-                )}
-             
+                <button 
+                  type="submit" 
+                  className={`submit-btn ${isLoading ? 'loading' : ''}`}
+                  disabled={isLoading}
+                >
+                  {isLoading ? 'Sending...' : 'Submit'}
+                </button>
               </form>
             </div>
           </div>

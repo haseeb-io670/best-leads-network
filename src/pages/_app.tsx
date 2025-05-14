@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Layout from '../components/layout/Layout';
 import '../styles/main.scss';
 import '../styles/blog.css';
+import '../styles/contact.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
