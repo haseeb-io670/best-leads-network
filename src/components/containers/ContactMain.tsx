@@ -124,7 +124,7 @@ const ContactMain = () => {
                     required 
                     aria-label="Industry"
                   >
-                    <option value="" disabled>Select Industry*</option>
+                    <option selected value="">Select Industry*</option>
                     <option value="medicare">Medicare Leads</option>
                     <option value="aca">ACA Leads</option>
                     <option value="mva">MVA Leads</option>
@@ -141,11 +141,12 @@ const ContactMain = () => {
                     required
                     disabled={isLoading}
                   >
-                    <option value="monthly" disabled>Monthly Lead Volume*</option>
+                    <option selected value="monthly">Monthly Lead Volume*</option>
                     <option value="1-50">1-50 leads</option>
                     <option value="51-100">51-100 leads</option>
                     <option value="101-500">101-500 leads</option>
                     <option value="500+">500+ leads</option>
+                    <option value="custom">Custom offer</option>
                   </select>
                 </div>
                 <button 
