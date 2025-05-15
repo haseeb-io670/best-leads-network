@@ -27,8 +27,8 @@ const HomeOneBanner = () => {
               </div>
             </div>
             <div className="banner-buttons">
-              <Link href="tel:+18882563257" className="btn primary-btn">
-                Call (888) 256-3257
+              <Link href="tel:+18884509639" className="btn primary-btn">
+                Call (888) 450-9639
               </Link>
               <Link href="/sample-leads" className="btn secondary-btn">
               Sample Leads

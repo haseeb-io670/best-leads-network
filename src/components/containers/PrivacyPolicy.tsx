@@ -180,7 +180,7 @@ const PrivacyPolicy = () => {
               BestLeads Network<br />
               14 Hartland Ave, Huntington Station, NY 11746<br />
               Email: privacy@bestleadsnetwork.com<br />
-              Phone: (888) 256-3257<br />
+              Phone: (888) 450-9639<br />
             </p>
           </div>
         </div>

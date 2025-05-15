@@ -90,7 +90,7 @@ const Header: React.FC = () => {
                 <span className="contact-icon">
                   <Image src="/icons/phone.svg" alt="Phone" width={16} height={16} />
                 </span>
-                <a href="tel:+18882563257">+1 (888) 256-3257</a>
+                <a href="tel:+18884509639">+1 (888) 450-9639</a>
               </div>
               <div className="contact-item">
                 <span className="contact-icon">
