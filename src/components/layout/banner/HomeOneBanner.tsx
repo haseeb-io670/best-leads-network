@@ -1,8 +1,69 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const HomeOneBanner = () => {
+    const [formData, setFormData] = useState({
+      name: '',
+      email: '',
+      phone: '',
+      industry: '',
+      leadVolume: '',
+      consent: '1'
+    });
+  
+    const [isLoading, setIsLoading] = useState(false);
+    const [responseMessage, setResponseMessage] = useState<{
+      success: boolean;
+      message: string;
+    } | null>(null);
+  
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+      const { name, value } = e.target as HTMLInputElement;
+      setFormData(prevState => ({
+        ...prevState,
+        [name] : value
+      }));
+    };
+  
+    const handleSubmit = async (e: React.FormEvent) => {
+      e.preventDefault();
+      setIsLoading(true);
+      setResponseMessage(null);
+  
+      try {
+        const response = await fetch('/api/contact/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+  
+        const data = await response.json();
+        setResponseMessage(data);
+  
+        if (data.success) {
+          // Reset form after successful submission
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            industry: '',
+            leadVolume: '',
+            consent: '1'
+          });
+        }
+      } catch (error) {
+        setResponseMessage({
+          success: false,
+          message: 'Failed to send message. Please try again.'
+        });
+      } finally {
+        setIsLoading(false);
+      }
+    };
+  
   return (
     <section className="hero-banner">
       <div className="container">
@@ -41,34 +102,53 @@ const HomeOneBanner = () => {
                 <h3>Start Generating Leads Today</h3>
                 <p>Fill out the form to get started with a free consultation</p>
               </div>
-              <form className="lead-form">
+              <form className="lead-form" onSubmit={handleSubmit}>
+                {responseMessage && (
+                <div className={`form-status ${responseMessage.success ? 'success' : 'error'}`}>
+                  {responseMessage.message}
+                </div>
+                )}
                 <div className="form-group">
                   <input 
                     type="text" 
+                    name='name'
                     placeholder="Full Name*" 
-                    required 
-                    aria-label="Full Name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    disabled={isLoading}
                   />
                 </div>
                 <div className="form-group">
                   <input 
                     type="email" 
                     placeholder="Business Email*" 
-                    required 
-                    aria-label="Business Email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    disabled={isLoading}
                   />
                 </div>
                 <div className="form-group">
                   <input 
                     type="tel" 
                     placeholder="Phone Number*" 
-                    required 
-                    aria-label="Phone Number"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                    disabled={isLoading}
                   />
                 </div>
                 <div className="form-group">
-                  <select defaultValue="" required aria-label="Industry">
-                    <option value="" disabled>Select Industry*</option>
+                  <select 
+                    name="industry"
+                    value={formData.industry}
+                    onChange={handleChange}
+                    required 
+                  >
+                    <option selected value="">Select Industry*</option>
                     <option value="medicare">Medicare Leads</option>
                     <option value="aca">ACA Leads</option>
                     <option value="mva">MVA Leads</option>
@@ -78,15 +158,28 @@ const HomeOneBanner = () => {
                   </select>
                 </div>
                 <div className="form-group">
-                  <select defaultValue="" required aria-label="Lead Volume">
-                    <option value="" disabled>Monthly Lead Volume*</option>
+                  <select 
+                    name="leadVolume"
+                    value={formData.leadVolume}
+                    onChange={handleChange}
+                    required
+                    disabled={isLoading}
+                  >
+                    <option selected value="">Monthly Lead Volume*</option>
                     <option value="1-50">1-50 leads</option>
                     <option value="51-100">51-100 leads</option>
                     <option value="101-500">101-500 leads</option>
                     <option value="500+">500+ leads</option>
+                    <option value="custom">Custom offer</option>
                   </select>
                 </div>
-                <button type="submit" className="form-submit-btn">Get Started Now</button>
+                <button 
+                  type="submit" 
+                  className={`form-submit-btn ${isLoading ? 'Loading' : ''}`}
+                  disabled={isLoading}
+                >
+                  {isLoading ? 'Submitting...' : 'Get Started Now'}
+                </button>
               </form>
               <div className="form-footer">
                 <p className="privacy-text">By submitting, you agree to our <Link href="/privacypolicy">Privacy Policy</Link></p>
