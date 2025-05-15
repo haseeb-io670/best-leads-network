@@ -177,7 +177,7 @@ const ContactMain = () => {
                 </div>
                 <div className="contact-text">
                   <h4>Email</h4>
-                  <a href="mailto:contact@bestleadsnetwork.com">contact@bestleadsnetwork.com</a>
+                  <a href="mailto:info@bestleadsnetwork.com">info@bestleadsnetwork.com</a>
                 </div>
               </div>
               <div className="contact-item">
