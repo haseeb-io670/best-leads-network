@@ -14,6 +14,7 @@ import {
   FaChevronLeft,
   FaInstagram
 } from 'react-icons/fa';
+import styles from '../../styles/BlogPostDetail.module.css';
 
 interface BlogPost {
   id: number;
@@ -110,6 +111,7 @@ const BlogPostDetail: React.FC<BlogPostDetailProps> = ({ post }) => {
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.2 }}
+          style={{ display: 'block', maxWidth: '100%', margin: '20px auto', overflow: 'hidden', borderRadius: '8px' }}
         >
           <Image 
             src={process.env.NEXT_PUBLIC_LARAVEL_APP_URL + post.feature_image} 
@@ -117,7 +119,7 @@ const BlogPostDetail: React.FC<BlogPostDetailProps> = ({ post }) => {
             width={1200}
             height={630}
             layout="responsive"
-            objectFit="cover"
+            objectFit="contain"
           />
         </motion.div>
         
