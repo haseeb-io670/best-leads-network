@@ -111,6 +111,18 @@ const BlogMain = ({ posts, categories }: BlogMainProps) => {
     const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(dateString).toLocaleDateString('en-US', options);
   };
+
+  const truncateHtmlContent = (html: string, maxLength: number = 200) => {
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = html;
+    let text = tempDiv.textContent || '';
+    text = text.replace(/\s+/g, ' ').trim();
+
+    if (text.length <= maxLength) {
+      return text;
+    }
+    return text.substring(0, maxLength) + '...';
+  };
   
   return (
     <div className="blog-main">
@@ -190,7 +202,7 @@ const BlogMain = ({ posts, categories }: BlogMainProps) => {
               <h2>{featuredPost.title}</h2>
               <div 
                 className="post-body"
-                dangerouslySetInnerHTML={{ __html: featuredPost.body }}
+                dangerouslySetInnerHTML={{ __html: truncateHtmlContent(featuredPost.body) }}
               />
               <div className="author-info">
                 <span className="author-name">{featuredPost.creator.name}</span>
