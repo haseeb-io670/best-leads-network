@@ -1,0 +1,108 @@
+/* Skeleton Loading Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+/* Breadcrumb Skeleton */
+.breadcrumb.skeleton {
+  height: 20px;
+  width: 60%;
+  margin-bottom: 20px;
+}
+
+/* Post Header Skeleton */
+.post-header .skeleton-meta {
+  height: 16px;
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+.post-header .skeleton-title {
+  height: 40px;
+  width: 80%;
+  margin: 20px 0;
+}
+
+/* Featured Image Skeleton */
+.post-featured-image.skeleton {
+  height: 400px;
+  width: 100%;
+  margin: 20px 0;
+}
+
+/* Post Content Skeleton */
+.post-content.skeleton .skeleton-text {
+  height: 20px;
+  width: 100%;
+  margin: 15px 0;
+}
+
+/* Post Footer Skeleton */
+.post-footer.skeleton {
+  margin: 30px 0;
+}
+
+.skeleton-tags {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.skeleton-tag {
+  height: 30px;
+  width: 80px;
+  border-radius: 15px;
+}
+
+.skeleton-share {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.skeleton-social {
+  height: 40px;
+  width: 200px;
+}
+
+/* Author Bio Skeleton */
+.author-bio.skeleton {
+  margin: 30px 0;
+  padding: 20px;
+}
+
+.author-bio .skeleton-title {
+  height: 24px;
+  width: 200px;
+  margin-bottom: 15px;
+}
+
+.author-bio .skeleton-text {
+  height: 16px;
+  width: 100%;
+  margin: 10px 0;
+}
+
+/* Back to Blog Skeleton */
+.back-to-blog.skeleton {
+  margin: 30px 0;
+}
+
+.skeleton-button {
+  height: 40px;
+  width: 150px;
+  border-radius: 20px;
+} 

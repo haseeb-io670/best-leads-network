@@ -14,25 +14,61 @@ import {
   FaChevronLeft,
   FaInstagram
 } from 'react-icons/fa';
-import { BlogPost, sampleBlogPosts } from '../../data/blogData';
+
+interface BlogPost {
+  id: number;
+  title: string;
+  slug: string;
+  body: string;
+  feature_image: string;
+  status: string;
+  category: {
+    id: number;
+    name: string;
+    slug: string;
+    created_at: string;
+    updated_at: string;
+  };
+  creator: {
+    id: number;
+    name: string;
+    email: string;
+    created_at: string;
+    updated_at: string;
+  };
+  created_at: string;
+  tags: {
+    id: number;
+    name: string;
+    slug: string;
+    created_at: string;
+    updated_at: string;
+    pivot: any;
+  }[];
+}
 
 interface BlogPostDetailProps {
   post: BlogPost;
 }
 
+const truncateHtmlContent = (html: string, maxLength: number = 200) => {
+  // Remove HTML tags
+  const text = html.replace(/<[^>]*>/g, '');
+  
+  // Remove extra whitespace and newlines
+  const cleanText = text.replace(/\s+/g, ' ').trim();
+  
+  // If text is shorter than maxLength, return it as is
+  if (cleanText.length <= maxLength) {
+    return cleanText;
+  }
+  
+  // Truncate to maxLength and add ellipsis
+  return cleanText.substring(0, maxLength) + '...';
+};
+
 const BlogPostDetail: React.FC<BlogPostDetailProps> = ({ post }) => {
-  const router = useRouter();
-  const [currentUrl, setCurrentUrl] = useState('');
-  
-  // Get related posts (same category, excluding current post)
-  const relatedPosts = sampleBlogPosts
-    .filter(p => p.category === post.category && p.id !== post.id)
-    .slice(0, 3);
-  
-  // Set current URL after component mounts to avoid SSR issues
-  useEffect(() => {
-    setCurrentUrl(window.location.href);
-  }, []);
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
   
   // Format date
   const formatDate = (dateString: string) => {
@@ -45,8 +81,8 @@ const BlogPostDetail: React.FC<BlogPostDetailProps> = ({ post }) => {
       <div className="container">
         {/* Breadcrumb */}
         <div className="breadcrumb">
-          <Link href="/">Home</Link> / 
-          <Link href="/blog">Blog</Link> / 
+          <Link href="/">Home</Link> &nbsp; / &nbsp;
+          <Link href="/blog">Blog</Link> &nbsp; / &nbsp;
           <span>{post.title}</span>
         </div>
         
@@ -58,13 +94,13 @@ const BlogPostDetail: React.FC<BlogPostDetailProps> = ({ post }) => {
           transition={{ duration: 0.5 }}
         >
           <div className="post-meta">
-            <span className="category">{post.category}</span>
-            <span className="date"><FaCalendarAlt /> {formatDate(post.date)}</span>
-            <span className="read-time"><FaClock /> {post.readTime} min read</span>
+            <span className="category">{post.category?.name}</span>
+            <span className="date"><FaCalendarAlt /> {formatDate(post.created_at)}</span>
+            <span className="read-time"><FaClock /> 2 min read</span>
           </div>
           <h1>{post.title}</h1>
           <div className="author-info">
-            <span className="author-name">By {post.author}</span>
+            <span className="author-name">By {post.creator?.name}</span>
           </div>
         </motion.div>
         
@@ -76,7 +112,7 @@ const BlogPostDetail: React.FC<BlogPostDetailProps> = ({ post }) => {
           transition={{ duration: 0.7, delay: 0.2 }}
         >
           <Image 
-            src={post.coverImage} 
+            src={process.env.NEXT_PUBLIC_LARAVEL_APP_URL + post.feature_image} 
             alt={post.title}
             width={1200}
             height={630}
@@ -93,15 +129,17 @@ const BlogPostDetail: React.FC<BlogPostDetailProps> = ({ post }) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+            <div 
+              dangerouslySetInnerHTML={{ __html: post.body }}
+            />
           </motion.div>
           
           {/* Post Footer */}
           <div className="post-footer">
             <div className="post-tags">
               {post.tags.map((tag) => (
-                <Link href={`/blog?tag=${tag}`} key={tag} className="tag">
-                  <FaTag /> {tag}
+                <Link href={`/blog?tag=${tag.slug}`} key={tag.id} className="tag">
+                  <FaTag /> {tag.name}
                 </Link>
               ))}
             </div>
@@ -118,7 +156,7 @@ const BlogPostDetail: React.FC<BlogPostDetailProps> = ({ post }) => {
                 <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}`} target="_blank" rel="noopener noreferrer" className="share-button linkedin">
                   <FaLinkedinIn />
                 </a>
-                <a href={`https://pinterest.com/pin/create/button/?url=${encodeURIComponent(currentUrl)}&media=${encodeURIComponent(post.coverImage)}&description=${encodeURIComponent(post.title)}`} target="_blank" rel="noopener noreferrer" className="share-button pinterest">
+                <a href={`https://pinterest.com/pin/create/button/?url=${encodeURIComponent(currentUrl)}&media=${encodeURIComponent(process.env.NEXT_PUBLIC_LARAVEL_APP_URL + post.feature_image)}&description=${encodeURIComponent(post.title)}`} target="_blank" rel="noopener noreferrer" className="share-button pinterest">
                   <FaPinterestP />
                 </a>
               </div>
@@ -128,7 +166,7 @@ const BlogPostDetail: React.FC<BlogPostDetailProps> = ({ post }) => {
           {/* Author Bio */}
           <div className="author-bio">
             <div className="author-content">
-              <h3>{post.author}</h3>
+              <h3>{post.creator.name}</h3>
               <p>Insurance industry expert with over 10 years of experience helping agencies grow their business through effective lead generation and conversion strategies.</p>
             </div>
           </div>
@@ -140,53 +178,6 @@ const BlogPostDetail: React.FC<BlogPostDetailProps> = ({ post }) => {
             </Link>
           </div>
         </div>
-        
-        {/* Related Posts */}
-        {relatedPosts.length > 0 && (
-          <div className="related-posts-section">
-            <h2>You Might Also Like</h2>
-            <div className="related-posts">
-              {relatedPosts.map((relatedPost, index) => (
-                <motion.div 
-                  key={relatedPost.id}
-                  className="blog-card"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <Link href={`/blog/${relatedPost.slug}`} className="card-image-link">
-                    <div className="card-image">
-                      <Image 
-                        src={relatedPost.coverImage} 
-                        alt={relatedPost.title}
-                        width={400}
-                        height={260}
-                        layout="responsive"
-                        objectFit="cover"
-                      />
-                    </div>
-                  </Link>
-                  <div className="card-content">
-                    <div className="post-meta">
-                      <span className="category">{relatedPost.category}</span>
-                      <span className="date"><FaCalendarAlt /> {formatDate(relatedPost.date)}</span>
-                    </div>
-                    <h3>
-                      <Link href={`/blog/${relatedPost.slug}`}>{relatedPost.title}</Link>
-                    </h3>
-                    <p className="excerpt">{relatedPost.excerpt}</p>
-                    <div className="card-footer">
-                      <div className="author-info">
-                        <span className="author-name">{relatedPost.author}</span>
-                      </div>
-                      <span className="read-time"><FaClock /> {relatedPost.readTime} min</span>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
