@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
@@ -77,6 +76,11 @@ const BlogPostDetail: React.FC<BlogPostDetailProps> = ({ post }) => {
     return new Date(dateString).toLocaleDateString('en-US', options);
   };
 
+  // Construct the background image URL
+  const backgroundImageUrl = post.feature_image
+    ? `url(${process.env.NEXT_PUBLIC_LARAVEL_APP_URL + post.feature_image})`
+    : 'none';
+
   return (
     <div className="blog-post-detail">
       <div className="container">
@@ -107,20 +111,18 @@ const BlogPostDetail: React.FC<BlogPostDetailProps> = ({ post }) => {
         
         {/* Featured Image */}
         <motion.div 
-          className="post-featured-image"
+          className={styles.postFeaturedImage}
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          style={{ display: 'block', maxWidth: '100%', margin: '20px auto', overflow: 'hidden', borderRadius: '8px' }}
+          style={{
+            backgroundImage: `url(${process.env.NEXT_PUBLIC_LARAVEL_APP_URL + post.feature_image})`,
+            backgroundSize: 'cover', // or 'contain' depending on desired behavior
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
         >
-          <Image 
-            src={process.env.NEXT_PUBLIC_LARAVEL_APP_URL + post.feature_image} 
-            alt={post.title}
-            width={1200}
-            height={630}
-            layout="responsive"
-            objectFit="contain"
-          />
+          {/* The image is now a background image on this div */}
         </motion.div>
         
         {/* Post Content */}

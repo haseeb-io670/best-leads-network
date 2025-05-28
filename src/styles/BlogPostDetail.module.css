@@ -126,20 +126,26 @@
   border-radius: 20px;
 }
 
-/* Featured Image */
-.post-featured-image {
+/* Featured Image as Background */
+.postFeaturedImage {
   display: block;
-  width: 100%; /* Explicitly set width to 100% */
+  width: 100%;
   max-width: 100%;
   margin: 20px auto;
   overflow: hidden; /* Hide overflowing parts */
   border-radius: 8px;
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  box-sizing: border-box;
+  /* Styles for background image */
+  position: relative; /* Needed for absolute positioning of potential content */
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (9 / 16 * 100) */
+  background-size: cover; /* Ensure the background image covers the container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat;
 }
 
-.post-featured-image img {
-  display: block;
+/* Post Content Skeleton */
+.post-content.skeleton .skeleton-text {
+  height: 20px;
   width: 100%;
-  height: auto; /* Allow height to adjust automatically */
-  object-fit: contain; /* Ensure the image fits while maintaining aspect ratio */
+  margin: 15px 0;
 } 
