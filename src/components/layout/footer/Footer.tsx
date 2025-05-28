@@ -53,7 +53,7 @@ const Footer = () => {
               </li>
               <li>
                 <div className="icon"><FaPhoneAlt /></div>
-                <div><a href="tel:+18884509639">(888) 450-9639</a></div>
+                <div><a href="tel:+18002321145">(800) 232-1145</a></div>
               </li>
               <li>
                 <div className="icon"><FaEnvelope /></div>
