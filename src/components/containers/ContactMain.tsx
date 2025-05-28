@@ -157,6 +157,19 @@ const ContactMain = () => {
                   {isLoading ? 'Sending...' : 'Submit'}
                 </button>
               </form>
+              <div className="form-footer">
+                <p className="privacy-text">By submitting, you agree to our <Link href="/privacypolicy">Privacy Policy</Link></p>
+                <div className="trust-badges">
+                  <span className="badge">
+                    <Image src="/icons/shield-check.svg" alt="Secure" width={16} height={16} />
+                    <span>256-bit SSL</span>
+                  </span>
+                  <span className="badge">
+                    <Image src="/icons/verified.svg" alt="Verified" width={16} height={16} />
+                    <span>Verified Business</span>
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
 

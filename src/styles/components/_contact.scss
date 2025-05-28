@@ -104,7 +104,73 @@
           background: $primary-color;
         }
       }
+
+      .form-footer {
+        margin-top: $spacing-sm;
+        
+        .privacy-text {
+          font-size: $font-size-xs;
+          color: $gray-color;
+          text-align: center;
+          margin-bottom: $spacing-sm;
+          
+          @media (max-width: $breakpoint-sm) {
+            font-size: 10px;
+          }
+          
+          @media (max-height: 800px) {
+            font-size: 10px;
+            margin-bottom: $spacing-xs;
+          }
+          
+          a {
+            color: $primary-color;
+            text-decoration: none;
+            
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+        
+        .trust-badges {
+          display: flex;
+          justify-content: center;
+          gap: $spacing-md;
+          
+          @media (max-width: $breakpoint-sm) {
+            gap: $spacing-sm;
+          }
+          
+          @media (max-height: 800px) {
+            gap: $spacing-sm;
+          }
+          
+          .badge {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: $font-size-xs;
+            color: $gray-color;
+            
+            @media (max-width: $breakpoint-sm) {
+              font-size: 10px;
+            }
+            
+            @media (max-height: 800px) {
+              font-size: 10px;
+            }
+            
+            img, span {
+              display: inline-block;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
     }
+
+    
   }
   
   .contact-form {
