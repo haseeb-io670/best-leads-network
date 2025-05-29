@@ -9,6 +9,7 @@ const HomeOneBanner = () => {
       phone: '',
       industry: '',
       leadVolume: '',
+      message: '',
       consent: '1'
     });
   
@@ -18,7 +19,7 @@ const HomeOneBanner = () => {
       message: string;
     } | null>(null);
   
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
       const { name, value } = e.target as HTMLInputElement;
       setFormData(prevState => ({
         ...prevState,
@@ -51,6 +52,7 @@ const HomeOneBanner = () => {
             phone: '',
             industry: '',
             leadVolume: '',
+            message: '',
             consent: '1'
           });
         }
@@ -172,6 +174,17 @@ const HomeOneBanner = () => {
                     <option value="500+">500+ leads</option>
                     <option value="custom">Custom offer</option>
                   </select>
+                </div>
+                <div className="form-group">
+                  <textarea
+                    name="message"
+                    placeholder="Write us a message..."
+                    value={formData.message}
+                    onChange={handleChange}
+                    disabled={isLoading}
+                    rows={6}
+                    className="form-control"
+                  />
                 </div>
                 <button 
                   type="submit" 

@@ -10,6 +10,7 @@ const ContactMain = () => {
     phone: '',
     industry: '',
     leadVolume: '',
+    message: '',
     consent: '1'
   });
 
@@ -52,6 +53,7 @@ const ContactMain = () => {
           phone: '',
           industry: '',
           leadVolume: '',
+          message: '',
           consent: '1'
         });
       }
@@ -148,6 +150,17 @@ const ContactMain = () => {
                     <option value="500+">500+ leads</option>
                     <option value="custom">Custom offer</option>
                   </select>
+                </div>
+                <div className="form-group">
+                  <textarea
+                    name="message"
+                    placeholder="Write us a message..."
+                    value={formData.message}
+                    onChange={handleChange}
+                    disabled={isLoading}
+                    rows={6}
+                    className="form-control"
+                  />
                 </div>
                 <button 
                   type="submit" 
