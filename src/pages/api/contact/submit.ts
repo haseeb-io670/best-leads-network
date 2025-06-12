@@ -17,9 +17,14 @@ export default async function handler(
   try {
     // Get the form data from the request body
     const formData = req.body;
+    const ip =
+       req.headers['x-forwarded-for'] ||
+       req.headers['x-real-ip'];
+
+    formData['ipAddress'] = ip;
 
     // Validate required fields
-    const requiredFields = ['name', 'email', 'phone', 'industry', 'leadVolume'];
+    const requiredFields = ['name', 'email', 'phone', 'industry', 'leadVolume', 'ipAddress'];
     const missingFields = requiredFields.filter(field => !formData[field]);
     
     if (missingFields.length > 0) {
