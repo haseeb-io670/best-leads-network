@@ -19,7 +19,7 @@ export default async function handler(
     const formData = req.body;
     const clientIp = req.headers['x-real-ip'] || req.headers['x-forwarded-for']?.[0] || req.socket?.remoteAddress;
 
-    formData['ipAddress'] = clientIp;
+    formData.ipAddress = clientIp;
 
     // Validate required fields
     const requiredFields = ['name', 'email', 'phone', 'industry', 'leadVolume', 'ipAddress'];
