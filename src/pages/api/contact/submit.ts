@@ -17,7 +17,7 @@ export default async function handler(
   try {
     // Get the form data from the request body
     const formData = req.body;
-    const clientIp = req.headers['x-real-ip'] || req.headers['x-forwarded-for']?.split(',')[0] || req.socket?.remoteAddress;
+    const clientIp = req.headers['x-real-ip'] || req.headers['x-forwarded-for']?.[0] || req.socket?.remoteAddress;
 
     formData['ipAddress'] = clientIp;
 
