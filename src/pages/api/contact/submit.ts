@@ -56,6 +56,13 @@ export default async function handler(
       throw new Error(responseData.message || 'Failed to submit contact form');
     }
 
+    if(responseData.request) {
+      return res.status(200).json({
+        success: responseData.success,
+        message: responseData.request,
+      });
+    }
+
     return res.status(200).json({
       success: responseData.success,
       message: responseData.message,
