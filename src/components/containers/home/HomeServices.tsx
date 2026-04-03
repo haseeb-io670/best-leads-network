@@ -39,6 +39,15 @@ const HomeServices = () => {
       link: '/insurance/auto',
       stat: '24/7',
       statLabel: 'Lead Delivery'
+    },
+    {
+      id: 5,
+      title: 'Final Expense Lead Generation',
+      description: 'Connect with seniors seeking Final Expense life insurance. Exclusive live transfers screened for age and eligibility.',
+      icon: '/icons/shield.svg',
+      link: '/insurance/fe',
+      stat: '100%',
+      statLabel: 'Exclusive Transfers'
     }
   ];
 
