@@ -169,6 +169,7 @@ const Header: React.FC = () => {
                     <li><Link href="/insurance/auto">Auto</Link></li>
                     <li><Link href="/insurance/mva">MVA</Link></li>
                     <li><Link href="/insurance/u65">U65</Link></li>
+                    <li><Link href="/insurance/fe">FE</Link></li>
                   </ul>
                 </li>
                 <li>

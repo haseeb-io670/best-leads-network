@@ -84,6 +84,9 @@
     
     @media (min-width: 992px) {
       grid-template-columns: repeat(4, 1fr);
+      .pricing-card:last-child {
+        grid-column: 2 / span 2;
+      }
     }
     
     .pricing-card {

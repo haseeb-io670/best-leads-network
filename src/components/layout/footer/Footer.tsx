@@ -41,6 +41,7 @@ const Footer = () => {
               <li><Link href="/insurance/aca">ACA Leads</Link></li>
               <li><Link href="/insurance/mva">MVA Leads</Link></li>
               <li><Link href="/insurance/u65">U65 Leads</Link></li>
+              <li><Link href="/insurance/fe">FE Leads</Link></li>
             </ul>
           </div>
           

@@ -104,6 +104,34 @@ const PricingMain = () => {
 
           <div className="pricing-card">
             <div className="card-header">
+              <h3>Final Expense</h3>
+              <p className="transfer-type">(Live transfers)</p>
+              <div className="price">
+                <span className="amount">$35</span>
+                <span className="period">/ Per live transfer</span>
+              </div>
+            </div>
+            <div className="card-body">
+              <ul className="features">
+                <li><div className="check-circle"><FaCheck /></div> Automated Emails</li>
+                <li><div className="check-circle"><FaCheck /></div> 100% Exclusive Leads</li>
+                <li><div className="check-circle"><FaCheck /></div> CRM System</li>
+                <li><div className="check-circle"><FaCheck /></div> Real Time Lead Alerts</li>
+                <li><div className="check-circle"><FaCheck /></div> TCPA & DNC Compliance</li>
+                <li><div className="check-circle"><FaCheck /></div> DNC Scrubbing</li>
+                <li><div className="check-circle"><FaCheck /></div> Double Verified</li>
+                <li><div className="check-circle"><FaCheck /></div> 24/7 Support</li>
+              </ul>
+            </div>
+            <div className="card-footer">
+              <Link href="/contact-us" className="pricing-cta">
+                Get Started
+              </Link>
+            </div>
+          </div>
+
+          <div className="pricing-card">
+            <div className="card-header">
               <h3>MVA</h3>
               <p className="transfer-type">(Live transfers)</p>
               <div className="price">
